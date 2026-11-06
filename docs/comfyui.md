@@ -2,6 +2,8 @@
 
 总入口：[ComfyUI Local Workflows](../skills/comfyui-local-workflows/SKILL.md)。具体模型优势、采样配套、LoRA/参考/控制/输入限制与排错仍在其`references`维护，本页只说明工程化入口。
 
+**模型画布实测基准：Windows＋NVIDIA GeForce RTX 4080（16GB显存）＋32GB物理内存。** 81组工作流覆盖Qwen-Image-2.1、Pixal3D、MiniMax H3、Ming-3.0-TTS Tiny、MiniMax Music 3与SkinTokens；量化/低内存方案、输入规模和GPU/CPU执行范围见[验证说明](validation.md#验证环境与范围)。
+
 ## 目录和输入
 
 `workflows/catalog.json`是发布目录，UI在`workflows/ui/<模型>/<功能>.json`，API在`workflows/api`。`node-requirements.json`登记每图节点，`node-providers.json`说明原生、第三方或本项目适配来源。UI导入和API执行是两个检查：复杂动态控件要在当前前端回读实际`graphToPrompt`。

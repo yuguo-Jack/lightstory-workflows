@@ -8,7 +8,8 @@ from . import workflows
 
 def page(cfg):
     rows=workflows.catalog(cfg)
-    body=''.join(f'<tr><td>{escape(x["model"])}</td><td>{escape(x["function"])}</td><td><a href="../{escape(x["workflow"])}">UI画布</a> · <a href="../{escape(x["api"])}">API</a></td></tr>' for x in rows)
+    names={'Qwen-Image 2.1':'Qwen-Image-2.1','Ming-3.0-TTS':'Ming-3.0-TTS Tiny'}
+    body=''.join(f'<tr><td>{escape(names.get(x["model"],x["model"]))}</td><td>{escape(x["function"])}</td><td><a href="../{escape(x["workflow"])}">UI画布</a> · <a href="../{escape(x["api"])}">API</a></td></tr>' for x in rows)
     return '''<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LightStory Workflows · 光影故事工作流</title>
@@ -17,17 +18,17 @@ def page(cfg):
 </style></head><body><main>
 <header><small>PRODUCTION WORKFLOWS · v0.1.0</small><h1>LightStory Workflows<span>光影故事工作流</span></h1>
 <p>用一套可维护的方法，编排游戏与视频从想法到交付。保留已有创作流程，把Skill、画布、执行适配、第三方版本和安装说明收在同一工程。</p>
-<span class="badge">81组UI / API</span><span class="badge">7个自主/本地适配Skill</span><span class="badge">22个Blender模块</span><span class="badge">9个H3方法按需组装</span>
+<span class="badge">81组UI / API</span><span class="badge">7个自主/本地适配Skill</span><span class="badge">22个Blender模块</span><span class="badge">9个MiniMax H3方法按需组装</span>
 <nav><a href="../README.md">README</a><a href="installation.md">安装</a><a href="quickstart.md">使用</a><a href="architecture.md">结构与分工</a><a href="validation.md">验证与限制</a></nav></header>
 <section class="grid"><article class="card"><h3>Game Production</h3><p class="steps">简报与创作方向 → Web / Unreal选路 → 可玩灰盒 → 品质切片 → 资产与功能生产 → 集成与性能 → 打包试玩。</p><p>玩法、美术和UI模块按需调用；Comfy与Blender负责资产，Web调用Game Studio，Unreal走引擎工具，过场与视频接入Video流程。</p><a href="../skills/game-production-workflows/SKILL.md">打开总Skill</a> · <a href="game-workflow.md">流程导航</a></article>
-<article class="card"><h3>Video Production</h3><p class="steps">剧本与规格 → 视觉开发 → 分镜 / animatic → 难点样片 → 镜头制作 → 合成剪辑与声音 → 成片播放验收。</p><p>生图负责身份、风格与关键帧；H3按镜头选路；Blender预演和结构引导用于控制；配音配乐与后期独立检查。</p><a href="../skills/video-production-workflows/SKILL.md">打开总Skill</a> · <a href="video-workflow.md">流程导航</a></article></section>
+<article class="card"><h3>Video Production</h3><p class="steps">剧本与规格 → 视觉开发 → 分镜 / animatic → 难点样片 → 镜头制作 → 合成剪辑与声音 → 成片播放验收。</p><p>Qwen-Image-2.1制作关键帧，MiniMax H3生成视频；Blender负责预演与CG，Ming-3.0-TTS Tiny配音，MiniMax Music 3配乐，后期工具完成剪辑。</p><a href="../skills/video-production-workflows/SKILL.md">打开总Skill</a> · <a href="video-workflow.md">流程导航</a></article></section>
 <h2>从哪一步开始</h2><ol><li>配置机器路径，运行<code>validate</code>和<code>doctor</code>。</li><li>按需安装Skill、节点、模型与客户端插件；第三方版本和许可各自管理。</li><li>新建制作项目或恢复已有状态，用户给玩法、剧本、风格和交付要求，执行者按总流程推进。</li><li>单项生成直接用Comfy Skill；只有项目需要特化时才另存Projects栏目。</li></ol>
-<div class="note">历史模型记录与源码安装检查分别列明；新环境的GPU品质、实际游戏和成片仍按自己的素材验收。模型、用户素材和账户信息不随源码分发。</div>
+<div class="note"><strong>模型画布实测环境：Windows＋NVIDIA GeForce RTX 4080（16GB显存）＋32GB内存。</strong>81组工作流已有本机样例运行记录，量化、低内存方案及输入规模见<a href="validation.md#验证环境与范围">验证说明</a>。GPU/CPU运行与工程安装检查分别记录；模型、私人素材和账户信息不随源码分发。</div>
 <nav><a href="comfyui.md">Comfy执行</a><a href="blender-motion.md">Blender与动作</a><a href="integrations.md">插件和外部工具</a><a href="models-and-licenses.md">模型与许可</a><a href="maintenance.md">更新与清理</a><a href="migration.md">从原机迁移</a><a href="validation.md">验证边界</a></nav>
 <h2>通用画布目录</h2><p>按模型、功能检索。输入为<code>UPLOAD_*</code>的画布必须换成自己的素材；链接打开JSON源码，原生画布安装后在ComfyUI的LightStory栏目使用。</p>
 <label for="search">检索模型或功能</label><input id="search" type="search" placeholder="例如 Qwen、分镜、透明、长视频、绑定…">
-<div class="scroll"><table><thead><tr><th>模型</th><th>功能</th><th>文件</th></tr></thead><tbody>'''+body+'''</tbody></table></div>
-<footer>LightStory Workflows · <a href="https://github.com/yuguo-Jack/lightstory-workflows">yuguo-Jack/lightstory-workflows</a> · 文档可直接本地打开，也可通过loopback预览服务浏览。</footer>
+<div class="scroll"><table><thead><tr><th>模型名称</th><th>工作流功能</th><th>文件</th></tr></thead><tbody>'''+body+'''</tbody></table></div>
+<footer>LightStory Workflows · 文档可直接本地打开，也可通过loopback预览服务浏览。</footer>
 </main><script>document.querySelector('#search').addEventListener('input',function(){const q=this.value.toLocaleLowerCase();for(const row of document.querySelectorAll('tbody tr'))row.hidden=!row.textContent.toLocaleLowerCase().includes(q)});</script></body></html>
 '''
 

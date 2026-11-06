@@ -1,17 +1,17 @@
 # LightStory Workflows · 光影故事工作流
 
-把创作想法、审美参考与交付要求，组织成可执行、可检查、可迭代的**游戏和视频制作流程**。以 Agent Skill 编排本地 ComfyUI、Blender、游戏引擎与剪辑工具，保留创作者对玩法、故事和风格的决定。
+把创作想法、审美参考与交付要求，组织成可执行、可检查、可迭代的**游戏和视频制作流程**。通过 Agent Skill 串联 ComfyUI、Blender、游戏引擎与剪辑工具，保留创作者对玩法、故事和风格的决定，并完成实际制作、检查和返工。
 
-以可配置的路径、固定依赖、通用画布和执行适配串联制作步骤。创作者决定玩法、故事和风格；执行工具完成操作，实际产物接受检查和返工。
+> **本机实测环境：Windows＋NVIDIA GeForce RTX 4080（16GB显存）＋32GB内存。** 下列81组模型画布均有该环境上的样例运行验证记录，其中包含GPU推理和CPU辅助流程。按所记录的量化、尺寸、时长及内存配置运行，详见[验证环境与范围](docs/validation.md#验证环境与范围)。
 
-[GitHub](https://github.com/yuguo-Jack/lightstory-workflows) · [工程总览](docs/overview.html) · [English overview](README.en.md) · [安装](docs/installation.md) · [快速开始](docs/quickstart.md) · [架构](docs/architecture.md) · [依赖与许可](THIRD_PARTY_NOTICES.md) · [验证](docs/validation.md) · [维护](docs/maintenance.md) · [命令参考](docs/commands.md)
+[工程总览](docs/overview.html) · [安装](docs/installation.md) · [快速开始](docs/quickstart.md) · [架构](docs/architecture.md) · [依赖与许可](THIRD_PARTY_NOTICES.md) · [验证](docs/validation.md) · [维护](docs/maintenance.md) · [命令参考](docs/commands.md)
 
 ## 两个制作入口
 
 | 入口 | 负责什么 | 按需接到哪里 |
 |---|---|---|
 | [`game-production-workflows`](skills/game-production-workflows/SKILL.md) | 简报、玩法/审美、路线、灰盒、垂直切片、资产分工、游戏集成、性能、测试与交付 | Web → Game Studio；原生/较高表现 → Unreal；生成与资产 → ComfyUI / Blender；过场 → Video |
-| [`video-production-workflows`](skills/video-production-workflows/SKILL.md) | 剧本、视觉开发、分镜/animatic、样片、镜头生产、连续性、合成、声音、剪辑、导出与整片验收 | Qwen关键帧、H3各生成分支、Blender预演/CG、TTS/Music、CapCut或已配置的后期路线 |
+| [`video-production-workflows`](skills/video-production-workflows/SKILL.md) | 剧本、视觉开发、分镜/动态分镜、样片、镜头生产、连续性、合成、声音、剪辑、导出与整片验收 | Qwen-Image-2.1制作关键帧；MiniMax H3生成视频；Blender预演/CG；Ming-3.0-TTS Tiny配音；MiniMax Music 3配乐；CapCut等工具后期 |
 
 单张图、单段视频、3D、绑定、配音或音乐可以直接调用[`comfyui-local-workflows`](skills/comfyui-local-workflows/SKILL.md)，无需先启动整部作品立项。Blender由`blender-core`统一路由。进入具体阶段才读取相应Skill，避免一次加载所有类型与互相冲突的审美默认。
 
@@ -20,11 +20,24 @@
 - **7个自主/本地适配 Skill**：两个总流程、ComfyUI执行、游戏玩法/美术/UI三个创作模块、真人动作提取分支。三个创作模块保留上游许可和NOTICE。
 - **22个Blender第三方模块**：以固定MIT源码快照作为第三方库收纳，并保留本机兼容适配。
 - **9个MiniMax官方类型/提示词 Skill的外部依赖声明及本地执行overlay**：按固定提交获取后再组装，不将其正文混用本项目MIT许可。
-- **81份通用ComfyUI画布和81份API**：Qwen17、Pixal3D7、MiniMax H3 46、Ming5、Music2、SkinTokens4。按模型/功能分组；原示例媒体改为上传占位符。
-- 通用低内存Pixal/UV节点、内存保护、GLB检查、动作材质恢复、Next-Scene兼容转换等自主适配；第三方节点的补丁单独保存。
+- **81组通用ComfyUI工作流**：每组包含一份可编辑画布和一份API文件，按下表的模型与功能归类。
+- Pixal3D低内存处理及UV节点、内存保护、GLB检查、动作材质恢复、Qwen-Image-2.1 Next-Scene LoRA兼容转换等适配；第三方节点的补丁单独保存。
 - 固定Git提交、文件SHA256、模型来源、安装配置、只读诊断、非覆盖安装及维护说明。
 
 模型权重、虚拟环境、用户素材、私人样片、登录信息、运行缓存和大型验收工程由各用户在本地配置，不随源码分发。准确边界见[文件归属](docs/architecture.md)和[许可清单](docs/models-and-licenses.md)。
+
+### 模型与画布
+
+| 模型名称 | 主要用途 | 画布数量 | 本机部署方案 |
+|---|---|---:|---|
+| [Qwen-Image-2.1](skills/comfyui-local-workflows/references/qwen.md) | 文生图、参考图编辑、蒙版局部修改、透明图、结构控制与分镜 | 17份 | INT8主模型；控制与LoRA按功能选配 |
+| [Pixal3D](skills/comfyui-local-workflows/references/pixal3d.md) | 单图/多视图生成3D模型及PBR材质，输出GLB | 7份 | INT8单图/多视图模型，配套TRELLIS.2形状与纹理VAE；含低内存适配 |
+| [MiniMax H3](skills/comfyui-local-workflows/references/h3.md) | 文生/图生视频、多参考、连续长视频、视频编辑、结构控制与精修 | 46份 | W6A8主模型；涵盖普通版、Turbo及Pika H3 Flex，按各自配套选用 |
+| [Ming-3.0-TTS Tiny](skills/comfyui-local-workflows/references/tts.md) | 文字配音、音色设计/参考、情绪表演与多角色对白 | 5份 | INT8语音主模型及配套音频VAE |
+| [MiniMax Music 3](skills/comfyui-local-workflows/references/music.md) | 文字生成纯音乐配乐或歌词歌曲 | 2份 | INT8主模型和文本编码器，配套DAV音频解码器 |
+| [SkinTokens](skills/comfyui-local-workflows/references/skintokens.md) | 3D模型自动骨架/蒙皮、既有骨架补权重、命名与权重修复 | 4份 | TokenRig GRPO＋Skin VAE；2份GPU推理、2份CPU处理 |
+
+点击模型名称查看使用方法、优势、输入要求和限制；实际权重文件与SHA256登记在`models/weights.lock.json`。
 
 ## 最短安装路径
 
@@ -67,7 +80,7 @@ Windows目录链接需系统允许，Skill也可用`--copy --apply`；复制模�
 
 ## 质量和资源边界
 
-历史主机为Windows、RTX4080 16GB、32GB RAM。原库记录72项GPU成功、7项历史成功但旧样片已清理、2项CPU辅助成功；这些不是新机器的实测结果，也不是任意角色、时长和风格的质量保证。移植后的静态、隔离安装和脚本检查单独记录，见[验证说明](docs/validation.md)。
+上述4080工作站的81组画布验证包含79项GPU运行和2项CPU辅助处理；其中7项Pixal3D历史样片已清理，成功记录仍保留。已验过的输入规模、量化配套和资源处理见各模型说明；新素材、不同规模和其他硬件仍需校准。工程安装检查与实际模型运行分别记录，见[验证说明](docs/validation.md)。
 
 Windows是主要部署目标；POSIX宿主工具支持不代表全部GPU依赖已在Linux/macOS验收。接近的配置可复用同一套能力与流程，具体作品质量仍取决于输入、版本、资源与返工。
 

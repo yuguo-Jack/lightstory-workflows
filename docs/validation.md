@@ -1,8 +1,22 @@
 # 验证、证据与限制
 
+## 验证环境与范围
+
+本仓库的模型画布来自以下本地工作站的实际样例运行验证：
+
+| 项目 | 实测配置 |
+|---|---|
+| 操作系统 | Windows |
+| 显卡 | NVIDIA GeForce RTX 4080，16GB显存 |
+| 物理内存 | 32GB |
+| 工作流范围 | Qwen-Image-2.1：17份；Pixal3D：7份；MiniMax H3：46份；Ming-3.0-TTS Tiny：5份；MiniMax Music 3：2份；SkinTokens：4份 |
+| 执行方式 | 共81组画布；79项GPU推理或处理，另2项SkinTokens辅助流程在CPU执行；重GPU阶段串行 |
+
+本机使用各模型对应的量化权重、低内存适配及Windows分页文件提供提交余量。32GB指物理内存，分页不计入该数值，也不能替代显存；具体配置、输入尺寸、时长、参考数量和已知限制见ComfyUI Skill的各模型参考。运行验证覆盖已记录的样例规模，不能据此推断任意分辨率、时长或组合均已通过。
+
 ## 三种不同结论
 
-1. **原主机历史模型能力**：原库81图中72项GPU运行成功、7项Pixal历史GPU成功但旧样片已清理、2项CPU辅助成功；原主机4080 16GB/32GB RAM，具体规模和质量限制保留在Comfy Skill。公开摘要见[historical-summary.json](evidence/historical-summary.json)，私人原始素材和大型工程不分发。
+1. **本机模型画布实测**：上述环境中72项GPU运行成功且有原验收记录、7项Pixal3D历史GPU成功但旧样片已清理，合计79项GPU；另有2项CPU辅助成功。公开摘要见[historical-summary.json](evidence/historical-summary.json)，私人原始素材和大型工程不分发。
 2. **本工程移植检查**：配置解析、UI/API完整性、节点/模型来源、脚本语法、路径/隐私、隔离Skill/画布安装、请求准备、补丁与转换等。它不新增GPU画质或影片/游戏成品结论。
 3. **新用户/新作品验收**：自己的环境和输入必须实际运行、观看/试听、Blender/引擎回读、打包/整片检查；不能继承原主机passed。
 
