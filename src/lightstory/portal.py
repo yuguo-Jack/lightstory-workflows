@@ -28,6 +28,8 @@ def page(cfg):
 <h2>通用画布目录</h2><p>按模型、功能检索。输入为<code>UPLOAD_*</code>的画布必须换成自己的素材；链接打开JSON源码，原生画布安装后在ComfyUI的LightStory栏目使用。</p>
 <label for="search">检索模型或功能</label><input id="search" type="search" placeholder="例如 Qwen、分镜、透明、长视频、绑定…">
 <div class="scroll"><table><thead><tr><th>模型名称</th><th>工作流功能</th><th>文件</th></tr></thead><tbody>'''+body+'''</tbody></table></div>
+<section><h2>欢迎提需求与反馈</h2><p>欢迎在<a href="https://github.com/yuguo-Jack/lightstory-workflows/issues">Issues</a>提需求、反馈问题或分享实际使用场景。新模型与工作流、游戏/视频制作环节、部署适配、批量处理、性能和文档改进，都欢迎讨论。</p><p>不需要先有完整方案：说说你想做什么、目前卡在哪里、使用什么硬件环境，有参考样例或复现步骤更好。真实需求会帮助确定后续完善方向，也欢迎通过Pull Request一起改进。希望大家多提想法，让这套流程越来越实用。</p></section>
+<section><h2>打赏支持</h2><p>如果这套流程对你有帮助，欢迎通过支付宝自愿打赏，支持持续维护、模型适配和本地验证。<strong>提需求和反馈无需打赏，欢迎大家多提建议。</strong></p><a href="assets/alipay-support.jpg"><img src="assets/alipay-support.jpg" alt="支付宝打赏收款码，收款人：Jack" width="300" style="max-width:100%;height:auto" loading="lazy"></a><p>使用支付宝扫码；点击图片可查看原图。</p></section>
 <footer>LightStory Workflows · 文档可直接本地打开，也可通过loopback预览服务浏览。</footer>
 </main><script>document.querySelector('#search').addEventListener('input',function(){const q=this.value.toLocaleLowerCase();for(const row of document.querySelectorAll('tbody tr'))row.hidden=!row.textContent.toLocaleLowerCase().includes(q)});</script></body></html>
 '''

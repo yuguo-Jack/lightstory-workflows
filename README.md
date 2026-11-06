@@ -89,3 +89,17 @@ Windows是主要部署目标；POSIX宿主工具支持不代表全部GPU依赖�
 ## 继续维护
 
 源码是统一维护入口；Skill、画布、适配、第三方补丁、配置和文档各有独立位置。改流程先改对应Skill，改画布同时保存UI/API和输入要求，升级依赖先审查版本与补丁，按受影响能力验证。详见[更新流程](docs/maintenance.md)、[贡献规则](CONTRIBUTING.md)和[发布准备](docs/publication.md)。
+
+## 欢迎提需求与反馈
+
+欢迎在 [Issues](https://github.com/yuguo-Jack/lightstory-workflows/issues) 提需求、反馈问题或分享实际使用场景。新模型与工作流、游戏/视频制作环节、部署适配、批量处理、性能和文档改进，都欢迎讨论。
+
+不需要先有完整方案：说说**你想做什么、目前卡在哪里、使用什么硬件环境**，有参考样例或复现步骤更好。真实需求会帮助确定后续完善方向，也欢迎通过 Pull Request 一起改进。希望大家多提想法，让这套流程越来越实用。
+
+## 打赏支持
+
+如果这套流程对你有帮助，欢迎通过支付宝自愿打赏，支持持续维护、模型适配和本地验证。**提需求和反馈无需打赏，欢迎大家多提建议。**
+
+<a href="docs/assets/alipay-support.jpg"><img src="docs/assets/alipay-support.jpg" alt="支付宝打赏收款码，收款人：Jack" width="300"></a>
+
+使用支付宝扫码；点击图片可查看原图。
