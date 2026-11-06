@@ -1,0 +1,64 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ming-3.0_audio_vae.safetensors"
+    }
+  },
+  "3": {
+    "class_type": "MingTTS",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ],
+      "text": "你好，今天的天气很好。让我们放慢脚步，一起开始新的故事。",
+      "task": "voice design",
+      "language": "Chinese",
+      "seed": 7,
+      "cfg": 2.0,
+      "flow_steps": 10,
+      "temperature": 0.0,
+      "sigma": 0.25,
+      "split_text": true,
+      "max_fragment_length": 50,
+      "continuity": true,
+      "task.description": "成年女性，清澈自然的普通话音色，中等音高，轻松亲切，咬字清楚，适合叙事对白。"
+    }
+  },
+  "4": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "SaveAudioAdvanced",
+    "inputs": {
+      "audio": [
+        "4",
+        0
+      ],
+      "filename_prefix": "Ming-3.0-TTS/02_文字设计音色",
+      "format": "flac"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Art Direction"
+  short_description: "Turn game art references into a coherent visual style"
+  default_prompt: "Use $game-art-direction to translate my references into a practical art bible and validate a representative scene in the selected game runtime."

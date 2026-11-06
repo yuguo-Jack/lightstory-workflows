@@ -1,0 +1,40 @@
+--- a/gvhmr/cli/demo.py
++++ b/gvhmr/cli/demo.py
+@@ -298,7 +298,7 @@
+         raise SystemExit(1)
+ 
+ 
+-def ensure_assets(camera: str, want_render: bool = True, repo: str | None = None) -> None:
++def ensure_assets(camera: str, want_render: bool = True, repo: str | None = None, *, pose2d: str = "vitpose") -> None:
+     """Auto-fetch the checkpoints this run needs (so `gvhmr demo` just works).
+ 
+     Body models are registration-gated: :func:`assets.ensure_body_models` credential-fetches them from the
+@@ -308,7 +308,7 @@
+     """
+     from gvhmr.utils import assets
+ 
+-    need = ["gvhmr", "hmr2", "vitpose", "yolo"] + (["dpvo"] if camera == "dpvo" else [])
++    need = ["gvhmr", "hmr2", "yolo"] + (["vitpose"] if pose2d == "vitpose" else []) + (["dpvo"] if camera == "dpvo" else [])
+     todo = {n: assets.ASSETS[n] for n in need if not assets.is_present(assets.ASSETS[n])}
+     if todo:
+         sz = sum(a.size for a in todo.values()) / 1e9
+@@ -991,7 +991,7 @@
+ 
+     ensure_deps(cfg)  # fail fast (with the install command) before any download or compute
+     # SMPL body model is only needed for the SMPL-topology render; native SMPL-X render needs only SMPL-X.
+-    ensure_assets(cam_name, want_render=(not no_render and mesh == "smpl"))
++    ensure_assets(cam_name, want_render=(not no_render and mesh == "smpl"), pose2d=cfg.pose2d.name)
+ 
+     rule("Preprocess")
+     run_preprocess(cfg, flip_test=flip_test)
+--- a/gvhmr/inference/pipelines.py
++++ b/gvhmr/inference/pipelines.py
+@@ -186,7 +186,7 @@
+ 
+             with progress_phase("Fetching assets"):
+                 ensure_deps(cfg)
+-                ensure_assets(cam_name, want_render=render, repo=self.model.repo_id)
++                ensure_assets(cam_name, want_render=render, repo=self.model.repo_id, pose2d=cfg.pose2d.name)
+ 
+             run_preprocess(cfg, flip_test=resolved_flip)
+ 

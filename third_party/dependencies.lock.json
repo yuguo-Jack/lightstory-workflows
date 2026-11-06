@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "dependencies": [
+    {
+      "id": "comfyui",
+      "kind": "git",
+      "url": "https://github.com/Comfy-Org/ComfyUI.git",
+      "revision": "426f5eea52a7ece1dd599fff4cb6cd1f352ddd24",
+      "license": "GPL-3.0",
+      "profiles": [
+        "qwen",
+        "pixal3d",
+        "h3",
+        "audio",
+        "rigging"
+      ],
+      "node_directory": null,
+      "patches": [],
+      "requirements_install": "manual; use the configured target interpreter and upstream platform instructions"
+    },
+    {
+      "id": "crossview-warp",
+      "kind": "git",
+      "url": "https://github.com/cseti007/ComfyUI-CrossViewWarp.git",
+      "revision": "3266a83a84eaa6833a9ebc38ac7cdd8789e44f5b",
+      "license": "Apache-2.0",
+      "profiles": [
+        "h3"
+      ],
+      "node_directory": "ComfyUI-CrossViewWarp",
+      "patches": [],
+      "requirements_install": "manual; use the configured target interpreter and upstream platform instructions"
+    },
+    {
+      "id": "ming-tts",
+      "kind": "git",
+      "url": "https://github.com/Nynxz/ComfyUI-MingTTS",
+      "revision": "55cfe4f9bb558cb15717727b912ea7829428de5d",
+      "license": "Apache-2.0",
+      "profiles": [
+        "audio"
+      ],
+      "node_directory": "ComfyUI-MingTTS",
+      "patches": [],
+      "requirements_install": "manual; use the configured target interpreter and upstream platform instructions"
+    },
+    {
+      "id": "skintokens",
+      "kind": "git",
+      "url": "https://github.com/stevelittlefish/ComfyUI-SkinTokens-NoBlender.git",
+      "revision": "0f7cb09af87001333aa1127eb1df4a4b154487e7",
+      "license": "MIT",
+      "profiles": [
+        "rigging"
+      ],
+      "node_directory": "ComfyUI-SkinTokens-NoBlender",
+      "patches": [
+        {
+          "path": "third_party/patches/skintokens/local-compatibility.patch",
+          "sha256": "ecc93b0aaf61865c86f252609221f35fb1071fe05461b0c59453750fab6dcb4f"
+        }
+      ],
+      "requirements_install": "manual; use the configured target interpreter and upstream platform instructions",
+      "patched_files": {
+        "nodes.py": "8be3f2b3dbbf2ac31880b08502534927ae345cce7a7cddec9314b97510ee260e",
+        "skintokens/glb_io.py": "d9752b9f14e310dd53ed66467f97c18b0d864ede005c57db91b97c85af3f8f46",
+        "skintokens/infer.py": "1d5a3bbe9ec314ee848712d1e79e0988441c49701849112a25848b1ce3fa38d8",
+        "skintokens/model_loader.py": "36f16ec40dbb696d477c4e2aab2296cb48fd758989467dac157361cb91607be6",
+        "skintokens/transfer.py": "be1dd979e54b4a60b4b6ef54099446dedb4f89aa6b4dc094af67f9c41ce70caf",
+        "skintokens/weight_repair.py": "475bc8aa4d419b5b607966a01269d6842d5e6af693505b42c9f0c264f76c084a"
+      }
+    },
+    {
+      "id": "h3-director",
+      "kind": "git",
+      "url": "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director",
+      "revision": "4c6245e518dd8a494f3afc4f3cccd53f22d82d10",
+      "license": "Apache-2.0",
+      "profiles": [
+        "h3"
+      ],
+      "node_directory": "ComfyUI_MiniMaxH3_Director",
+      "patches": [
+        {
+          "path": "third_party/patches/h3-director/local-compatibility.patch",
+          "sha256": "bb3868e926e47a637e7dd3f80bd02a24c13956c17d96a2f1f5e8ca7a59493280"
+        }
+      ],
+      "requirements_install": "manual; use the configured target interpreter and upstream platform instructions",
+      "patched_files": {
+        "director/segment_cache.py": "17b51ce3853d434f72927e31ca5f8086d728a156765842c46af7eb018d7cd047"
+      }
+    },
+    {
+      "id": "motion2mixamorig",
+      "kind": "git",
+      "url": "https://github.com/MaxLiu22/Motion2MixamoRig.git",
+      "revision": "f05a718188026b06e7ee64b47bab077970444b19",
+      "license": "Apache-2.0",
+      "profiles": [
+        "motion"
+      ],
+      "node_directory": null,
+      "patches": [],
+      "requirements_install": "manual; use the configured target interpreter and upstream platform instructions"
+    },
+    {
+      "id": "minimax-h3-skills",
+      "kind": "git",
+      "url": "https://github.com/MiniMax-AI/MiniMax-H3.git",
+      "revision": "199b7d0e1fd95e7b3eafa8c15eca692534142427",
+      "license": "MiniMax-H3-Community; see upstream README and linked agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+      "requires_license_ack": true,
+      "profiles": [
+        "video-methods"
+      ],
+      "sparse_paths": [
+        "skills"
+      ],
+      "patches": []
+    },
+    {
+      "id": "viggle-loader",
+      "kind": "file",
+      "url": "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo/resolve/009a44a895ef85f7e643c80fdca9543795248867/comfyui/viggle_turbo.py",
+      "revision": "009a44a895ef85f7e643c80fdca9543795248867",
+      "file": "viggle_turbo.py",
+      "sha256": "0592defd8ee6555b8c02bd9b287514849b1d46f579f47f8c7f711e6411f89587",
+      "license": "Review upstream code/model terms; external acquisition only",
+      "license_url": "https://huggingface.co/Viggle/Qwen-Image-2.1-viggle-turbo",
+      "requires_license_ack": true,
+      "profiles": [
+        "qwen"
+      ],
+      "node_file": "viggle_turbo.py",
+      "patches": []
+    }
+  ],
+  "vendored": [
+    {
+      "id": "blender-skills",
+      "source": "https://github.com/EL4CTEO/blender-skills",
+      "revision": "71d031dab8bc6729504d11a78cbe91945401045f",
+      "license": "MIT",
+      "path": "third_party/skills/blender-skills",
+      "local_adaptations": [
+        "host configuration lookup",
+        "Rigify collection slice compatibility",
+        "metadata/local entry routing"
+      ]
+    }
+  ]
+}

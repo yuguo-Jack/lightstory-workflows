@@ -1,0 +1,453 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "UNETLoader"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "CLIPLoader"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+    },
+    "_meta": {
+      "title": "VAELoader"
+    }
+  },
+  "4": {
+    "class_type": "QwenImage21Cache",
+    "inputs": {
+      "model": [
+        "40",
+        0
+      ],
+      "device": "off",
+      "dtype": "default"
+    },
+    "_meta": {
+      "title": "控制/参考编辑关闭KV缓存"
+    }
+  },
+  "5": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "Next Scene: Cut to a closer rear three-quarter shot of the same explorer, looking through the sandstone arch toward the lighthouse and harbor. Same dark green jacket, brown backpack and gentle daylight.",
+      "negative_prompt": "",
+      "resolution": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "images.image_1": [
+        "41",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "目标画面/编辑指令"
+    }
+  },
+  "7": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "5",
+        1
+      ],
+      "latent_image": [
+        "5",
+        2
+      ],
+      "seed": 42,
+      "steps": 40,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "99": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "Qwen-Image 2.1/分镜/02_链式分镜生成/result"
+    },
+    "_meta": {
+      "title": "SaveImage"
+    }
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "UPLOAD_PNG_1.png"
+    },
+    "_meta": {
+      "title": "更换本次原图"
+    }
+  },
+  "40": {
+    "class_type": "ViggleTurboLora",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "lora_name": "next_scene_step2500_comfy21.safetensors",
+      "strength": 0.7
+    },
+    "_meta": {
+      "title": "链式运行时LoRA0.7（非Turbo模式）"
+    }
+  },
+  "41": {
+    "class_type": "ImageBlur",
+    "inputs": {
+      "image": [
+        "10",
+        0
+      ],
+      "blur_radius": 2,
+      "sigma": 0.5
+    },
+    "_meta": {
+      "title": "每次回接约0.5px高斯模糊"
+    }
+  },
+  "200": {
+    "class_type": "ImageBlur",
+    "inputs": {
+      "image": [
+        "8",
+        0
+      ],
+      "blur_radius": 2,
+      "sigma": 0.5
+    },
+    "_meta": {
+      "title": "链式输入去噪反馈"
+    }
+  },
+  "201": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "Next Scene: The camera pans right to an elevated wide view of the harbor and turquoise water below, keeping the same explorer with dark green jacket and brown backpack at the left side of the frame and the white lighthouse in the distance. Same gentle daylight.",
+      "negative_prompt": "",
+      "resolution": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "images.image_1": [
+        "200",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "第2镜指令"
+    }
+  },
+  "202": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "201",
+        0
+      ],
+      "negative": [
+        "201",
+        1
+      ],
+      "latent_image": [
+        "201",
+        2
+      ],
+      "seed": 45,
+      "steps": 40,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "203": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "202",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "204": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "203",
+        0
+      ],
+      "filename_prefix": "Qwen-Image 2.1/分镜/02_链式分镜生成/aux_204"
+    },
+    "_meta": {
+      "title": "第2镜PNG"
+    }
+  },
+  "300": {
+    "class_type": "ImageBlur",
+    "inputs": {
+      "image": [
+        "203",
+        0
+      ],
+      "blur_radius": 2,
+      "sigma": 0.5
+    },
+    "_meta": {
+      "title": "链式输入去噪反馈"
+    }
+  },
+  "301": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "Next Scene: The camera rises and pulls back to a wide elevated view of the same coastal path, sandstone arch, explorer and lighthouse overlooking the harbor. Preserve the geography, clothing and gentle daylight.",
+      "negative_prompt": "",
+      "resolution": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "images.image_1": [
+        "300",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "第3镜指令"
+    }
+  },
+  "302": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "301",
+        0
+      ],
+      "negative": [
+        "301",
+        1
+      ],
+      "latent_image": [
+        "301",
+        2
+      ],
+      "seed": 46,
+      "steps": 40,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "303": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "302",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "304": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "303",
+        0
+      ],
+      "filename_prefix": "Qwen-Image 2.1/分镜/02_链式分镜生成/aux_304"
+    },
+    "_meta": {
+      "title": "第3镜PNG"
+    }
+  },
+  "400": {
+    "class_type": "ImageBlur",
+    "inputs": {
+      "image": [
+        "303",
+        0
+      ],
+      "blur_radius": 2,
+      "sigma": 0.5
+    },
+    "_meta": {
+      "title": "链式输入去噪反馈"
+    }
+  },
+  "401": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "Next Scene: Cut to an eye-level rear three-quarter view as the same explorer walks toward the sandstone arch along the coastal path. Keep the white lighthouse in the distance, turquoise sea, green jacket, brown backpack and gentle daylight.",
+      "negative_prompt": "",
+      "resolution": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "images.image_1": [
+        "400",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "第4镜指令"
+    }
+  },
+  "402": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "401",
+        0
+      ],
+      "negative": [
+        "401",
+        1
+      ],
+      "latent_image": [
+        "401",
+        2
+      ],
+      "seed": 47,
+      "steps": 40,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "403": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "402",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "404": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "403",
+        0
+      ],
+      "filename_prefix": "Qwen-Image 2.1/分镜/02_链式分镜生成/aux_404"
+    },
+    "_meta": {
+      "title": "第4镜PNG"
+    }
+  }
+}

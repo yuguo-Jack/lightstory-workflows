@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "paths": {
+    "state_root": "${REPO}/.lightstory",
+    "projects_root": "${HOME}/LightStoryProjects",
+    "tools_root": "${HOME}/.local/share/lightstory/tools",
+    "comfyui_root": "${HOME}/Applications/ComfyUI",
+    "model_cache_root": "${HOME}/.cache/lightstory"
+  },
+  "executables": {"python": "python", "comfyui_python": "python", "blender": "blender", "ffmpeg": "ffmpeg", "ffprobe": "ffprobe"},
+  "services": {"comfyui_url": "http://127.0.0.1:8188", "preview_port": 8192},
+  "installation": {"workflow_namespace": "LightStory"},
+  "dependency_paths": {},
+  "resources": {"reserve_commit_gib": 6, "reserve_ram_gib": 2.5, "heavy_minimum_commit_gib": 63, "serial_gpu_jobs": true},
+  "cleanup": {"check_hours": 2, "growth_gib": 30, "total_temporary_gib": 60, "minimum_free_gib": 60, "allow_necessary_growth": true}
+}

@@ -1,0 +1,188 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "MiniMax H3 UNET"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "CLIP (minimax / Qwen3-VL)"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "_meta": {
+      "title": "Video VAE"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "_meta": {
+      "title": "Audio VAE"
+    }
+  },
+  "5": {
+    "class_type": "MiniMaxH3Director",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "video_vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ],
+      "task_type": "v2v — 视频转视频(Video to Video)",
+      "global_prompt": "subject_definitions:\n<Video 1> is the source video. <Subject 1> is its red ceramic cup; retain its shape, handle, size and position, and change only its glaze to cobalt blue. <Subject 2> is the original table, window, daylight and background.\n\nsummary:\n[video editing] Recolor the cup blue throughout the original shot. Keep the source composition, gentle camera movement, background and object arrangement.\n\nretention_analysis:\n<Subject 1>: partially_preserved - only red glaze becomes cobalt blue.\n<Subject 2> and <Video 1> camera path: fully_preserved.\n\ndetailed_description:\n[Shot 1] The same cup is already cobalt blue at the beginning and stays blue. Its complete body, rim and handle remain coherent on the original tabletop. Preserve the window arrangement, perspective and stable natural daylight while following the source camera movement. No new objects, hands, text, cuts or logos.\n\noverall_soundscape:\nQuiet indoor ambience and faint wind, no speech.\n\nnon_diegetic_music:\nN/A",
+      "bd_grp_sample": "采样设置",
+      "cfg": 1.0,
+      "seed": 7,
+      "frame_rate": 24.0,
+      "width": 864,
+      "height": 480,
+      "ref_max_size": 864,
+      "total_frames": 124,
+      "timeline_data": "{\"version\": 4, \"editMode\": \"global\", \"timelineMode\": \"video\", \"totalFrames\": 124, \"frameRate\": 24.0, \"width\": 864, \"height\": 480, \"refMaxSize\": 864, \"output\": {\"mode\": \"fixed\", \"longEdge\": 864, \"width\": 864, \"height\": 480, \"maxExportFrames\": 0, \"exportMode\": \"all\", \"continuityEnabled\": false, \"continuityOverlapFrames\": 22}, \"videoClips\": [{\"videoFile\": \"UPLOAD_MP4_1.mp4\", \"fileName\": \"UPLOAD_MP4_1.mp4\", \"subfolder\": \"\", \"type\": \"input\", \"width\": 864, \"height\": 480, \"nativeFps\": 24.0, \"sourceFrameCount\": 124, \"duration\": 5.166667, \"frames\": [], \"frameMap\": []}], \"video\": {\"videoFile\": \"UPLOAD_MP4_1.mp4\", \"fileName\": \"UPLOAD_MP4_1.mp4\", \"subfolder\": \"\", \"type\": \"input\", \"width\": 864, \"height\": 480, \"nativeFps\": 24.0, \"sourceFrameCount\": 124, \"duration\": 5.166667, \"frames\": [], \"frameMap\": []}, \"global\": {\"taskType\": \"v2v — 视频转视频(Video to Video)\", \"prompt\": \"subject_definitions:\\n<Video 1> is the source video. <Subject 1> is its red ceramic cup; retain its shape, handle, size and position, and change only its glaze to cobalt blue. <Subject 2> is the original table, window, daylight and background.\\n\\nsummary:\\n[video editing] Recolor the cup blue throughout the original shot. Keep the source composition, gentle camera movement, background and object arrangement.\\n\\nretention_analysis:\\n<Subject 1>: partially_preserved - only red glaze becomes cobalt blue.\\n<Subject 2> and <Video 1> camera path: fully_preserved.\\n\\ndetailed_description:\\n[Shot 1] The same cup is already cobalt blue at the beginning and stays blue. Its complete body, rim and handle remain coherent on the original tabletop. Preserve the window arrangement, perspective and stable natural daylight while following the source camera movement. No new objects, hands, text, cuts or logos.\\n\\noverall_soundscape:\\nQuiet indoor ambience and faint wind, no speech.\\n\\nnon_diegetic_music:\\nN/A\", \"refs\": [], \"referenceVideo\": {}, \"continuousReference\": false, \"genImage\": {\"imageFile\": \"\"}}, \"segments\": [{\"id\": \"s0\", \"start\": 0, \"length\": 124, \"frameCount\": 124, \"durationSec\": 5.0, \"prompt\": \"subject_definitions:\\n<Video 1> is the source video. <Subject 1> is its red ceramic cup; retain its shape, handle, size and position, and change only its glaze to cobalt blue. <Subject 2> is the original table, window, daylight and background.\\n\\nsummary:\\n[video editing] Recolor the cup blue throughout the original shot. Keep the source composition, gentle camera movement, background and object arrangement.\\n\\nretention_analysis:\\n<Subject 1>: partially_preserved - only red glaze becomes cobalt blue.\\n<Subject 2> and <Video 1> camera path: fully_preserved.\\n\\ndetailed_description:\\n[Shot 1] The same cup is already cobalt blue at the beginning and stays blue. Its complete body, rim and handle remain coherent on the original tabletop. Preserve the window arrangement, perspective and stable natural daylight while following the source camera movement. No new objects, hands, text, cuts or logos.\\n\\noverall_soundscape:\\nQuiet indoor ambience and faint wind, no speech.\\n\\nnon_diegetic_music:\\nN/A\", \"taskType\": \"\", \"refs\": [], \"referenceVideo\": {}, \"genImage\": {\"imageFile\": \"\"}, \"negativePrompt\": \"\"}], \"gen\": {\"defaultFrameCount\": 124}, \"runSelectEnabled\": false, \"runSelection\": []}",
+      "bd_grp_advanced": "高级采样 Advanced",
+      "steps": 6,
+      "sampler": "lcm",
+      "scheduler": "simple",
+      "shift_video": 12.0,
+      "shift_audio": 3.0,
+      "bd_grp_perf": "性能 Performance",
+      "clear_vram_between_segments": true,
+      "export_source_images": false,
+      "cache_name": "pika_flex_05_源视频编辑",
+      "sigmas": [
+        "21",
+        0
+      ],
+      "cache_frames_codec": "ffv1"
+    },
+    "_meta": {
+      "title": "MiniMaxH3Director"
+    }
+  },
+  "6": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "fps": [
+        "5",
+        2
+      ],
+      "audio": [
+        "5",
+        1
+      ],
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none"
+    },
+    "_meta": {
+      "title": "CreateVideo"
+    }
+  },
+  "7": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "6",
+        0
+      ],
+      "filename_prefix": "MiniMax H3/Pika Flex/05_源视频编辑",
+      "format": "mp4",
+      "format.codec": "h264"
+    },
+    "_meta": {
+      "title": "SaveVideo"
+    }
+  },
+  "8": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "5",
+        5
+      ]
+    },
+    "_meta": {
+      "title": "Director 运行报告"
+    }
+  },
+  "9": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "5",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "fps"
+    }
+  },
+  "10": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "5",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "frame_count"
+    }
+  },
+  "11": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "lora_name": "pika_h3_flex_ref2va_v1_bf16.safetensors",
+      "strength_model": 1.0
+    },
+    "_meta": {
+      "title": "Pika Flex REF2VA · strength 1"
+    }
+  },
+  "21": {
+    "class_type": "ManualSigmas",
+    "inputs": {
+      "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+    },
+    "_meta": {
+      "title": "Pika Flex 官方六步噪声表 · 保持连接"
+    }
+  }
+}

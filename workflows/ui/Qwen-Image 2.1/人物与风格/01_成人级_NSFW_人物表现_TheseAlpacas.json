@@ -1,0 +1,568 @@
+{
+  "last_node_id": 100,
+  "last_link_id": 10,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        -2400,
+        -500
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      },
+      "title": "主模型"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        -2400,
+        -250
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      },
+      "title": "文字/视觉编码器"
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        -2400,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      },
+      "title": "VAE配套"
+    },
+    {
+      "id": 4,
+      "type": "QwenImage21Cache",
+      "pos": [
+        -1950,
+        -500
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImage21Cache"
+      },
+      "widgets_values": [
+        "off",
+        "default"
+      ],
+      "widgets_values_named": {
+        "device": "off",
+        "dtype": "default"
+      },
+      "title": "控制/参考编辑关闭KV缓存"
+    },
+    {
+      "id": 5,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        -1400,
+        -500
+      ],
+      "size": [
+        530,
+        500
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "A realistic head-and-shoulders studio portrait of a 35-year-old adult man wearing a fully closed navy crew-neck sweater, neutral gray background, soft natural studio light, calm expression, realistic skin and fabric. Fully clothed, ordinary nonsexual portrait. No text.",
+        "nudity, exposed chest, lingerie, sexual content, distorted face, extra limbs, text",
+        0
+      ],
+      "widgets_values_named": {
+        "prompt": "A realistic head-and-shoulders studio portrait of a 35-year-old adult man wearing a fully closed navy crew-neck sweater, neutral gray background, soft natural studio light, calm expression, realistic skin and fabric. Fully clothed, ordinary nonsexual portrait. No text.",
+        "negative_prompt": "nudity, exposed chest, lingerie, sexual content, distorted face, extra limbs, text",
+        "resolution": 0
+      },
+      "title": "本镜头提示词与参考"
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -1400,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        768,
+        1024,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 768,
+        "height": 1024,
+        "batch_size": 1
+      },
+      "title": "输出尺寸：与控制图一致"
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        -500,
+        -500
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        43,
+        "fixed",
+        30,
+        4,
+        "er_sde",
+        "beta",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 43,
+        "control_after_generate": "fixed",
+        "steps": 30,
+        "cfg": 4,
+        "sampler_name": "er_sde",
+        "scheduler": "beta",
+        "denoise": 1
+      },
+      "title": "KSampler"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        -50,
+        -500
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "VAEDecode"
+    },
+    {
+      "id": 99,
+      "type": "SaveImage",
+      "pos": [
+        450,
+        -500
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Qwen-Image 2.1/人物与风格/01_成年人物表现_NSFW标签LoRA/result"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Qwen-Image 2.1/人物与风格/01_成年人物表现_NSFW标签LoRA/result"
+      },
+      "title": "SaveImage"
+    },
+    {
+      "id": 40,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -1950,
+        -750
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "NSFW Qwen by TheseAlpacas V2.safetensors",
+        0.8
+      ],
+      "widgets_values_named": {
+        "lora_name": "NSFW Qwen by TheseAlpacas V2.safetensors",
+        "strength_model": 0.8
+      },
+      "title": "TheseAlpacas v2 / 作者0.8起点"
+    },
+    {
+      "id": 100,
+      "type": "MarkdownNote",
+      "pos": [
+        -2450,
+        -1650
+      ],
+      "size": [
+        2100,
+        650
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "properties": {},
+      "widgets_values": [
+        "# 人物与风格/01_成人级_NSFW_人物表现_TheseAlpacas\n\n分类：**成人级（NSFW）LoRA**。\n\nTheseAlpacas v2，Qwen2.1专用：作者25+步、CFG3–6、LoRA0.8–1、er_sde/beta，明确不推荐Euler。此预设30步/CFG4/强度0.8，与其他画布配方不同。\n\n\n通用能力画布，示例可替换，不属于影片/游戏项目。\n换本次素材和提示词 → 核对输出尺寸/时长与配套 → Queue → 看实际输出并保存。一次一个GPU任务，保留内存保护。仅修改内容/参数时复用本画布；项目特化改节点才另存Projects，不覆盖通用库。\n\n完整用法/作者来源/本机证据：ComfyUI Local Workflows → Qwen扩展或H3 Fun结构控制。"
+      ],
+      "title": "成人级（NSFW）"
+    }
+  ],
+  "links": [
+    [
+      1,
+      40,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      2,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      4,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      5,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      5,
+      1,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      6,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      7,
+      7,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      8,
+      0,
+      99,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      1,
+      0,
+      40,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.65,
+      "offset": [
+        2450,
+        650
+      ]
+    }
+  },
+  "version": 0.4
+}

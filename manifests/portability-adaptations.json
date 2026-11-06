@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-06",
+  "preserved": [
+    "Game/Video production stages and handoff rules",
+    "all 81 graph topologies and sampling settings",
+    "optional acceleration/LoRA routing and historical quality limits",
+    "serial GPU and cache management rules"
+  ],
+  "adapted": [
+    "central JSON configuration and command entry",
+    "public relative UI/API catalog",
+    "upload placeholders instead of original example media",
+    "pinned external dependency and patch records",
+    "configurable Blender/mocap/runtime helpers",
+    "historical evidence summarized separately from fresh install readiness",
+    "LF-normalized third-party patches and exact patched-file checks",
+    "configurable Windows reserve thresholds; original defaults preserved",
+    "legacy evidence links redirected to public summaries without private media"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-06",
+  "version": "0.1.0",
+  "passed": true,
+  "scope": "Source distribution, host logic and independent installation. No fresh GPU, Blender/UE editing or finished creative work tested.",
+  "host_tests": 27,
+  "independent_source_tests": 27,
+  "editable_install_imported_from_independent_checkout": true,
+  "copied_skills_including_pinned_external_upstream": 38,
+  "native_UI_copies": 81,
+  "UI_API_JSON_checked": 162,
+  "per_workflow_model_selection_checked": 81,
+  "required_node_types": 103,
+  "pinned_existing_dependencies_checked": 8,
+  "existing_model_records_present_and_size_matched": 68,
+  "all_large_weights_rehashed_this_run": false,
+  "private_and_model_files_excluded": true,
+  "old_manager_references_in_public_source": 0
+}

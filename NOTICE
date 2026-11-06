@@ -1,0 +1,15 @@
+LightStory Workflows / 光影故事工作流
+Original project contributions: Copyright (c) 2026 yuguo-Jack.
+
+This project integrates production methods, portable workflow definitions and
+local execution adapters. It is not an official joint product of ComfyUI,
+MiniMax, Blender, Adobe, Epic Games, CapCut, Flova or OpenAI.
+
+The bundled Pixal3D bounded-memory and mesh/UV adapters derive from GPL-3.0
+ComfyUI implementations and retain that licence in their own directories.
+The Blender Skill library and adapted game-design/art/UI modules retain their
+upstream licences and notices. MiniMax-owned Skill bodies, model weights,
+client-managed plugins and registration-gated assets are externally acquired.
+
+Names and references identify compatible components and their origins.
+No model, asset, service or trademark licence is granted by this notice.

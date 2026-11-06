@@ -1,0 +1,320 @@
+{
+  "2": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "Qwen-Image 2.1 INT8 主权重"
+    }
+  },
+  "5": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "Qwen3-VL 8B • 官方 INT8 视觉文本编码器"
+    }
+  },
+  "6": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+    },
+    "_meta": {
+      "title": "Qwen-Image 2.1 专用 BF16 RGBA VAE"
+    }
+  },
+  "35": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "UPLOAD_PNG_1.png"
+    },
+    "_meta": {
+      "title": "局部编辑 • 原图"
+    }
+  },
+  "36": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "UPLOAD_PNG_2.png"
+    },
+    "_meta": {
+      "title": "黑白蒙版 • 白色=修改"
+    }
+  },
+  "37": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "upscale_method": "lanczos",
+      "megapixels": 1.0,
+      "resolution_steps": 32,
+      "image": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "工作尺寸 • 1MP / 32 对齐"
+    }
+  },
+  "38": {
+    "class_type": "GetImageSize",
+    "inputs": {
+      "image": [
+        "37",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "取得目标画布尺寸"
+    }
+  },
+  "39": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "upscale_method": "bilinear",
+      "width": [
+        "38",
+        0
+      ],
+      "height": [
+        "38",
+        1
+      ],
+      "crop": "disabled",
+      "image": [
+        "36",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "蒙版匹配目标尺寸"
+    }
+  },
+  "40": {
+    "class_type": "ImageToMask",
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "39",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "白色区域转换为蒙版"
+    }
+  },
+  "41": {
+    "class_type": "GrowMask",
+    "inputs": {
+      "expand": 8,
+      "tapered_corners": true,
+      "mask": [
+        "40",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "向外扩展 8px"
+    }
+  },
+  "42": {
+    "class_type": "MaskToImage",
+    "inputs": {
+      "mask": [
+        "41",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "蒙版转图像"
+    }
+  },
+  "43": {
+    "class_type": "ImageBlur",
+    "inputs": {
+      "blur_radius": 7,
+      "sigma": 2.0,
+      "image": [
+        "42",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "蒙版边缘柔化"
+    }
+  },
+  "44": {
+    "class_type": "ImageToMask",
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "43",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "柔化后的局部区域"
+    }
+  },
+  "45": {
+    "class_type": "TextEncodeQwenImage21",
+    "inputs": {
+      "prompt": "以<image1>为原图，<image2>为黑白编辑蒙版。只修改白色蒙版指定的区域，将区域内的深绿色服装改为浅蓝色牛仔布。保留原有衣褶的形状与方向，使新布料与周围服装自然衔接。其他内容、人物身份、构图和光向保持不变。",
+      "negative_prompt": "",
+      "resolution": 0,
+      "clip": [
+        "5",
+        0
+      ],
+      "vae": [
+        "6",
+        0
+      ],
+      "images.image_1": [
+        "37",
+        0
+      ],
+      "images.image_2": [
+        "39",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "④ 只修改蒙版区域"
+    }
+  },
+  "46": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "37",
+        0
+      ],
+      "vae": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "原图编码 • 保留未修改内容"
+    }
+  },
+  "47": {
+    "class_type": "SetLatentNoiseMask",
+    "inputs": {
+      "samples": [
+        "46",
+        0
+      ],
+      "mask": [
+        "44",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "只在白色蒙版内加噪"
+    }
+  },
+  "48": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 20261014,
+      "steps": 40,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0,
+      "model": [
+        "65",
+        0
+      ],
+      "positive": [
+        "45",
+        0
+      ],
+      "negative": [
+        "45",
+        1
+      ],
+      "latent_image": [
+        "47",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "局部重绘 • 40 步"
+    }
+  },
+  "49": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "48",
+        0
+      ],
+      "vae": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "局部重绘解码"
+    }
+  },
+  "50": {
+    "class_type": "ImageCompositeMasked",
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "37",
+        0
+      ],
+      "source": [
+        "49",
+        0
+      ],
+      "mask": [
+        "44",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "蒙版外保留原图像素"
+    }
+  },
+  "51": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Qwen-Image 2.1/04_蒙版局部编辑",
+      "images": [
+        "50",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "保存局部编辑 PNG"
+    }
+  },
+  "65": {
+    "class_type": "QwenImage21Cache",
+    "inputs": {
+      "device": "off",
+      "dtype": "default",
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "参考图编辑 • off / 保持精度"
+    }
+  }
+}

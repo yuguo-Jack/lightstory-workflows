@@ -1,0 +1,443 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "MiniMax H3 UNET"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "CLIP (minimax / Qwen3-VL)"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "_meta": {
+      "title": "Video VAE"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "_meta": {
+      "title": "Audio VAE"
+    }
+  },
+  "7": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "6",
+        0
+      ],
+      "filename_prefix": "MiniMax H3/运镜与视频编辑/03_源视频换机位",
+      "format": "mp4",
+      "format.codec": "h264"
+    },
+    "_meta": {
+      "title": "SaveVideo"
+    }
+  },
+  "11": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "lora_name": "minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+      "strength_model": 1
+    },
+    "_meta": {
+      "title": "CrossView作者DMD 8步配套"
+    }
+  },
+  "15": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "lora_name": "MiniMax-H3_Ref2VA-LoRA-CrossView-Warp_v1_3500.safetensors",
+      "strength_model": 0.8
+    },
+    "_meta": {
+      "title": "CrossView换机位 · strength 0.8"
+    }
+  },
+  "19": {
+    "class_type": "MiniMaxH3SigmaShift",
+    "inputs": {
+      "model": [
+        "15",
+        0
+      ],
+      "shift_video": 12,
+      "shift_audio": 3
+    },
+    "_meta": {
+      "title": "MiniMaxH3SigmaShift"
+    }
+  },
+  "12": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "UPLOAD_MP4_1.mp4"
+    },
+    "_meta": {
+      "title": "源视频 · 请预先转24fps"
+    }
+  },
+  "13": {
+    "class_type": "GetVideoComponents",
+    "inputs": {
+      "video": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "GetVideoComponents"
+    }
+  },
+  "14": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "13",
+        0
+      ],
+      "batch_index": 0,
+      "length": 124
+    },
+    "_meta": {
+      "title": "前124帧 · 同步修改参考生成length"
+    }
+  },
+  "16": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "14",
+        0
+      ],
+      "upscale_method": "bicubic",
+      "width": 960,
+      "height": 544,
+      "crop": "center"
+    },
+    "_meta": {
+      "title": "源与warp共同尺寸 · 960×544"
+    }
+  },
+  "17": {
+    "class_type": "LoadMoGeModel",
+    "inputs": {
+      "model_name": "moge_2_vitl_normal_fp16.safetensors"
+    },
+    "_meta": {
+      "title": "LoadMoGeModel"
+    }
+  },
+  "18": {
+    "class_type": "MoGeInference",
+    "inputs": {
+      "moge_model": [
+        "17",
+        0
+      ],
+      "image": [
+        "16",
+        0
+      ],
+      "resolution_level": 4,
+      "fov_x_degrees": 0,
+      "batch_size": 1,
+      "force_projection": true,
+      "apply_mask": true,
+      "refine_steps": 3
+    },
+    "_meta": {
+      "title": "MoGe2几何 · batch1控制显存"
+    }
+  },
+  "20": {
+    "class_type": "CrossViewWarp",
+    "inputs": {
+      "frames": [
+        "16",
+        0
+      ],
+      "moge_geometry": [
+        "18",
+        0
+      ],
+      "azimuth": -30,
+      "elevation": 5,
+      "distance": 1,
+      "hfov": 0,
+      "vertical_shift": 0,
+      "depth_ratio": 6,
+      "smooth_depth": false,
+      "invert_depth": false,
+      "roll_lock": true,
+      "pivot_override": false,
+      "pivot_x": 0,
+      "pivot_y": 0,
+      "pivot_z": 1.05,
+      "use_keyframes": false,
+      "frame_count": 124,
+      "keyframes": "",
+      "interp_motion": "linear",
+      "interpolation": "linear",
+      "keep_source_aim": true,
+      "preview_size": 384,
+      "frame_index": 1
+    },
+    "_meta": {
+      "title": "换机位几何引导 · keep_source_aim"
+    }
+  },
+  "21": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "prompt": "crossview",
+      "width": 960,
+      "height": 544,
+      "length": 124,
+      "ref_image_size": "match",
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_videos.ref_video_0": [
+        "16",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "原视频仅作身份/外观参考"
+    }
+  },
+  "22": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "21",
+        0
+      ],
+      "latent": [
+        "21",
+        1
+      ],
+      "frame_idx": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "20",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Warp接Guide，不接普通参考槽"
+    }
+  },
+  "23": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "19",
+        0
+      ],
+      "conditioning": [
+        "22",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "24": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 7
+    },
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "25": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "26": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "19",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1
+    },
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "27": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "24",
+        0
+      ],
+      "guider": [
+        "23",
+        0
+      ],
+      "sampler": [
+        "25",
+        0
+      ],
+      "sigmas": [
+        "26",
+        0
+      ],
+      "latent_image": [
+        "21",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "28": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "29": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "VAEDecodeAudio"
+    }
+  },
+  "6": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "28",
+        0
+      ],
+      "audio": [
+        "29",
+        0
+      ],
+      "fps": 24,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none"
+    },
+    "_meta": {
+      "title": "CreateVideo"
+    }
+  },
+  "30": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "20",
+        0
+      ],
+      "fps": 24,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none"
+    },
+    "_meta": {
+      "title": "CreateVideo"
+    }
+  },
+  "31": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "30",
+        0
+      ],
+      "filename_prefix": "MiniMax H3/运镜与视频编辑/03_源视频换机位_warp",
+      "format": "mp4",
+      "format.codec": "h264"
+    },
+    "_meta": {
+      "title": "Warp检查片 · 洋红空洞是待推断区域"
+    }
+  },
+  "32": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "20",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "机位示意图"
+    }
+  }
+}

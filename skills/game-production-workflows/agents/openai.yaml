@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Production Workflows"
+  short_description: "Unify game design, art, UI and local production"
+  default_prompt: "Use $game-production-workflows to refine my gameplay and art goals, route design, UI and asset work to the right skills, and build and test my game with the local tools."

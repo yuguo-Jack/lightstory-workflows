@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Motion Capture"
+  short_description: "Local video mocap, Mixamo retargeting and Blender handoff"
+  default_prompt: "Use $blender-motion-capture through Blender Workflows to recover and review motion from my video on a compatible character."

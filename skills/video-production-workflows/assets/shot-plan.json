@@ -1,0 +1,197 @@
+{
+  "schema": "local-video-production-plan-v3",
+  "purpose": "Editable production record; not a ComfyUI or CapCut API request",
+  "project": "new-film",
+  "delivery": {
+    "width": 1920,
+    "height": 1080,
+    "fps": {
+      "num": 24,
+      "den": 1
+    },
+    "color": "SDR Rec.709",
+    "target_duration_seconds": null,
+    "duration_requirement": "exact_or_range_from_user",
+    "duration_tolerance_seconds": null
+  },
+  "brief": "brief/production-brief.md",
+  "style_bible": "brief/style-and-continuity.md",
+  "master_audio": {
+    "source": null,
+    "source_in_seconds": 0,
+    "role": "decide_from_project",
+    "replaces_generated_music": false
+  },
+  "shots": [
+    {
+      "id": "S010",
+      "scene": "SC01",
+      "purpose": "Define the narrative change for this shot",
+      "characters": [],
+      "setting": "",
+      "appearance_version": "",
+      "composition": "",
+      "action_start": "",
+      "action_beats": [],
+      "action_end": "",
+      "camera": {
+        "type": "locked",
+        "start": "",
+        "path": "",
+        "end": "",
+        "timing": ""
+      },
+      "lighting": "",
+      "dialogue": [],
+      "sound_cues": [],
+      "references": [],
+      "generation": {
+        "task_id": null,
+        "workflow_key": null,
+        "prompt_document": null,
+        "api_request": null,
+        "result_record": null,
+        "prompt_id": null,
+        "cache_name": null,
+        "seed": null,
+        "requested_size": null,
+        "requested_seconds": null,
+        "actual_width": null,
+        "actual_height": null,
+        "actual_frames": null,
+        "actual_fps": null,
+        "actual_seconds": null,
+        "actual_file": null,
+        "execution_status": "not_started",
+        "artifact_review": "not_started",
+        "known_deviations": []
+      },
+      "edit": {
+        "timeline_start_frame": 0,
+        "duration_frames": 96,
+        "source_in_frame": null,
+        "source_out_frame_exclusive": null,
+        "handle_head_frames": 0,
+        "handle_tail_frames": 0,
+        "source_fps": null,
+        "transition": "cut"
+      },
+      "previs": null,
+      "selected_take": null,
+      "status": "planned",
+      "issues": [],
+      "qa": [],
+      "route": {
+        "primary": null,
+        "reason": null,
+        "fallback": null,
+        "control_requirements": []
+      },
+      "visual_inputs": {
+        "identity_asset_ids": [],
+        "scene_asset_ids": [],
+        "prop_asset_ids": [],
+        "style_asset_ids": [],
+        "storyboard_file": null,
+        "first_frame": null,
+        "last_frame": null,
+        "additional_pose_guides": [],
+        "control_sources": [],
+        "preprocessing": [],
+        "review_status": "not_started"
+      },
+      "dependency_versions": {},
+      "postproduction": {
+        "tracking": null,
+        "animated_mattes": [],
+        "clean_plate": null,
+        "cg_elements": [],
+        "graphics": [],
+        "composition_project": null,
+        "review_status": "not_started"
+      }
+    }
+  ],
+  "reference_binding_example": {
+    "id": "R01",
+    "path": "assets/reference.png",
+    "role": "identity",
+    "execution_binding": null,
+    "preserve": [],
+    "exclude": []
+  },
+  "control_source_record_example": {
+    "id": "CTRL01_V01",
+    "kind": "depth",
+    "path": null,
+    "source_path": null,
+    "version": "V01",
+    "coordinate_transform": null,
+    "source_time_window_seconds": null,
+    "actual_size": null,
+    "actual_fps": null,
+    "actual_frames": null,
+    "alignment_review": "not_started",
+    "note": "Track the same crop, frame window and time base as source/mask; the execution skill specifies the current model's required encoding and binding."
+  },
+  "record_rule": "Trim unused fields for small projects. This is an orchestration/selection record, not a model request schema. The execution skill returns the real request, result record and reference bindings; technical success does not select a take automatically.",
+  "timing_rule": "Edit frames use delivery FPS. Source in/out frames use actual source FPS; resampling or speed changes must be explicit. Actual model output can differ from requested duration. Control streams must share the selected source frame window and coordinate transform.",
+  "exports": [],
+  "retained_cache_groups": [],
+  "cleanup_record": null,
+  "quality_requirements": {
+    "must_preserve": [],
+    "style_attributes": [],
+    "critical_actions": [],
+    "acceptance_priority": []
+  },
+  "visual_assets": [],
+  "animatic": {
+    "project_file": null,
+    "preview_file": null,
+    "scratch_audio": [],
+    "actual_duration_seconds": null,
+    "review_status": "not_started",
+    "issues": []
+  },
+  "visual_asset_record_example": {
+    "id": "CHAR01_V01",
+    "version": "V01",
+    "kind": "identity",
+    "path": null,
+    "source": null,
+    "preserve": [],
+    "exclude": [],
+    "selected": false,
+    "review_status": "not_started",
+    "used_by_shots": []
+  },
+  "storage_management": {
+    "policy": {
+      "check_interval_minutes": 120,
+      "check_after": [
+        "batch",
+        "render",
+        "build",
+        "stage",
+        "failure_or_interruption",
+        "resume",
+        "pause_or_handoff",
+        "before_large_write"
+      ],
+      "growth_warning_gib": 30,
+      "temporary_soft_budget_gib": 60,
+      "free_space_warning_gib": 60,
+      "planned_write_headroom_gib": 10,
+      "project_adjustments_require_recorded_reason": true,
+      "thresholds_are_warning_not_deletion_authority": true,
+      "necessary_growth_requires_cleanup": false
+    },
+    "tracked_paths": [],
+    "last_check_at": null,
+    "next_check_due_at": null,
+    "observations": [],
+    "records": [],
+    "retained_for_rework": []
+  }
+}

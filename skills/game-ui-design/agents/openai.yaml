@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game UI Design"
+  short_description: "Build readable game HUDs, menus and screen flows"
+  default_prompt: "Use $game-ui-design to design and implement the needed HUD and menu flows in my current game, matching its art direction and supported input devices."

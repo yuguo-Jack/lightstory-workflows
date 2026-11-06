@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightstory-workflows"
+version = "0.1.0"
+description = "LightStory: local-first game and video production methods, Skills and ComfyUI workflow adapters"
+requires-python = ">=3.11"
+license = {text = "MIT; separately licensed components are listed in THIRD_PARTY_NOTICES.md"}
+authors = [{name = "yuguo-Jack"}]
+readme = "README.md"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/yuguo-Jack/lightstory-workflows"
+Documentation = "https://github.com/yuguo-Jack/lightstory-workflows/blob/main/docs/installation.md"
+Issues = "https://github.com/yuguo-Jack/lightstory-workflows/issues"
+
+[project.optional-dependencies]
+windows = ["psutil>=6,<8"]
+asset-checks = ["numpy>=1.26", "Pillow>=10", "trimesh>=4"]
+dev = ["PyYAML>=6,<7"]
+
+[project.scripts]
+lightstory = "lightstory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

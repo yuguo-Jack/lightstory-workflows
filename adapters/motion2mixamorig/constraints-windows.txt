@@ -1,0 +1,5 @@
+# Original host's small isolated dependency overrides; review against your CUDA/Torch.
+# Torch remains explicitly managed in the external inference environment.
+numpy==1.26.4
+opencv-python==4.11.0.86
+gvhmr==1.6.1

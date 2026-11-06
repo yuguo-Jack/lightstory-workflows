@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Production Workflows"
+  short_description: "Plan, generate, edit, and finish local AI video"
+  default_prompt: "Use $video-production-workflows to turn my script and style references into a finished video with the local production pipeline."

@@ -1,0 +1,15 @@
+diff --git a/director/segment_cache.py b/director/segment_cache.py
+index ce2d53c..0f0da80 100644
+--- a/director/segment_cache.py
++++ b/director/segment_cache.py
+@@ -217,7 +217,9 @@ def _cache_dir(key: Any) -> Path:
+     token = _sanitize_dir_token(key)
+     if not token:
+         raise ValueError(f"unsafe or empty segment cache key: {key!r}")
+-    return Path(folder_paths.get_output_directory()) / CACHE_ROOT_DIRNAME / token
++    override = os.environ.get("COMFYUI_H3_CACHE_DIR", "").strip()
++    root = Path(override).expanduser() if override else Path(folder_paths.get_output_directory()) / CACHE_ROOT_DIRNAME
++    return root / token
+ 
+ 
+ def _cache_dir_or_none(key: Any) -> Path | None:

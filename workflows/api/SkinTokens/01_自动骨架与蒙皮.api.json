@@ -1,0 +1,68 @@
+{
+  "1": {
+    "class_type": "Load3DAdvanced",
+    "inputs": {
+      "model_file": "UPLOAD_GLB_1.glb",
+      "viewport_state": {},
+      "width": 768,
+      "height": 768
+    },
+    "_meta": {
+      "title": "① 上传 GLB；替换示例输入"
+    }
+  },
+  "2": {
+    "class_type": "SkinTokensLoader",
+    "inputs": {
+      "model": "articulation (GRPO)"
+    },
+    "_meta": {
+      "title": "官方 TokenRig GRPO＋Skin VAE"
+    }
+  },
+  "3": {
+    "class_type": "SkinTokensRig",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "mesh": [
+        "1",
+        0
+      ],
+      "filename_prefix": "skintokens/01_自动骨架与蒙皮/intermediate",
+      "relabel": true,
+      "convention": "Mixamo",
+      "relabel_fingers": true,
+      "clean_weights": true,
+      "use_transfer": true,
+      "use_postprocess": true,
+      "use_skeleton": false,
+      "top_k": 5,
+      "top_p": 0.95,
+      "temperature": 1.0,
+      "repetition_penalty": 2.0,
+      "num_beams": 10
+    },
+    "_meta": {
+      "title": "② 自动骨架与蒙皮"
+    }
+  },
+  "4": {
+    "class_type": "Save3DAdvanced",
+    "inputs": {
+      "model_3d": [
+        "3",
+        0
+      ],
+      "filename_prefix": "SkinTokens/01_自动骨架与蒙皮/model",
+      "viewport_state": {},
+      "width": 768,
+      "height": 768
+    },
+    "_meta": {
+      "title": "③ 保存成品 GLB／预览"
+    }
+  }
+}

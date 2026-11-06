@@ -1,0 +1,49 @@
+# Machine configuration, acquired dependencies and production data
+.lightstory/
+.local/
+config/local*.json
+config/*.private.json
+.env
+.env.*
+!.env.example
+/projects/
+/runtime/
+/downloads/
+/outputs/
+models/cache/
+third_party/checkouts/
+# Authoring notes are local, not public project documentation
+task_plan.md
+findings.md
+progress.md
+# Python/build/editor artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.DS_Store
+Thumbs.db
+.vscode/
+# Never publish weights, personal media, dumps or download fragments
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+*.pkl
+*.npz
+*.blend
+*.blend1
+*.fbx
+*.glb
+*.mp4
+*.wav
+*.flac
+*.dmp
+*.part
+*.log

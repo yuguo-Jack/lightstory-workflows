@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "paths": {
+    "state_root": "${REPO}/.lightstory",
+    "projects_root": "E:/LightStory/Projects",
+    "tools_root": "D:/codex/tools",
+    "comfyui_root": "E:/Applications/ComfyUI",
+    "models_root": "E:/AI-Models/ComfyUI",
+    "input_root": "E:/LightStory/ComfyInput",
+    "output_root": "E:/LightStory/ComfyOutput",
+    "workflow_root": "E:/Applications/ComfyUI/user/default/workflows",
+    "model_cache_root": "E:/AI-Models/cache",
+    "motion2mixamorig_root": "D:/codex/tools/Motion2MixamoRig"
+  },
+  "executables": {
+    "python": "python",
+    "comfyui_python": "E:/Applications/ComfyUI/.venv/Scripts/python.exe",
+    "blender": "E:/Applications/Blender/blender.exe",
+    "unreal_editor": "E:/Applications/Unreal/Engine/Binaries/Win64/UnrealEditor.exe",
+    "motion_python": "D:/codex/tools/Motion2MixamoRig/.venv/Scripts/python.exe",
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe"
+  },
+  "services": {"comfyui_url": "http://127.0.0.1:8188", "preview_port": 8192},
+  "installation": {"workflow_namespace": "LightStory"},
+  "dependency_paths": {},
+  "resources": {"reserve_commit_gib": 6, "reserve_ram_gib": 2.5, "heavy_minimum_commit_gib": 63, "serial_gpu_jobs": true},
+  "cleanup": {"check_hours": 2, "growth_gib": 30, "total_temporary_gib": 60, "minimum_free_gib": 60, "allow_necessary_growth": true}
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ComfyUI Local Workflows"
+  short_description: "按场景选用本机图像、视频、三维、配音与配乐流程，检查结果并清理任务临时文件"
+  default_prompt: "使用 $comfyui-local-workflows，根据我的目标选择本机最合适的已部署工作流，完成生成、检查输出并清理不再使用的任务临时文件，说明实际参数与限制。"

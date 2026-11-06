@@ -1,0 +1,315 @@
+diff --git a/nodes.py b/nodes.py
+index 9a1564d..12ccc90 100644
+--- a/nodes.py
++++ b/nodes.py
+@@ -23,6 +23,8 @@ NODE_CLASS_MAPPINGS at startup; that must never require a GPU or the model.
+ from __future__ import annotations
+ 
+ import os
++import json
++from pathlib import Path
+ from typing import Tuple
+ 
+ from skintokens.comfy_types import (
+@@ -45,25 +47,29 @@ CATEGORY = "SkinTokens"
+ 
+ 
+ def _output_dir() -> str:
+-    """ComfyUI output directory, or the CWD when running outside ComfyUI."""
++    """ComfyUI staging directory; Save 3D writes the retained final output."""
+     try:
+         import folder_paths
+ 
+-        return folder_paths.get_output_directory()
++        return folder_paths.get_temp_directory()
+     except Exception:
+         return os.getcwd()
+ 
+ 
+ def _unique_output_path(filename: str) -> str:
+     """An output path in the ComfyUI output dir, avoiding clobbering existing files."""
+-    out_dir = _output_dir()
++    out_dir = os.path.abspath(_output_dir())
+     os.makedirs(out_dir, exist_ok=True)
+     base, ext = os.path.splitext(filename)
+     ext = ext or ".glb"
+-    path = os.path.join(out_dir, base + ext)
++    path = os.path.abspath(os.path.join(out_dir, base + ext))
++    if os.path.commonpath([out_dir, path]) != out_dir:
++        raise ValueError("SkinTokens output prefix must stay inside the ComfyUI output directory")
++    os.makedirs(os.path.dirname(path), exist_ok=True)
++    base = os.path.splitext(path)[0]
+     n = 1
+     while os.path.exists(path):
+-        path = os.path.join(out_dir, f"{base}_{n:03d}{ext}")
++        path = f"{base}_{n:03d}{ext}"
+         n += 1
+     return path
+ 
+@@ -96,9 +102,14 @@ class SkinTokensLoader:
+         from skintokens.model_loader import load_model
+ 
+         offload_device = mm.unet_offload_device()
++        config_path = Path(__file__).with_name("local_config.json")
++        local_config = json.loads(config_path.read_text(encoding="utf-8")) if config_path.is_file() else {}
++        models_dir = os.environ.get("SKINTOKENS_MODELS_DIR") or local_config.get("models_dir")
+         bundle = load_model(
+             device=offload_device,  # load to CPU; ComfyUI moves it to GPU on demand
+             tokenrig_ckpt=MODELS[model],
++            models_dir=Path(models_dir) if models_dir else None,
++            download=bool(local_config.get("allow_download", True)),
+             # models_dir=None -> shared HF cache (respects HF_HOME); auto-downloads.
+         )
+         return (wrap_for_comfy(bundle),)
+@@ -191,7 +202,8 @@ class SkinTokensRig:
+                 "(expected a ComfyUI MESH or a FILE_3D_* object)"
+             )
+ 
+-        if relabel:
++        keep_input_skeleton = use_skeleton and use_transfer and in_path is not None
++        if relabel and not keep_input_skeleton:
+             relabel_mod.relabel_asset(
+                 rigged,
+                 convention=_CONVENTION_KEY[convention],
+@@ -200,9 +212,16 @@ class SkinTokensRig:
+ 
+         out_path = _unique_output_path(filename_prefix + ".glb")
+         if use_transfer and in_path is not None:
+-            from skintokens.transfer import transfer_rigging
+-
+-            transfer_rigging(rigged, in_path, out_path)
++            from skintokens.transfer import transfer_rigging, transfer_weights_to_existing_skeleton
++
++            if keep_input_skeleton:
++                transfer_weights_to_existing_skeleton(rigged, in_path, out_path)
++                if relabel:
++                    glb_io.relabel_glb(out_path, out_path,
++                                       convention=_CONVENTION_KEY[convention],
++                                       with_fingers=relabel_fingers)
++            else:
++                transfer_rigging(rigged, in_path, out_path)
+         else:
+             glb_io.export_glb(rigged, out_path)
+ 
+diff --git a/skintokens/glb_io.py b/skintokens/glb_io.py
+index dfe3b6a..9b52f50 100644
+--- a/skintokens/glb_io.py
++++ b/skintokens/glb_io.py
+@@ -254,7 +254,11 @@ def _skeleton_from_gltf(g) -> Tuple[np.ndarray, np.ndarray, List[int]]:
+     """
+     if not g.skins:
+         raise ValueError("glTF has no skin (not a rigged mesh)")
+-    joint_nodes = list(g.skins[0].joints)
++    active_skins = {n.skin for n in g.nodes if n.mesh is not None and n.skin is not None}
++    if len({tuple(g.skins[i].joints) for i in active_skins}) > 1:
++        raise ValueError("Process one active skeleton at a time; split a multi-rig scene into separate assets")
++    selected_skin = next(iter(active_skins)) if active_skins else 0
++    joint_nodes = list(g.skins[selected_skin].joints)
+ 
+     parent_of = {}
+     for i, node in enumerate(g.nodes):
+@@ -273,6 +277,8 @@ def _skeleton_from_gltf(g) -> Tuple[np.ndarray, np.ndarray, List[int]]:
+                 [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
+                 [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)],
+             ]
++        if node.scale:
++            m[:3, :3] = m[:3, :3] @ np.diag(node.scale)
+         m[:3, 3] = node.translation or [0.0, 0.0, 0.0]
+         return m
+ 
+@@ -351,7 +357,8 @@ def load_asset_with_skeleton(path: PathLike, cls: str = "articulation") -> Asset
+     (joints/parents/joint_names), setting ``matrix_local`` from the joints so the
+     tokenizer can encode the existing skeleton for the skin-only path.
+     """
+-    asset = load_asset(path, cls=cls)
++    from .transfer import load_rest_asset
++    asset = load_rest_asset(path, cls=cls)
+     joints, parents, names = import_skeleton(path)
+     J = joints.shape[0]
+     matrix_local = np.tile(np.eye(4, dtype=np.float32), (J, 1, 1))
+diff --git a/skintokens/infer.py b/skintokens/infer.py
+index 7d193d6..20f8137 100644
+--- a/skintokens/infer.py
++++ b/skintokens/infer.py
+@@ -230,6 +230,13 @@ def rig_asset(
+     if rigged is None:
+         raise RuntimeError("predict_step returned no asset")
+ 
++    if has_skeleton:
++        if not np.array_equal(rigged.parents, asset.parents):
++            raise ValueError('Skeleton tokenization changed the joint hierarchy; simplify coincident joints before skinning')
++        # TokenRig creates a new Asset and omits the input's names. Its fixed
++        # skeleton prefix retains this prepared order, so restore the names.
++        rigged.joint_names = list(asset.joint_names)
++
+     if use_postprocess:
+         from .postprocess import apply_voxel_postprocess
+ 
+diff --git a/skintokens/model_loader.py b/skintokens/model_loader.py
+index f729d59..d784ef4 100644
+--- a/skintokens/model_loader.py
++++ b/skintokens/model_loader.py
+@@ -97,6 +97,17 @@ def resolve_weights(
+     HF auth (for gated repos) is picked up automatically from the ambient token
+     (``huggingface-cli login`` / ``$HF_TOKEN``); we never handle it directly.
+     """
++    # Prefer explicitly staged/verified model files without network metadata calls.
++    if models_dir is not None:
++        base = Path(models_dir)
++        qwen = base / "Qwen3-0.6B"
++        if not (qwen / "config.json").is_file():
++            qwen = base / "models" / "Qwen3-0.6B"
++        tokenrig = base / tokenrig_ckpt
++        skin_vae = base / DEFAULT_SKIN_VAE_CKPT
++        if tokenrig.is_file() and skin_vae.is_file() and (qwen / "config.json").is_file():
++            return {"tokenrig": str(tokenrig.resolve()), "skin_vae": str(skin_vae.resolve()),
++                    "qwen_dir": str(qwen.resolve())}
+     from huggingface_hub import hf_hub_download, snapshot_download
+ 
+     local_files_only = not download
+diff --git a/skintokens/transfer.py b/skintokens/transfer.py
+index ab8f9e0..eddb0ac 100644
+--- a/skintokens/transfer.py
++++ b/skintokens/transfer.py
+@@ -142,6 +142,9 @@ def _read_accessor(gltf, blob: bytes, accessor_index: int) -> np.ndarray:
+     for i in range(acc.count):
+         start = base + i * stride
+         out[i] = np.frombuffer(blob, dtype=dtype, count=ncomp, offset=start)
++    if acc.normalized and np.issubdtype(out.dtype, np.integer):
++        limit = np.iinfo(out.dtype).max
++        out = np.maximum(out.astype(np.float64) / limit, -1.0)
+     return out
+ 
+ 
+@@ -205,6 +208,106 @@ def _skin_for_targets(
+     return source_skin[idx]
+ 
+ 
++def rest_world_vertices(g, blob, node_i, prim, parent_of=None, cache=None):
++    """Actual glTF bind/rest geometry, including skin inverse binds and joint scales."""
++    parent_of = _node_parents(g) if parent_of is None else parent_of
++    cache = {} if cache is None else cache
++    node = g.nodes[node_i]
++    v = _read_accessor(g, blob, prim.attributes.POSITION).astype(np.float64)
++    if node.skin is None or prim.attributes.JOINTS_0 is None:
++        m = _world_matrix(g, parent_of, node_i, cache)
++        return v @ m[:3, :3].T + m[:3, 3]
++    skin = g.skins[node.skin]
++    ibm = (_read_accessor(g, blob, skin.inverseBindMatrices).reshape(-1,4,4).transpose(0,2,1)
++           if skin.inverseBindMatrices is not None else np.tile(np.eye(4),(len(skin.joints),1,1)))
++    palette = np.stack([_world_matrix(g,parent_of,i,cache) for i in skin.joints]) @ ibm
++    vh = np.c_[v,np.ones(len(v))]
++    result = np.zeros((len(v),4));sums=np.zeros(len(v))
++    sets = sorted(k for k,val in vars(prim.attributes).items() if k.startswith('WEIGHTS_') and val is not None)
++    for key in sets:
++        weights = _read_accessor(g,blob,getattr(prim.attributes,key)).astype(np.float64)
++        joints = _read_accessor(g,blob,getattr(prim.attributes,key.replace('WEIGHTS_','JOINTS_'))).astype(np.int64)
++        for k in range(weights.shape[1]):
++            result += weights[:,k,None] * np.einsum('nij,nj->ni',palette[joints[:,k]],vh)
++        sums += weights.sum(1)
++    if (sums < 1e-8).any():
++        raise ValueError('Input bind rig contains unweighted vertices; repair it before reweighting')
++    return result[:,:3] / sums[:,None]
++
++
++def load_rest_asset(path, cls='articulation'):
++    """Build model input in bind/world space; trimesh alone does not evaluate glTF skins."""
++    from pygltflib import GLTF2
++    g=GLTF2().load_binary(str(path));blob=g.binary_blob();parent_of=_node_parents(g);cache={}
++    vertices=[];faces=[];names=[];offset=0
++    for i,node in enumerate(g.nodes):
++        if node.mesh is None:continue
++        for prim in g.meshes[node.mesh].primitives:
++            if prim.mode not in (None,4):raise ValueError('Triangulate input primitives before existing-skeleton skinning')
++            v=rest_world_vertices(g,blob,i,prim,parent_of,cache)
++            idx=_read_accessor(g,blob,prim.indices).reshape(-1) if prim.indices is not None else np.arange(len(v))
++            vertices.append(v);faces.append(idx.reshape(-1,3)+offset);names.append(node.name or str(i));offset+=len(v)
++    a=Asset(vertices=np.vstack(vertices).astype(np.float32),faces=np.vstack(faces).astype(np.int64),mesh_names=names,cls=cls,path=str(path))
++    a.build_normals()
++    return a
++
++
++def transfer_weights_to_existing_skeleton(source_asset: Asset, target_path: PathLike,
++                                         export_path: PathLike) -> None:
++    """Reweight an existing single-skeleton GLB without recreating its bind rig.
++
++    Geometry, joint nodes, bone axes, inverse binds, and existing animation data
++    remain unchanged. Model columns are matched by joint name after its ordering
++    transform, then normalized/top-four packed in the original skin's order.
++    """
++    from pygltflib import GLTF2
++
++    g = GLTF2().load_binary(str(target_path))
++    active = {n.skin for n in g.nodes if n.mesh is not None and n.skin is not None}
++    if not active or len({tuple(g.skins[i].joints) for i in active}) != 1:
++        raise ValueError("Existing-skeleton skinning requires one active skeleton; split multi-rig scenes into separate assets")
++    skin_index = next(iter(active))
++    names = [g.nodes[i].name for i in g.skins[skin_index].joints]
++    source_names = list(source_asset.joint_names or [])
++    if len(set(names)) != len(names) or len(set(source_names)) != len(source_names):
++        raise ValueError("Existing-skeleton skinning requires unique joint names")
++    if set(names) != set(source_names):
++        raise ValueError("Predicted skeleton names differ from the supplied skeleton; refusing to change the bind rig")
++    columns = np.asarray([source_names.index(name) for name in names], dtype=np.int64)
++    blob = bytearray(g.binary_blob() or b'')
++    parent_of = _node_parents(g)
++    cache = {}
++    parts = []
++    for node_i, node in enumerate(g.nodes):
++        if node.mesh is None:
++            continue
++        m = _world_matrix(g, parent_of, node_i, cache)
++        for prim in g.meshes[node.mesh].primitives:
++            world = rest_world_vertices(g, blob, node_i, prim, parent_of, cache)
++            parts.append((node.skin, prim, world))
++    target_vertices = np.vstack([v for _, _, v in parts])
++    source_vertices = np.asarray(source_asset.vertices, dtype=np.float64)
++    transform = estimate_similarity_transform(source_vertices, target_vertices)
++    aligned = source_vertices @ transform[:3, :3].T + transform[:3, 3]
++    source_weights = np.asarray(source_asset.skin)[:, columns]
++    for node_skin, prim, world in parts:
++        if node_skin is None:
++            continue  # unbound props remain unbound; attaching props is a separate operation
++        dense = _skin_for_targets(aligned, source_weights, world)
++        joints, weights = pack_top4(dense)
++        prim.attributes.JOINTS_0 = _accessor(g, blob, joints, _UNSIGNED_SHORT, 'VEC4', 34962)
++        prim.attributes.WEIGHTS_0 = _accessor(g, blob, weights, _FLOAT, 'VEC4', 34962)
++        # More-than-four original influence sets must not remain active.
++        for attribute in list(vars(prim.attributes)):
++            if attribute.startswith(('JOINTS_', 'WEIGHTS_')) and attribute not in ('JOINTS_0', 'WEIGHTS_0'):
++                setattr(prim.attributes, attribute, None)
++    while len(blob) % 4:
++        blob.append(0)
++    g.buffers[0].byteLength = len(blob)
++    g.set_binary_blob(bytes(blob))
++    g.save_binary(str(export_path))
++
++
+ def transfer_rigging(
+     source_asset: Asset,
+     target_path: PathLike,
+diff --git a/skintokens/weight_repair.py b/skintokens/weight_repair.py
+index 38d924d..3161465 100644
+--- a/skintokens/weight_repair.py
++++ b/skintokens/weight_repair.py
+@@ -296,9 +296,7 @@ def repair_glb(
+         joints = list(skin.joints)
+         joint_names = [g.nodes[n].name or f"joint_{k}" for k, n in enumerate(joints)]
+         ibm = _read_accessor(g, blob_ro, skin.inverseBindMatrices).astype(np.float64)
+-        joint_world = np.array([
+-            np.linalg.inv(ibm[k].reshape(4, 4).T)[:3, 3] for k in range(len(joints))
+-        ])
++        joint_world = np.array([world[n][:3, 3] for n in joints])
+         hop = _hop_distance_matrix(g, joints)
+         node_world = world[g.nodes.index(node)]
+ 
+@@ -306,7 +304,8 @@ def repair_glb(
+             if prim.attributes.JOINTS_0 is None or prim.attributes.WEIGHTS_0 is None:
+                 continue
+             pos_local = _read_accessor(g, blob_ro, prim.attributes.POSITION).astype(np.float64)
+-            pos_world = pos_local @ node_world[:3, :3].T + node_world[:3, 3]
++            from .transfer import rest_world_vertices
++            pos_world = rest_world_vertices(g, blob_ro, g.nodes.index(node), prim)
+             J0 = _read_accessor(g, blob_ro, prim.attributes.JOINTS_0)
+             W0 = _read_accessor(g, blob_ro, prim.attributes.WEIGHTS_0).astype(np.float64)
+ 

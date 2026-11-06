@@ -1,0 +1,46 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ming-3.0_audio_vae.safetensors"
+    }
+  },
+  "3": {
+    "class_type": "MingScript",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ],
+      "script": "1 (voice=灵小柔): 你好，我们现在开始录制。\n[pause 0.5]\n2 (voice=灵小锋): 好的，我准备好了。",
+      "language": "Chinese",
+      "seed": 7,
+      "cfg": 2.0,
+      "gap": 0.25,
+      "flow_steps": 10,
+      "temperature": 0.0
+    }
+  },
+  "4": {
+    "class_type": "SaveAudioAdvanced",
+    "inputs": {
+      "audio": [
+        "3",
+        0
+      ],
+      "filename_prefix": "Ming-3.0-TTS/多角色对白",
+      "format": "flac"
+    }
+  }
+}

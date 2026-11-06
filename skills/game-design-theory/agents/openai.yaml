@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Design Theory"
+  short_description: "Design core loops and test gameplay hypotheses"
+  default_prompt: "Use $game-design-theory to refine my gameplay goals into rules, meaningful decisions, and a playable validation plan, preserving my intended experience."

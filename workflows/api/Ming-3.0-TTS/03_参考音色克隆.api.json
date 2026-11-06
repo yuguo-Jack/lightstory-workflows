@@ -1,0 +1,99 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ming-3.0_audio_vae.safetensors"
+    }
+  },
+  "6": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": ""
+    }
+  },
+  "7": {
+    "class_type": "TrimAudioDuration",
+    "inputs": {
+      "audio": [
+        "6",
+        0
+      ],
+      "start_index": 0.0,
+      "duration": 8.0
+    }
+  },
+  "8": {
+    "class_type": "MingReferenceVoice",
+    "inputs": {
+      "vae": [
+        "2",
+        0
+      ],
+      "audio": [
+        "7",
+        0
+      ],
+      "transcript": "",
+      "max_seconds": 8.0
+    }
+  },
+  "3": {
+    "class_type": "MingTTS",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ],
+      "text": "你好，今天的天气很好。让我们放慢脚步，一起开始新的故事。",
+      "task": "speak",
+      "language": "Chinese",
+      "seed": 7,
+      "cfg": 2.0,
+      "flow_steps": 10,
+      "temperature": 0.0,
+      "sigma": 0.25,
+      "split_text": true,
+      "max_fragment_length": 50,
+      "continuity": true,
+      "voice": [
+        "8",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "2",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "SaveAudioAdvanced",
+    "inputs": {
+      "audio": [
+        "4",
+        0
+      ],
+      "filename_prefix": "Ming-3.0-TTS/03_参考音色克隆",
+      "format": "flac"
+    }
+  }
+}

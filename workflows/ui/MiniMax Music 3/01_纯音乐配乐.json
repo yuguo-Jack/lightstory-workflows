@@ -1,0 +1,712 @@
+{
+  "last_node_id": 13,
+  "last_link_id": 15,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_music3_dit_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_music3_dit_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      },
+      "title": "UNETLoader"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        390,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      },
+      "title": "CLIPLoader"
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        780,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            9,
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_music3_dav.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_music3_dav.safetensors"
+      },
+      "title": "VAELoader"
+    },
+    {
+      "id": 4,
+      "type": "MiniMaxMusic3TextEncode",
+      "pos": [
+        1170,
+        0
+      ],
+      "size": [
+        350,
+        330
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            2,
+            5
+          ]
+        },
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxMusic3TextEncode"
+      },
+      "widgets_values": [
+        "Global Metadata: cinematic ambient, 88 BPM, D major. Calm opening, gentle emotional rise, resolved ending. Clear, natural, spacious production.\n\nVocal Details: Strictly instrumental, no singing, no spoken words, no humming, no choir.\n\nArrangement: piano and warm strings, subtle percussion enters gradually; a coherent theme returns in the middle, instruments thin out into a complete ending.",
+        "[Intro]\n[Instrumental]\n[Outro]",
+        7,
+        "fixed",
+        30.0,
+        1.7,
+        50
+      ],
+      "widgets_values_named": {
+        "caption": "Global Metadata: cinematic ambient, 88 BPM, D major. Calm opening, gentle emotional rise, resolved ending. Clear, natural, spacious production.\n\nVocal Details: Strictly instrumental, no singing, no spoken words, no humming, no choir.\n\nArrangement: piano and warm strings, subtle percussion enters gradually; a coherent theme returns in the middle, instruments thin out into a complete ending.",
+        "lyrics": "[Intro]\n[Instrumental]\n[Outro]",
+        "seed": 7,
+        "control_after_generate": "fixed",
+        "max_duration": 30.0,
+        "cfg_scale": 1.7,
+        "top_k": 50
+      },
+      "title": "MiniMaxMusic3TextEncode"
+    },
+    {
+      "id": 5,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        0,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "ConditioningZeroOut"
+    },
+    {
+      "id": 6,
+      "type": "EmptyMiniMaxMusic3LatentAudio",
+      "pos": [
+        390,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seconds",
+          "type": "FLOAT",
+          "link": 3,
+          "widget": {
+            "name": "seconds"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyMiniMaxMusic3LatentAudio"
+      },
+      "widgets_values": [
+        120.0,
+        1
+      ],
+      "widgets_values_named": {
+        "seconds": 120.0,
+        "batch_size": 1
+      },
+      "title": "EmptyMiniMaxMusic3LatentAudio"
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        780,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 4
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            8,
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        7,
+        "fixed",
+        30,
+        1.7,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "widgets_values_named": {
+        "seed": 7,
+        "control_after_generate": "fixed",
+        "steps": 30,
+        "cfg": 1.7,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1.0
+      },
+      "title": "KSampler"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1170,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 8
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "VAEDecodeAudio"
+    },
+    {
+      "id": 9,
+      "type": "VAEDecodeAudioTiled",
+      "pos": [
+        0,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 10
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudioTiled"
+      },
+      "widgets_values": [
+        1536,
+        64
+      ],
+      "widgets_values_named": {
+        "tile_size": 1536,
+        "overlap": 64
+      },
+      "title": "VAEDecodeAudioTiled"
+    },
+    {
+      "id": 10,
+      "type": "PrimitiveBoolean",
+      "pos": [
+        390,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveBoolean"
+      },
+      "widgets_values": [
+        true
+      ],
+      "widgets_values_named": {
+        "value": true
+      },
+      "title": "PrimitiveBoolean"
+    },
+    {
+      "id": 11,
+      "type": "ComfySwitchNode",
+      "pos": [
+        780,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "switch",
+          "type": "BOOLEAN",
+          "link": 14,
+          "widget": {
+            "name": "switch"
+          }
+        },
+        {
+          "name": "on_false",
+          "type": "COMFY_MATCHTYPE_V3",
+          "link": 12,
+          "shape": 7
+        },
+        {
+          "name": "on_true",
+          "type": "COMFY_MATCHTYPE_V3",
+          "link": 13,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "COMFY_MATCHTYPE_V3",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "widgets_values": [
+        0
+      ],
+      "widgets_values_named": {
+        "switch": 0
+      },
+      "title": "ComfySwitchNode"
+    },
+    {
+      "id": 12,
+      "type": "SaveAudioAdvanced",
+      "pos": [
+        1170,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveAudioAdvanced"
+      },
+      "widgets_values": [
+        "MiniMax Music 3/01_纯音乐配乐",
+        "flac"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "MiniMax Music 3/01_纯音乐配乐",
+        "format": "flac"
+      },
+      "title": "SaveAudioAdvanced"
+    },
+    {
+      "id": 13,
+      "type": "MarkdownNote",
+      "pos": [
+        -200,
+        -480
+      ],
+      "size": [
+        950,
+        400
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "properties": {},
+      "widgets_values": [
+        "# 01_纯音乐配乐\n\n双 INT8；默认30秒、batch=1、30步、Euler/simple，来自官方模板参数起点。修改 Caption 的曲风/情绪/配器，Lyrics 的歌词与段落标签。\n解码开关开=分块（省显存），关=整段解码（显存足够时对照接缝/质量）。时长是上限，可能提前结束；节奏、配器和结构并非严格保证。纯音乐仍需检查非预期人声。\n输出32kHz立体声 FLAC 无损。权重未完成；显存、耗时和音质尚待本机验证。"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      4,
+      0,
+      5,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      4,
+      1,
+      6,
+      0,
+      "FLOAT"
+    ],
+    [
+      4,
+      1,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      5,
+      4,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      5,
+      0,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      6,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      8,
+      7,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      9,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      7,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      11,
+      3,
+      0,
+      9,
+      1,
+      "VAE"
+    ],
+    [
+      12,
+      8,
+      0,
+      11,
+      1,
+      "AUDIO"
+    ],
+    [
+      13,
+      9,
+      0,
+      11,
+      2,
+      "AUDIO"
+    ],
+    [
+      14,
+      10,
+      0,
+      11,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      15,
+      11,
+      0,
+      12,
+      0,
+      "COMFY_MATCHTYPE_V3"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.65,
+      "offset": [
+        250,
+        150
+      ]
+    },
+    "workflow_library": {
+      "model": "MiniMax Music 3",
+      "function": "01_纯音乐配乐",
+      "status": "权重待下载；官方模板链路结构检查",
+      "guide": "${LIGHTSTORY_ROOT}\\README.md"
+    }
+  },
+  "version": 0.4
+}

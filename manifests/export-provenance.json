@@ -1,0 +1,1433 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-11-06",
+  "files": [
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/SKILL.md",
+      "source_sha256": "0a0ee2fac7e50890d28fac0a7daca690299f308d0f2fb83c3440ee58ac7bbc92",
+      "sha256": "d220b678cea2e7fd383dde3a766a2925bd0c5059513d924b07346e86b27e4805",
+      "import_sha256": "19b52eb3366cca11f0ca86121c4d9b55135749740b21e44e72d06fe0eac6a457"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/agents/openai.yaml",
+      "source_sha256": "ceeec582119f1077abeb08ebd2662d133d3e15084f96b14b872a60102431eefc",
+      "sha256": "83f01a2678cbb708ae03f0ce533b65e7b1a6764a1287e5b70d1b6b16c752fa28",
+      "import_sha256": "383b31ef6a958ad2421a029cb6b989c06d833ab97771673aa65a223536e7f789"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/assets/acceptance-matrix.md",
+      "source_sha256": "35ddc4fad83fe862698c0910a83302bf611a6a183b45ecd4189c2ea251768068",
+      "sha256": "35ddc4fad83fe862698c0910a83302bf611a6a183b45ecd4189c2ea251768068",
+      "import_sha256": "7109021632d028264273a53b3503d99e873857c18f8b8e294cddc9bcfde7039d"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/assets/asset-register.csv",
+      "source_sha256": "895a38445f8bdede5fe651ba6a4f52e8f9eb0005089ea0d4e2af06d94f38cd61",
+      "sha256": "52385df7b1a6e858aa0cd27a5019dec340053870d1109a08d0d4263cebb4089e",
+      "import_sha256": "895a38445f8bdede5fe651ba6a4f52e8f9eb0005089ea0d4e2af06d94f38cd61"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/assets/project-brief.md",
+      "source_sha256": "71577bff1ae978ad0797e5b347f37a15e9aa6304efc2badc07e41f70305f1dc8",
+      "sha256": "71577bff1ae978ad0797e5b347f37a15e9aa6304efc2badc07e41f70305f1dc8",
+      "import_sha256": "45ceb51e8f86e201509b136f74138ce79c358f69ceca3b800542fce5c160024e"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/assets/project-state.json",
+      "source_sha256": "ba56e81be62eb1960b66d2d686c531dcb4661f88012db01c45b4d452768b9e43",
+      "sha256": "394d303f89c7047f9389fa1cc02e8e642073bb8d8ca0c3c1c408533be98ca1b1",
+      "import_sha256": "ba56e81be62eb1960b66d2d686c531dcb4661f88012db01c45b4d452768b9e43"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/asset-production.md",
+      "source_sha256": "59fc23789c4f3c6b5eb56b870a6ffd8ef8ae4404363a1765ba5714e84a627a53",
+      "sha256": "59fc23789c4f3c6b5eb56b870a6ffd8ef8ae4404363a1765ba5714e84a627a53",
+      "import_sha256": "da1338da57f7bb5b62cec3ce61ecef10b19590c2989c091360333c55faccdb43"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/character-animation.md",
+      "source_sha256": "71594c1168deecad62379d9506bbcdb87166bc87ac0880ce71d265783f16128d",
+      "sha256": "71594c1168deecad62379d9506bbcdb87166bc87ac0880ce71d265783f16128d",
+      "import_sha256": "267137beff163143e25b795f28306c37aefd8608f9056fb1e205ddf3cda58feb"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/design-and-art.md",
+      "source_sha256": "fcafb406d438b3a12ee4aab08b9edd9a31c0f1951f6ea6143f75bf85dbfa880a",
+      "sha256": "fcafb406d438b3a12ee4aab08b9edd9a31c0f1951f6ea6143f75bf85dbfa880a",
+      "import_sha256": "22c25ad4bf63d309323406d84d5c7e7b43d2581e262a449ecf8e8e3b38212728"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/levels-and-visuals.md",
+      "source_sha256": "fe188f549572d33e8e6ec48f42c291bb63417269c97e7643bf751f803b29af97",
+      "sha256": "fe188f549572d33e8e6ec48f42c291bb63417269c97e7643bf751f803b29af97",
+      "import_sha256": "ef209498f250b19f91a980be62668b8a0007c79514d764b2d7445ebc079eda62"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/local-environment.md",
+      "source_sha256": "8d8284439366ae8486f9bb9c77bb8e5759cba78a66a218bcd16d2241e86a732d",
+      "sha256": "125dc8b264c6ae80cf6caeb86642ad306043c427f743400f855cc7465b541d62",
+      "import_sha256": "02619f14a8ad8ce7defff455eb3ed4966a3b768c7da410cb25d6d3167090193f"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/presentation.md",
+      "source_sha256": "c4adac6b9c229de7d2a27d4bf5134f82bda3fd261e53936e28ffe9219dfed9f7",
+      "sha256": "c4adac6b9c229de7d2a27d4bf5134f82bda3fd261e53936e28ffe9219dfed9f7",
+      "import_sha256": "f724382bc49f737f00cbc0805bf1e35fd0a527f848b14f71bd0d0e6ada3f3cd4"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/production-cycle.md",
+      "source_sha256": "c1a873dd7f08c643dd7f7d739babcfb670dcb7726a8f5f4a3d4d49624949173f",
+      "sha256": "c1a873dd7f08c643dd7f7d739babcfb670dcb7726a8f5f4a3d4d49624949173f",
+      "import_sha256": "e5fd5c9ebf59fdb291713d5fd56971dbe095d3762539f574c33664cf257139e4"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/project-operations.md",
+      "source_sha256": "e7b3da5a44a8daa537b0c313f049b1d622ed47b1c37c379c8048e1da574c00bc",
+      "sha256": "ebd5490f51ea02d0181e3a184777b5331e3dd22c653c26a9013b6160c87c84cd",
+      "import_sha256": "ad104f0e818080d489f2d816419135565d9926a5727270b10c0fcea6d6cf587b"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/quality-performance-release.md",
+      "source_sha256": "826583c98924636cb58c30ada758188fdb074ce70ae449e027c11f240a2491bf",
+      "sha256": "826583c98924636cb58c30ada758188fdb074ce70ae449e027c11f240a2491bf",
+      "import_sha256": "93216c3c20b44d73542df27c154c47965760206ca6ea0fe9071462693b2d6f32"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/runtime-selection.md",
+      "source_sha256": "1d884cc9852860b55a91b559cd9735e1c61e4ba61a3fb72fa1ff87f49ac38033",
+      "sha256": "1d884cc9852860b55a91b559cd9735e1c61e4ba61a3fb72fa1ff87f49ac38033",
+      "import_sha256": "ce3b921ead094fc5fcf639111cd2de3821bffebdebf40cb363ddcca05ba2b62e"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/sources.md",
+      "source_sha256": "066174c6cfd3c7173f26964723393ff11135093798b66e44fb0ed15443621210",
+      "sha256": "b0cc95b82f59843f28f4326e3f99d7e7b30b116f685da11c86efdd51f7d7c293",
+      "import_sha256": "1709d3fa5c99ee09d49285f18047044cbc36aa4bc963e6b04800e684ea8f70eb"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/references/unreal-implementation.md",
+      "source_sha256": "c73184b1fadb7b801314786a848b26f52e9e045a66d4fbb8a9fb388c2d3b4012",
+      "sha256": "c73184b1fadb7b801314786a848b26f52e9e045a66d4fbb8a9fb388c2d3b4012",
+      "import_sha256": "dfb98c113e841c042de390bc2218472811269ac49a85455c9cda338d8eafd630"
+    },
+    {
+      "component": "skills/game-production-workflows",
+      "file": "skills/game-production-workflows/scripts/probe_local.py",
+      "source_sha256": "4e33e7271e83772014e5d569d4faf6e3dac5338ac7bf90e2c352384b8a47992b",
+      "sha256": "209d9a855faca0ca3a2e4a39f3ffd29f55c3e9b57a8a1318934f5f6174c85b82",
+      "import_sha256": "4e33e7271e83772014e5d569d4faf6e3dac5338ac7bf90e2c352384b8a47992b"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/SKILL.md",
+      "source_sha256": "e43caea0ec61b03029313b8c7c44daa804760ae9feac4cfd23ec844e8393fa18",
+      "sha256": "7a6930f4f908f9fc259aaad7645b46aae61850743108363fa07bbbb3b3c5269e",
+      "import_sha256": "c7f6987ec3e839607e97da5d85f3cedb37116df26ac1f90a2fd6645f0463dc34"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/agents/openai.yaml",
+      "source_sha256": "67c75953b7eff97011403d2c06771e97bad764215d7dfcf5395048d3ac458303",
+      "sha256": "36cf2f72212a3c35205fb84f4464806eeefedf7cebeccd2630b83bb70c8ce18b",
+      "import_sha256": "86378b7faf3ea6aa118f5778a10606b5f6d52c357c4f61cc75c319e83298aa7c"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/assets/acceptance-checklist.md",
+      "source_sha256": "21a119080effc72b0238454afe5ba4f7bb69e4faae33b45a0028d8528baa43b0",
+      "sha256": "21a119080effc72b0238454afe5ba4f7bb69e4faae33b45a0028d8528baa43b0",
+      "import_sha256": "49c680c3a5a86bafa7e946530c3ca64839d9f6aa4f2c401f168c36badf6c1b8a"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/assets/animatic-brief.json",
+      "source_sha256": "c68a372033907e9c237a0c17d4a3c051513dccd5bbcad3523393bc55f0f89354",
+      "sha256": "c68a372033907e9c237a0c17d4a3c051513dccd5bbcad3523393bc55f0f89354",
+      "import_sha256": "c68a372033907e9c237a0c17d4a3c051513dccd5bbcad3523393bc55f0f89354"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/assets/production-brief.md",
+      "source_sha256": "3813a40d8e508ae6253715c99db331968eec7bd70730aad7d766e019d980f319",
+      "sha256": "3813a40d8e508ae6253715c99db331968eec7bd70730aad7d766e019d980f319",
+      "import_sha256": "e380ddd1cf806c2bae7e59cd44540221e5344b0096dd58963e518e333a59d491"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/assets/shot-plan.json",
+      "source_sha256": "e8e712e5b4dbdb73158d8664741c91b2eb06678d945c3688f01be4564ef3a28d",
+      "sha256": "42bb4ab0b43562f048a42abe34f015aa4d63eee46382322a20d3785b54bfa7ea",
+      "import_sha256": "e8e712e5b4dbdb73158d8664741c91b2eb06678d945c3688f01be4564ef3a28d"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/assets/style-and-continuity.md",
+      "source_sha256": "1c641a4e66ca1f27b136f12ab57a4c9bce07b3a9701337839629feab478e3494",
+      "sha256": "1c641a4e66ca1f27b136f12ab57a4c9bce07b3a9701337839629feab478e3494",
+      "import_sha256": "47f9d1f3ff12b9252f2cc03403e391c0074aad34583d096462575e4b94742442"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/audio.md",
+      "source_sha256": "2042e486551e465432f7b3dfa86f2d89835ed8c438b89d98eb5b00905acc1415",
+      "sha256": "2042e486551e465432f7b3dfa86f2d89835ed8c438b89d98eb5b00905acc1415",
+      "import_sha256": "9536764e23d0616f7420bc8aaa318faf7599870c0a58428d7e30d7fb9d78c97d"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/blender-previs.md",
+      "source_sha256": "234ddfd0a25def9053945a6fe689b0ee6a7eedced421811da0af758fb0cf9e8a",
+      "sha256": "234ddfd0a25def9053945a6fe689b0ee6a7eedced421811da0af758fb0cf9e8a",
+      "import_sha256": "a52f82b5024233df2039c64446d6cee62f84920963306553c4f70b4e4edfbefc"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/compositing-and-repair.md",
+      "source_sha256": "321e6fc1a64e001000fcbdea8718957a28768c3efbc9a1aec18687f25247eadd",
+      "sha256": "8a45f41f6f4b80e2775243ecc49049fa0ae63e13a13e2e168e421c18d1ff9f4a",
+      "import_sha256": "05bf3d509449970ca285428c8f2e0d1a5f957acfa2ccea7a7d87cd93ed9a9fca"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/editing.md",
+      "source_sha256": "e6392a0b45a5b121cdd14869ef295938849d5901de9ba0ab75fefd0f8b19781f",
+      "sha256": "e6392a0b45a5b121cdd14869ef295938849d5901de9ba0ab75fefd0f8b19781f",
+      "import_sha256": "16a0fa999f31595a945b773aa690399363fdeb7e1c85440eb7954f4807d1f962"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/finishing.md",
+      "source_sha256": "9e69f7693137b7d7d7bf06daf1d96c658ee0b592b5450af063da182f22dc6761",
+      "sha256": "ab6d4325cf78e6929c6ebd272c13f204da5c68e19771c37acac979257f266a86",
+      "import_sha256": "b82c3d5b2f9eced2bc9b2bdcbae20fa8202893b11d31ffe7d37227e1c241d4f3"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/h3-production.md",
+      "source_sha256": "4fda3a75bc900299967024fafeae32962558a1e67251423fbf3ae8ce209bce00",
+      "sha256": "72e20f3c30e4d9fea5eca51c195c3785676ac03d1f1f88eb7237810ed86237ac",
+      "import_sha256": "251c1a30be236980dc0b4d0ce081325f7f98d7d9f30b585ce2eb7e2cea4b3a18"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/h3-skill-adaptation.md",
+      "source_sha256": "31f43299c26b9ffb0c930cea357163e4cdd6e05abef800b10245533c19e6adcb",
+      "sha256": "8040418d6e0f8f5768fca29422991255ecefa879bdfb5657ba37cdb42fd8d403",
+      "import_sha256": "7db09f38800489e2386fa3c91eac734eb9a3d82de00a57de0446811f11fa432d"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/image-development.md",
+      "source_sha256": "f72f56577b481ff18b0f4e2c96ef884bad3ca73ec4117e57e7c4c8521ffd7457",
+      "sha256": "f72f56577b481ff18b0f4e2c96ef884bad3ca73ec4117e57e7c4c8521ffd7457",
+      "import_sha256": "40308d563967b581bfe0a0a513ffd30bffe5d7b71ed18c730f1129b72d3bafa8"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/local-environment.md",
+      "source_sha256": "4bc1459247436858d028745ee41a90340e1c92e588ff5635732b7e9b24ac6635",
+      "sha256": "e25920bf783443bc4516c07df7247cc334517ff322da5775ea47092f90a4815d",
+      "import_sha256": "47968bb94fdfe2922fd845b629f34763c53d20872c923dbcedf9eadecd59f8af"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/preproduction.md",
+      "source_sha256": "69082c23b7906a99307aed7950199d04f6547ed2af5fdb53c36208671d594694",
+      "sha256": "69082c23b7906a99307aed7950199d04f6547ed2af5fdb53c36208671d594694",
+      "import_sha256": "935e690442ba99632f15ab8a82903772613fd5b2a3c98c3f6155a004d676d298"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/production-routing.md",
+      "source_sha256": "d065822b8f98e59f566d0232bed37207f8856900fb71dba429677341acaf864e",
+      "sha256": "d065822b8f98e59f566d0232bed37207f8856900fb71dba429677341acaf864e",
+      "import_sha256": "061b29cb77cbeda239ebba1f6ada642a69a90c50e33ff9037360039d6f47921e"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/project-operations.md",
+      "source_sha256": "89e2b9e29a6a7eba277291a8fce84f30a61384ecd2db4962dc5341e0e72b8a28",
+      "sha256": "24a87a36597a8f38876dbd67356f17ecccb07882652d750751970d0c0100af0e",
+      "import_sha256": "4cdbfce529d55f6223fe2031ffa03d7bbdf253804a8782ba50960b4b5c920595"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/sources.md",
+      "source_sha256": "fc8b5cdc986d76e073524982f226e71a544f27f487242a889c1ed54373629dd3",
+      "sha256": "296d0f441893ebd1275ec1556445dcd3a2cab287154f163e6ac69d6b5e6f547a",
+      "import_sha256": "cc1d35085a9c4af3eb3c863c68803bfba76da5a6f41e0d0091d7db4d9a46eae7"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/references/style-reference.md",
+      "source_sha256": "8562a02eccd46b956842b5bcf12b2e8d3caafb9332eaf96b7ba435133ed88322",
+      "sha256": "8562a02eccd46b956842b5bcf12b2e8d3caafb9332eaf96b7ba435133ed88322",
+      "import_sha256": "6469933a174fb2593996652b352825f942fb75d7754f00c76aee82059901249e"
+    },
+    {
+      "component": "skills/video-production-workflows",
+      "file": "skills/video-production-workflows/scripts/media_qc.py",
+      "source_sha256": "aaeebfa35f582cd7621e08f42d99b7d7040b7a6fb21bf29f40124dfdcc868001",
+      "sha256": "aaeebfa35f582cd7621e08f42d99b7d7040b7a6fb21bf29f40124dfdcc868001",
+      "import_sha256": "aaeebfa35f582cd7621e08f42d99b7d7040b7a6fb21bf29f40124dfdcc868001"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/SKILL.md",
+      "source_sha256": "f0c7a4d9fa382064034d1fbc8ece2817872c0c4e2d67b02bc5bfe904373ffde2",
+      "sha256": "cbe30de67e5384f0981f2cd580614903c18c4adee5dbaef1c8a13b190da6bde9",
+      "import_sha256": "2631cf90aac12750befed5f6b3147a7602ac47707a50c97072a32a7ef733eca8"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/agents/openai.yaml",
+      "source_sha256": "41eccb0b507bcd3e26bd041d051c2caf48a08ec9cc40f751cd420263ec0fce7a",
+      "sha256": "7f6037a127391bb9211d0d126e80633bbd6f2a08dab1bb907846d4a81b7feb4c",
+      "import_sha256": "d975b3f94e37d4f4fd331362725b1ca7150fd64c32a93fe14dffff58effeec44"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/cleanup.md",
+      "source_sha256": "3b237777e824b7431e6222ab1821df6f836395259b8fee9ce821d42d859885c8",
+      "sha256": "b6d6000d9a5f2b2d7e063808d44aa8ed459b795e8f359e782f7c01bea0afdc2c",
+      "import_sha256": "d818c24cfd9a7b0276f3776e9d424350579965f17d42af4c13975cc1ae27ec2c"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/game-pipeline.md",
+      "source_sha256": "b88a7872efe7e5a42cafa0ff0eab557eb739ec78ae9dc2b335ac82f9dc61b6f6",
+      "sha256": "66237d372b0b531bd8036a41b487a80a067d2db9b090b9f9dd9a118027d359bc",
+      "import_sha256": "8d614dbcdc01bb4bf0a3042fd62e1e1d93d2428c978210dbf35f8d470557c47d"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/h3-controlnet.md",
+      "source_sha256": "b57b23797d140f4c425c116bb7f035f395f081460c51fbabe959f79fa221fb6a",
+      "sha256": "130221036f35e5aa2280557774575396ebd82d9c8d535da965c56c0f9fb3567e",
+      "import_sha256": "40b1834cdbdaac9adc7e40fb4dd020b543a39421e690f5c007bb3b5c6759b4e4"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/h3-extra-loras.md",
+      "source_sha256": "fc02bf5a0d36e4d7179c9e21d16afb6fde8ccebeb0d7010376fe317441490500",
+      "sha256": "025acb1fa9ad1eb586dfac0afddcd1d7916dff84606847e6c57d01c81b4fe1a6",
+      "import_sha256": "56a14784c87ba2edf33fbb3f79c9455bfd43a5f0f0c05717379bf43f0aed352c"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/h3-lora-continuity.md",
+      "source_sha256": "7b4c05883604dde3c1612e09a60d39bf06f502cba3e967aa8f13079d83fc6263",
+      "sha256": "588b5a6ad49ea76c14a447e0fa29344a567eff22d80655ba1b80a9695d5abcbd",
+      "import_sha256": "ceb1d59e6b8b8b5c92ac86e1ad612309444485d927879b7fc0bf5e65debfd086"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/h3-pika-flex.md",
+      "source_sha256": "ca9cb291fde95f30778f680bed0e172ca72356363d298f1d3a39f3950462c2bc",
+      "sha256": "f4d14d952f26c12a45fa9dc492c7d940697a19f719b806f35e47477490c6bb22",
+      "import_sha256": "f14705b44f46b480d2914914c24651e4813362de2d9aaba42030a54065c24581"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/h3.md",
+      "source_sha256": "243a6c3e582cd1b8fd705139e446611239d00f1aa1593d81c9fe14a4b2e70a24",
+      "sha256": "e83e0b4a9c75d2647a5e62066b9ebcef62ec21e227bc99deefc70556811cd915",
+      "import_sha256": "3a35c87d9690152b4c6d798adfc0de0262f249af8b85e9420a76c72c19662403"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/music.md",
+      "source_sha256": "bd0db5ad0273c8d7c742098a0cab47a415007133cc33a784f77bd2335450d51a",
+      "sha256": "b0de44e4c61742f37daf290f3e0f6e9025b2bbe810adc59b0f9593c27568a0a4",
+      "import_sha256": "d0ae09c3f7edc044703c43eca50e55a5d78f65759df0c48c1ada4418f32e95f4"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/pixal3d.md",
+      "source_sha256": "7d32cfcc759475da56adba0816b5180a7523959fc5afb4917bf77e72eca4e502",
+      "sha256": "e6cf7b64b250254fd89ee3a45d01f3eb5222cc1c59617cd2f287892a0a7ea6f0",
+      "import_sha256": "647d41507324aaf35f8a7aaca2ee1f6636e0c98fc3eae46477fa36b13227d71f"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/qwen-extensions.md",
+      "source_sha256": "b4de4bd33cfd3e59d7f2850852ec3afa3d0edc1da366809e002b019291537884",
+      "sha256": "dee5485db5bfa8c7efdf38d170ed17637777eb349f168aa48d152c038934b5d6",
+      "import_sha256": "a285581a8fed85b2f430489e50981c7de840ad9cd85ad6b2f1a819bbef4aa39c"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/qwen.md",
+      "source_sha256": "1eead1c770a5fed0281d3bd4264397d876c94a067dbfddb9d8b12580aa01531f",
+      "sha256": "5c5384b17b1a643ea09d31fca384e0388e8ef36f9af125918caf333c35d1f8a0",
+      "import_sha256": "a77d38e95f1c6620b3ca9068897b8865b5bf52a28972dba4f819af65142be8ee"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/runtime.md",
+      "source_sha256": "4a454aab628dff98566105384b5ac3d4060c5d34c6f8369ea4156fae4f271697",
+      "sha256": "aebae1cf3feb6b653e524bd4690932d172c14bbd70762ca139f0dc07a250ec79",
+      "import_sha256": "aafe9ed8ee374bc891e33f6ca2da372d42846461c62ea001f3120448c3fb9c9c"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/skintokens.md",
+      "source_sha256": "713b05cd8ce75ceec6e158f52b6c5ff2247313f8a8e63c1c28aff2ca4ee07ef7",
+      "sha256": "8ba1f56c2751b16817d47fdccdc9ff7a7f1a9b8c4d769f3dd795e6eb37fd8925",
+      "import_sha256": "3f56cff0968b9af45dc1d8cc4370ff19825a57ede75130870281ece902c14d97"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/references/tts.md",
+      "source_sha256": "832a758e3637862f2651be87b5bc10b59a5271d985b686ef9bf1c9ca5eacdf13",
+      "sha256": "1969ea45f0bfb8fc5a6d6a8ccdf535f26a531fe8a27be674d477fe03afdf313c",
+      "import_sha256": "bed5cb59e01b059bcd3201b7f8bbe1c77a6de469f2a54d59d9882e57785cd568"
+    },
+    {
+      "component": "skills/comfyui-local-workflows",
+      "file": "skills/comfyui-local-workflows/scripts/library.py",
+      "source_sha256": "a40425b316776cb0349988cf13197109ec5b637ff2469eeeb5f1959bf84db9b8",
+      "sha256": "54802b0be8f439988fa13fb8d5f65e0a629b9c0bd8187c18c8ec2e69aa1d6d63",
+      "import_sha256": "a40425b316776cb0349988cf13197109ec5b637ff2469eeeb5f1959bf84db9b8"
+    },
+    {
+      "component": "skills/game-design-theory",
+      "file": "skills/game-design-theory/LICENSE",
+      "source_sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d",
+      "sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d",
+      "import_sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d"
+    },
+    {
+      "component": "skills/game-design-theory",
+      "file": "skills/game-design-theory/SKILL.md",
+      "source_sha256": "b9ff398725af43e6dcbb3aedccdecd99aff33ad350e57bdc48c8dc8b25488543",
+      "sha256": "b9ff398725af43e6dcbb3aedccdecd99aff33ad350e57bdc48c8dc8b25488543",
+      "import_sha256": "2fe888de27c2a68096d55b01f5f1d878bfafdc9df3e03c5dc5e3ceda1b022652"
+    },
+    {
+      "component": "skills/game-design-theory",
+      "file": "skills/game-design-theory/agents/openai.yaml",
+      "source_sha256": "036d9d16f4e07d79da4a39727d99c8df270c8a658fac9172afe3529b36106e16",
+      "sha256": "2f88d66d5911d3bc9e36d404e8400f66d9e71a2a80059a99fa1c8b1bcbde96d5",
+      "import_sha256": "bbbe9cd940044601ca35d13bc6b8c70617fdcbc49bdc824fb448592d12e25aef"
+    },
+    {
+      "component": "skills/game-design-theory",
+      "file": "skills/game-design-theory/assets/design-hypothesis.md",
+      "source_sha256": "020cee6f82e1f4d713d7b33154f0dd087658970b70ac487a2af8eaf24ee1c3cd",
+      "sha256": "020cee6f82e1f4d713d7b33154f0dd087658970b70ac487a2af8eaf24ee1c3cd",
+      "import_sha256": "622177ba5ee456d3ed886aaa4d679e5f9803f02dac2828d5b1d4856c36cfc997"
+    },
+    {
+      "component": "skills/game-design-theory",
+      "file": "skills/game-design-theory/references/design-methods.md",
+      "source_sha256": "fc87bc5869cdb8e0be95185179bdd721299cfe79f4c11e4e404fbab5971fe1c3",
+      "sha256": "fc87bc5869cdb8e0be95185179bdd721299cfe79f4c11e4e404fbab5971fe1c3",
+      "import_sha256": "63e46512ac022f3d788672b3df0aabbd5eb8e620dd07c3302b432b41774179d7"
+    },
+    {
+      "component": "skills/game-design-theory",
+      "file": "skills/game-design-theory/references/sources.md",
+      "source_sha256": "7f1a511fcd53f501256932e050d065262f0ce5b53e51c6329859098d29803c1b",
+      "sha256": "7f1a511fcd53f501256932e050d065262f0ce5b53e51c6329859098d29803c1b",
+      "import_sha256": "37ec7d39e9b120f55c726a526cfade2df303c308953818cb17fe9afbe20ef5b2"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/LICENSE-Donchitos",
+      "source_sha256": "6ecc068715c0edffc4bc21e5dca450803e0a45af145f72221da23d14e7588359",
+      "sha256": "6ecc068715c0edffc4bc21e5dca450803e0a45af145f72221da23d14e7588359",
+      "import_sha256": "6ecc068715c0edffc4bc21e5dca450803e0a45af145f72221da23d14e7588359"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/LICENSE-gamedev",
+      "source_sha256": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c",
+      "sha256": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c",
+      "import_sha256": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/NOTICE-gamedev",
+      "source_sha256": "2dcb65b1c5be24e5ba11e937f3996100f4e980d8cf8ac5b30ba1d70dae6c40f8",
+      "sha256": "2dcb65b1c5be24e5ba11e937f3996100f4e980d8cf8ac5b30ba1d70dae6c40f8",
+      "import_sha256": "2dcb65b1c5be24e5ba11e937f3996100f4e980d8cf8ac5b30ba1d70dae6c40f8"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/SKILL.md",
+      "source_sha256": "0c0434e216ceead632942cb5c51771a2724ab87602f5c4cacff155d3011fdd11",
+      "sha256": "0c0434e216ceead632942cb5c51771a2724ab87602f5c4cacff155d3011fdd11",
+      "import_sha256": "625deb9e9abb5e4d5dcaa1f4dd0f88c13079c2cfc60b6da556ed51772620c478"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/agents/openai.yaml",
+      "source_sha256": "049828dd0adfeb4fd7f04c90be852a0ae804b12fb706c4a2b989eea001cd11b4",
+      "sha256": "191859312c0ed49276b249c99ff25847a8018a59aae6841ba64e7836402e9aad",
+      "import_sha256": "e2af324eae5395114a38a251a311b8cca47fe685fd5feefdcd79b56bdb509ab8"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/assets/art-direction-brief.md",
+      "source_sha256": "3d96865537c188b787a55ec118ac7329e6525513732d565ece200f2af1ba994e",
+      "sha256": "3d96865537c188b787a55ec118ac7329e6525513732d565ece200f2af1ba994e",
+      "import_sha256": "eef67301274de831530ce72f7fac655c3b6fef93528dd252f8e6e690311fad71"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/references/art-direction.md",
+      "source_sha256": "6a32c2ff68f289576f1701ae06d2c6bbc1b1b41a8671786ef59fbd8561c96905",
+      "sha256": "6a32c2ff68f289576f1701ae06d2c6bbc1b1b41a8671786ef59fbd8561c96905",
+      "import_sha256": "2cf16c7c6c805d9d8b1da336f0e491d195e46c0e52007d499e8d85833673b715"
+    },
+    {
+      "component": "skills/game-art-direction",
+      "file": "skills/game-art-direction/references/sources.md",
+      "source_sha256": "e5d3a300bc46d3df756d26dbc993e34ee01af459b23725c2813d5b4e9b98c6c4",
+      "sha256": "e5d3a300bc46d3df756d26dbc993e34ee01af459b23725c2813d5b4e9b98c6c4",
+      "import_sha256": "468baef36ecbac8d325069a1dfa1a1f8624e3305f328f65e7a3e981d932d03f5"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/LICENSE",
+      "source_sha256": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c",
+      "sha256": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c",
+      "import_sha256": "6f82dcfeb95a1c0a0452180a3b16f21bf82111780018fed59d95a052b5b75f6c"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/NOTICE",
+      "source_sha256": "2dcb65b1c5be24e5ba11e937f3996100f4e980d8cf8ac5b30ba1d70dae6c40f8",
+      "sha256": "2dcb65b1c5be24e5ba11e937f3996100f4e980d8cf8ac5b30ba1d70dae6c40f8",
+      "import_sha256": "2dcb65b1c5be24e5ba11e937f3996100f4e980d8cf8ac5b30ba1d70dae6c40f8"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/SKILL.md",
+      "source_sha256": "9c1f26636e9759f1031d6168c966a6480c69c880273d5f00748ff1f548084620",
+      "sha256": "9c1f26636e9759f1031d6168c966a6480c69c880273d5f00748ff1f548084620",
+      "import_sha256": "dbd3b482c85a3c96631b09417e942a64ef3b46146f3d5ee6f0d24d2a8c3d68ed"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/agents/openai.yaml",
+      "source_sha256": "c6e4e3a6a0c3347c1d3b2a9a89ff0a57aa2c43f517fb2c82188f12eec7a133ca",
+      "sha256": "ffb93d8dcfbf0ff4fd0a2043a827fd91971a10a2a49a37fd1920c49f6e89194e",
+      "import_sha256": "5738cd2e6bca723a2389f4f39fb462fc033a39f10b6026cb92e595331c860028"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/references/engine-integration.md",
+      "source_sha256": "25e64370201b526c9491c837fca696ecada53ee2f5d7eee319fbaae5973ec822",
+      "sha256": "25e64370201b526c9491c837fca696ecada53ee2f5d7eee319fbaae5973ec822",
+      "import_sha256": "96eb098b30e60da3dced4753efc2adbafba80ab9f2c5b166f4fae3ff69bf8f9c"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/references/layout-and-flow.md",
+      "source_sha256": "758e22d9d8954c5e8e7cfbaf72eb9e56f07b29dc8715cc38987b2497bb2116c6",
+      "sha256": "758e22d9d8954c5e8e7cfbaf72eb9e56f07b29dc8715cc38987b2497bb2116c6",
+      "import_sha256": "6178250cc38b2e18799a87f015a4d59bf63ff03c0a0339289f20c347bdec4b9d"
+    },
+    {
+      "component": "skills/game-ui-design",
+      "file": "skills/game-ui-design/references/sources.md",
+      "source_sha256": "8a3ae0aacdec0b7a04c44c2066115f35138dfa3dcae2dd583ab559b765e10982",
+      "sha256": "8a3ae0aacdec0b7a04c44c2066115f35138dfa3dcae2dd583ab559b765e10982",
+      "import_sha256": "0ab03e95060a3005a38ee491434f83e6aabd0245eb6a14465170a35736e15dcd"
+    },
+    {
+      "component": "skills/blender-motion-capture",
+      "file": "skills/blender-motion-capture/SKILL.md",
+      "source_sha256": "3f3a292e3f6840a48e62a6f10c88190590b0fa5dec05e4ba7187a298057b4c70",
+      "sha256": "97c115b66b73443a0c557d2a3913073cd9eee70f70598494cb7d11d2289cdb82",
+      "import_sha256": "1f41047fec20af18b31ea05d0de68576564a503a565ebc2b74b082346a5d32ae"
+    },
+    {
+      "component": "skills/blender-motion-capture",
+      "file": "skills/blender-motion-capture/agents/openai.yaml",
+      "source_sha256": "89621d92684964c983f0c9b2bebb396111c1db38c6bd6354b45ca1f831cd6194",
+      "sha256": "89621d92684964c983f0c9b2bebb396111c1db38c6bd6354b45ca1f831cd6194",
+      "import_sha256": "68d3cfc0a7c6414fb4699aa078aa48e69deec3dd3df2fd82096b2a6e102be9de"
+    },
+    {
+      "component": "skills/blender-motion-capture",
+      "file": "skills/blender-motion-capture/references/usage.md",
+      "source_sha256": "76690bdc03100fb270508dfc9011e2686621cf66d0401465c0320c10a209fdd4",
+      "sha256": "6281b62da908566bb655532da14684a8ded79ca089b1147ee4bd791ea4cb00cd",
+      "import_sha256": "75d518e3d932a54b0eb2d3776342a23dac0906447c54888a4ab72e21fc099c89"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-addon-development",
+      "file": "third_party/skills/blender-skills/blender-addon-development/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-addon-development",
+      "file": "third_party/skills/blender-skills/blender-addon-development/SKILL.md",
+      "source_sha256": "072a74e87d433437ec14895312f23bb0f1bf78f9533028297f89d41bdc1df269",
+      "sha256": "072a74e87d433437ec14895312f23bb0f1bf78f9533028297f89d41bdc1df269",
+      "import_sha256": "7f7a16971262d8f655c25b73593dfc4f2d7c4760c0d4edccafed4985ddf7b1df"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-addon-development",
+      "file": "third_party/skills/blender-skills/blender-addon-development/assets/addon_template/blender_manifest.toml",
+      "source_sha256": "18ad0365a8239ace1924bf81073111db4b42caecc70b968c0aa127776707e155",
+      "sha256": "18ad0365a8239ace1924bf81073111db4b42caecc70b968c0aa127776707e155",
+      "import_sha256": "18ad0365a8239ace1924bf81073111db4b42caecc70b968c0aa127776707e155"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-addon-development",
+      "file": "third_party/skills/blender-skills/blender-addon-development/assets/addon_template/operators.py",
+      "source_sha256": "b8ff4aa706c666a814451bf016a6c533e89540bc7168d953b1f9d84d6468eb3f",
+      "sha256": "b8ff4aa706c666a814451bf016a6c533e89540bc7168d953b1f9d84d6468eb3f",
+      "import_sha256": "b8ff4aa706c666a814451bf016a6c533e89540bc7168d953b1f9d84d6468eb3f"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-addon-development",
+      "file": "third_party/skills/blender-skills/blender-addon-development/assets/addon_template/ui.py",
+      "source_sha256": "50e3083d3c94f69d065ee8b8cf05fa9e8b1e86675285d0d6c144307473f19a0f",
+      "sha256": "50e3083d3c94f69d065ee8b8cf05fa9e8b1e86675285d0d6c144307473f19a0f",
+      "import_sha256": "50e3083d3c94f69d065ee8b8cf05fa9e8b1e86675285d0d6c144307473f19a0f"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-addon-development",
+      "file": "third_party/skills/blender-skills/blender-addon-development/assets/addon_template/__init__.py",
+      "source_sha256": "93e6b738cdc7916f70db24065e0cd5368f5d5c9cdeb3cab1939f500cd6af667d",
+      "sha256": "93e6b738cdc7916f70db24065e0cd5368f5d5c9cdeb3cab1939f500cd6af667d",
+      "import_sha256": "93e6b738cdc7916f70db24065e0cd5368f5d5c9cdeb3cab1939f500cd6af667d"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-animation",
+      "file": "third_party/skills/blender-skills/blender-animation/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-animation",
+      "file": "third_party/skills/blender-skills/blender-animation/SKILL.md",
+      "source_sha256": "123e1178d943d6867c0621563f5ceb4ac70caea299543a374e167c4a4cb2cef4",
+      "sha256": "123e1178d943d6867c0621563f5ceb4ac70caea299543a374e167c4a4cb2cef4",
+      "import_sha256": "5be9718eb3cee643c01da420e00b2c1d09ecf9556a31203880e03120d3d676a6"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-animation",
+      "file": "third_party/skills/blender-skills/blender-animation/scripts/bake_action.py",
+      "source_sha256": "ff0e602c9f432872ebe4f34f368d92e36988abf4159c525981708caa962f349c",
+      "sha256": "ff0e602c9f432872ebe4f34f368d92e36988abf4159c525981708caa962f349c",
+      "import_sha256": "ff0e602c9f432872ebe4f34f368d92e36988abf4159c525981708caa962f349c"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-animation",
+      "file": "third_party/skills/blender-skills/blender-animation/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-asset-qa",
+      "file": "third_party/skills/blender-skills/blender-asset-qa/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-asset-qa",
+      "file": "third_party/skills/blender-skills/blender-asset-qa/SKILL.md",
+      "source_sha256": "345c5f16c7ae9cfd31b3b58ee0642e31ce9fd406265305c03c0fdffd0fb551eb",
+      "sha256": "345c5f16c7ae9cfd31b3b58ee0642e31ce9fd406265305c03c0fdffd0fb551eb",
+      "import_sha256": "dec15fbc4265c4125e94f286b911effd0124eef923f41c4d9746a75aeb9cf6d8"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-asset-qa",
+      "file": "third_party/skills/blender-skills/blender-asset-qa/scripts/qa_check.py",
+      "source_sha256": "11b4fa11244bfa6719689a06eec58c050a3ad5b6d17ac0f75113f332f97b274b",
+      "sha256": "11b4fa11244bfa6719689a06eec58c050a3ad5b6d17ac0f75113f332f97b274b",
+      "import_sha256": "11b4fa11244bfa6719689a06eec58c050a3ad5b6d17ac0f75113f332f97b274b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-asset-qa",
+      "file": "third_party/skills/blender-skills/blender-asset-qa/scripts/review_shots.py",
+      "source_sha256": "ffd4361f313592b67c124cdf0ec54b8d9866c9b29eefdac5c47731ce133d3f01",
+      "sha256": "ffd4361f313592b67c124cdf0ec54b8d9866c9b29eefdac5c47731ce133d3f01",
+      "import_sha256": "ffd4361f313592b67c124cdf0ec54b8d9866c9b29eefdac5c47731ce133d3f01"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-asset-qa",
+      "file": "third_party/skills/blender-skills/blender-asset-qa/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/SKILL.md",
+      "source_sha256": "137a8f7aa339b5e785f6a2fe42834ee429788030d37277b256dec520382827a3",
+      "sha256": "137a8f7aa339b5e785f6a2fe42834ee429788030d37277b256dec520382827a3",
+      "import_sha256": "306e96b4e55588853286d861c685c5958a54e1216c8e5defd280a9c004efff68"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/scripts/bind_mesh.py",
+      "source_sha256": "1da27ab64d659ee624ca4682ecba508b85fc9b3be32726279c74a689520b12b5",
+      "sha256": "1da27ab64d659ee624ca4682ecba508b85fc9b3be32726279c74a689520b12b5",
+      "import_sha256": "1da27ab64d659ee624ca4682ecba508b85fc9b3be32726279c74a689520b12b5"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/scripts/rigify_build.py",
+      "source_sha256": "66c242c512da7b10222feb859e11deb10a3c6273652eceb275357ccd7c8a6efc",
+      "sha256": "66c242c512da7b10222feb859e11deb10a3c6273652eceb275357ccd7c8a6efc",
+      "import_sha256": "66c242c512da7b10222feb859e11deb10a3c6273652eceb275357ccd7c8a6efc"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/scripts/rig_check.py",
+      "source_sha256": "6b611f00a83a3d0670db114e3e3e7bf8d5a5204b74f2d195b167e37e8ec072ea",
+      "sha256": "6b611f00a83a3d0670db114e3e3e7bf8d5a5204b74f2d195b167e37e8ec072ea",
+      "import_sha256": "6b611f00a83a3d0670db114e3e3e7bf8d5a5204b74f2d195b167e37e8ec072ea"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/scripts/stress_poses.py",
+      "source_sha256": "71998a915aa95e20c20ab64bd6faff97e2bb95f8a7e7d7a832fa7973567b6bb8",
+      "sha256": "71998a915aa95e20c20ab64bd6faff97e2bb95f8a7e7d7a832fa7973567b6bb8",
+      "import_sha256": "71998a915aa95e20c20ab64bd6faff97e2bb95f8a7e7d7a832fa7973567b6bb8"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-character-rigging",
+      "file": "third_party/skills/blender-skills/blender-character-rigging/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/SKILL.md",
+      "source_sha256": "2465bc109b43c6fecd7cacc875315df04c281e3a3aec4e7d1ffe2f677d48feea",
+      "sha256": "2465bc109b43c6fecd7cacc875315df04c281e3a3aec4e7d1ffe2f677d48feea",
+      "import_sha256": "96b8ba9fd1b934939ccc7e739e6552a1034f395905c2cae1a5bde08785a7ff8c"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/agents/openai.yaml",
+      "source_sha256": "697a9cf9b80a9e84bb36324e0f497a938cea4afcff7bf2237b6d529c243b452b",
+      "sha256": "31f3d17cb208de95d085a0e2657526c59f2fc41098f63d270dc34fa56ae53e9c",
+      "import_sha256": "b6eb8735eb3330fb2016002e3a0adcce3c9ac2e788e5542d9c2b27d0b6649e45"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/references/api-changes-5x.md",
+      "source_sha256": "ccf0b52a1d9fd836eb689abcec6a878b0ac57fb32ac600476b5070b9c8d22307",
+      "sha256": "ccf0b52a1d9fd836eb689abcec6a878b0ac57fb32ac600476b5070b9c8d22307",
+      "import_sha256": "daacfdf4c9deecd4db58a7b021b578a7195799805a5c34ad3e676879662550b4"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/references/bpy-patterns.md",
+      "source_sha256": "ba7bbc708bf198bdcdfa59d9d41d830a4ae119c24ae9457830b73d9e818e2af8",
+      "sha256": "ba7bbc708bf198bdcdfa59d9d41d830a4ae119c24ae9457830b73d9e818e2af8",
+      "import_sha256": "247d2743568eba74f66a26f71fec01fbbda97b788b437c887984e0db024a5ea1"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/references/local-host.md",
+      "source_sha256": "4890d49a4f66c15052e1b05914e7005dd02b6e7c71aa6bfb4f239cc3cf7b16f7",
+      "sha256": "cea4650ac99bb4f26106cf1b8813f368c0b45d93b128759ee88ef5292ce594b3",
+      "import_sha256": "75ec4cdea5724858a986e045da09676267f37f5cd1a5a58cab3513872589b087"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/scripts/env_report.py",
+      "source_sha256": "e628feed806dd265e0c1ce803d92591aac208a9f463d8c47cbb939476d3b347a",
+      "sha256": "e628feed806dd265e0c1ce803d92591aac208a9f463d8c47cbb939476d3b347a",
+      "import_sha256": "e628feed806dd265e0c1ce803d92591aac208a9f463d8c47cbb939476d3b347a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/scripts/run_in_blender.py",
+      "source_sha256": "a670121a2128d11863e7140f689d5c2a211607631e3c80675f86fb7cca213d77",
+      "sha256": "14f1d30d77065fbac7108ce6486a613ef721c882fe27aeb5c466cc2edea4df4c",
+      "import_sha256": "a670121a2128d11863e7140f689d5c2a211607631e3c80675f86fb7cca213d77"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-core",
+      "file": "third_party/skills/blender-skills/blender-core/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/SKILL.md",
+      "source_sha256": "b118b488f99bd5a2c45572bc78d76cb14cb6884d6fc00f8a7112a7b18f35896e",
+      "sha256": "b118b488f99bd5a2c45572bc78d76cb14cb6884d6fc00f8a7112a7b18f35896e",
+      "import_sha256": "e67d26e2710e81b8e68f25a4e5868b32a75942d4b9bef611193885c963fcf54a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/references/godot-web.md",
+      "source_sha256": "a1de232e3abb1622968f7d531dc6d62aa5a5a7b6d4b97e0b18dd16dc52d6ff30",
+      "sha256": "a1de232e3abb1622968f7d531dc6d62aa5a5a7b6d4b97e0b18dd16dc52d6ff30",
+      "import_sha256": "6e976b9cc5913f65fd9d49754a952c1ca6f2c727f6703fc7406167dc1a560ff3"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/references/roblox.md",
+      "source_sha256": "9079cd534349ce5ea0034abd983cf849a19c0a08676b88486393fe8caab7e263",
+      "sha256": "9079cd534349ce5ea0034abd983cf849a19c0a08676b88486393fe8caab7e263",
+      "import_sha256": "b01aff9fb273b40cba005f70cca64f6666c7974a104da45eefe9656ab2b55e8f"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/references/unity.md",
+      "source_sha256": "6ed7fbaa57f6d8d0bdf87438bfc442bb536465b05459ffebf72b75dfa238d080",
+      "sha256": "6ed7fbaa57f6d8d0bdf87438bfc442bb536465b05459ffebf72b75dfa238d080",
+      "import_sha256": "53184e1ed8565993928758d958dfc846f592bb0fc71d99c3d8b96b6001324ef1"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/references/unreal.md",
+      "source_sha256": "377e784aa26bf0f634039f31d33b8d47800708f5d280cc518030db4e0d7005bc",
+      "sha256": "377e784aa26bf0f634039f31d33b8d47800708f5d280cc518030db4e0d7005bc",
+      "import_sha256": "918f41481b4702c6f0c1650fdc4858dd7df5601714c93b2b70da4f36a5cfc9f2"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/scripts/export_asset.py",
+      "source_sha256": "d30989025a2b06ed7f2241fd64b17aa1e554a92bf9178f601285ce78cc9d9760",
+      "sha256": "d30989025a2b06ed7f2241fd64b17aa1e554a92bf9178f601285ce78cc9d9760",
+      "import_sha256": "d30989025a2b06ed7f2241fd64b17aa1e554a92bf9178f601285ce78cc9d9760"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-export-pipelines",
+      "file": "third_party/skills/blender-skills/blender-export-pipelines/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-facial-shapekeys",
+      "file": "third_party/skills/blender-skills/blender-facial-shapekeys/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-facial-shapekeys",
+      "file": "third_party/skills/blender-skills/blender-facial-shapekeys/SKILL.md",
+      "source_sha256": "ab5dc046c892833ea51e9cf773c0e0496f2da14b0e20bdaf25664c02d562b244",
+      "sha256": "ab5dc046c892833ea51e9cf773c0e0496f2da14b0e20bdaf25664c02d562b244",
+      "import_sha256": "cd7b674b7302d95f74cf34b5af42a6a3c655d1aa2cfc9030a75db89dd2a5b95f"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-facial-shapekeys",
+      "file": "third_party/skills/blender-skills/blender-facial-shapekeys/scripts/shapekeys.py",
+      "source_sha256": "ae309ebf193346df73628789529563a43269a4b629674f17c0dfc237e4bcc661",
+      "sha256": "ae309ebf193346df73628789529563a43269a4b629674f17c0dfc237e4bcc661",
+      "import_sha256": "ae309ebf193346df73628789529563a43269a4b629674f17c0dfc237e4bcc661"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-facial-shapekeys",
+      "file": "third_party/skills/blender-skills/blender-facial-shapekeys/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-game-optimization",
+      "file": "third_party/skills/blender-skills/blender-game-optimization/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-game-optimization",
+      "file": "third_party/skills/blender-skills/blender-game-optimization/SKILL.md",
+      "source_sha256": "2c8e6c6cf1676ee300cac12e6c2fda27c973c787375e1b720358d34c78315fd5",
+      "sha256": "2c8e6c6cf1676ee300cac12e6c2fda27c973c787375e1b720358d34c78315fd5",
+      "import_sha256": "bc9fbcd45f9d15d2e9dfd837b42f896c9065925322412d0f908b3adbdab5b11e"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-game-optimization",
+      "file": "third_party/skills/blender-skills/blender-game-optimization/scripts/make_lods.py",
+      "source_sha256": "61076e02df93cfa8126a54466540db5a87d763a9910c9e650d441608678c15de",
+      "sha256": "61076e02df93cfa8126a54466540db5a87d763a9910c9e650d441608678c15de",
+      "import_sha256": "61076e02df93cfa8126a54466540db5a87d763a9910c9e650d441608678c15de"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-game-optimization",
+      "file": "third_party/skills/blender-skills/blender-game-optimization/scripts/mesh_stats.py",
+      "source_sha256": "6f48790b87b90cd15d4c20e6884dcfedf9aa65292f4afcc7fad9fcf7eb8216bc",
+      "sha256": "6f48790b87b90cd15d4c20e6884dcfedf9aa65292f4afcc7fad9fcf7eb8216bc",
+      "import_sha256": "6f48790b87b90cd15d4c20e6884dcfedf9aa65292f4afcc7fad9fcf7eb8216bc"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-game-optimization",
+      "file": "third_party/skills/blender-skills/blender-game-optimization/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-geometry-nodes",
+      "file": "third_party/skills/blender-skills/blender-geometry-nodes/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-geometry-nodes",
+      "file": "third_party/skills/blender-skills/blender-geometry-nodes/SKILL.md",
+      "source_sha256": "f0b696e8144504c6563bbf58887a181e647e9c215e309223a806bc5123ca996b",
+      "sha256": "f0b696e8144504c6563bbf58887a181e647e9c215e309223a806bc5123ca996b",
+      "import_sha256": "0211ee8569e3ea152ac3a652d27142bc5e478ce250419d6a669824c1493d3fc6"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-geometry-nodes",
+      "file": "third_party/skills/blender-skills/blender-geometry-nodes/references/recipes.md",
+      "source_sha256": "9c2438db79ca4bcab6a89b62ef0e65868ccf140b4ffc7a7fb42d3ee0265cf976",
+      "sha256": "9c2438db79ca4bcab6a89b62ef0e65868ccf140b4ffc7a7fb42d3ee0265cf976",
+      "import_sha256": "5aacf5e33103a5de5d827c50d5f83fcd26ba3670ae284be62ec2ac7d38742e8a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-geometry-nodes",
+      "file": "third_party/skills/blender-skills/blender-geometry-nodes/scripts/gn_builder.py",
+      "source_sha256": "6dcdd041451d99037b095f1de71356307a02959ab794d01e48a27fbf5aba139a",
+      "sha256": "6dcdd041451d99037b095f1de71356307a02959ab794d01e48a27fbf5aba139a",
+      "import_sha256": "6dcdd041451d99037b095f1de71356307a02959ab794d01e48a27fbf5aba139a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-geometry-nodes",
+      "file": "third_party/skills/blender-skills/blender-geometry-nodes/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-hardsurface-modeling",
+      "file": "third_party/skills/blender-skills/blender-hardsurface-modeling/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-hardsurface-modeling",
+      "file": "third_party/skills/blender-skills/blender-hardsurface-modeling/SKILL.md",
+      "source_sha256": "2bf819ed1e213909955fd70214085c0e07bb65e17f6d479573fabf18cd295c09",
+      "sha256": "2bf819ed1e213909955fd70214085c0e07bb65e17f6d479573fabf18cd295c09",
+      "import_sha256": "6fee0bf1ea9cf7df595b0345f34c3c66e22142b45b94d0bf7b98edce26454cf7"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-hardsurface-modeling",
+      "file": "third_party/skills/blender-skills/blender-hardsurface-modeling/scripts/apply_stack.py",
+      "source_sha256": "95127944b90646b75c73c55cb47d2a4a8e9616b4edd1c0489b94132bcd7f24e9",
+      "sha256": "95127944b90646b75c73c55cb47d2a4a8e9616b4edd1c0489b94132bcd7f24e9",
+      "import_sha256": "95127944b90646b75c73c55cb47d2a4a8e9616b4edd1c0489b94132bcd7f24e9"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-hardsurface-modeling",
+      "file": "third_party/skills/blender-skills/blender-hardsurface-modeling/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-lighting-lookdev",
+      "file": "third_party/skills/blender-skills/blender-lighting-lookdev/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-lighting-lookdev",
+      "file": "third_party/skills/blender-skills/blender-lighting-lookdev/SKILL.md",
+      "source_sha256": "13dac79bcdd6350f7a5cf52fce8951de9c409fd3fcf6beab762782053001a6ba",
+      "sha256": "13dac79bcdd6350f7a5cf52fce8951de9c409fd3fcf6beab762782053001a6ba",
+      "import_sha256": "e7b753f6f6d503f3f58c3df6d2bcab6087a2bc95edfa3729a00822f243669e25"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-lighting-lookdev",
+      "file": "third_party/skills/blender-skills/blender-lighting-lookdev/scripts/turntable.py",
+      "source_sha256": "ed3db9b538fda3bd6852ea1ce83aea32e0b3e99c258577b3dd000c50a847cd93",
+      "sha256": "ed3db9b538fda3bd6852ea1ce83aea32e0b3e99c258577b3dd000c50a847cd93",
+      "import_sha256": "ed3db9b538fda3bd6852ea1ce83aea32e0b3e99c258577b3dd000c50a847cd93"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-lighting-lookdev",
+      "file": "third_party/skills/blender-skills/blender-lighting-lookdev/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pbr-materials",
+      "file": "third_party/skills/blender-skills/blender-pbr-materials/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pbr-materials",
+      "file": "third_party/skills/blender-skills/blender-pbr-materials/SKILL.md",
+      "source_sha256": "4ef5b352cca591ce68f9293dd5b805d1f7ded967d770862958a41ab3007c2644",
+      "sha256": "4ef5b352cca591ce68f9293dd5b805d1f7ded967d770862958a41ab3007c2644",
+      "import_sha256": "b8b2e0e5ea49d70e35ac15b6f6d959b3f8c909d561e82918dddd436626d5254a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pbr-materials",
+      "file": "third_party/skills/blender-skills/blender-pbr-materials/references/pbr-values.md",
+      "source_sha256": "d92f53568ea1525c84d68fc7077abfa9cc64a517ac9472fdc18b873784b84d40",
+      "sha256": "d92f53568ea1525c84d68fc7077abfa9cc64a517ac9472fdc18b873784b84d40",
+      "import_sha256": "3608830c833efdb4197828f9020a0008afb61b5e3d93670854532a5fb33cbf03"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pbr-materials",
+      "file": "third_party/skills/blender-skills/blender-pbr-materials/scripts/build_pbr_material.py",
+      "source_sha256": "797b2fba1f384950feeb75e1681ee086abd493566d9a1794e650c0ebe851e296",
+      "sha256": "797b2fba1f384950feeb75e1681ee086abd493566d9a1794e650c0ebe851e296",
+      "import_sha256": "797b2fba1f384950feeb75e1681ee086abd493566d9a1794e650c0ebe851e296"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pbr-materials",
+      "file": "third_party/skills/blender-skills/blender-pbr-materials/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pipeline-automation",
+      "file": "third_party/skills/blender-skills/blender-pipeline-automation/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pipeline-automation",
+      "file": "third_party/skills/blender-skills/blender-pipeline-automation/SKILL.md",
+      "source_sha256": "590e1159205c68af5c338425456c3ff86837cdb8202e34f2d40a018e96ec79fa",
+      "sha256": "590e1159205c68af5c338425456c3ff86837cdb8202e34f2d40a018e96ec79fa",
+      "import_sha256": "bb98d4cdd706b79f6e0443efe26a32cce05dd91ea80a6663000f8bff4ec4de7f"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pipeline-automation",
+      "file": "third_party/skills/blender-skills/blender-pipeline-automation/scripts/batch_process.py",
+      "source_sha256": "baedf17711a939981f3796879e1f32be3203c197c41d9dc3fad8a104b82bfe8e",
+      "sha256": "baedf17711a939981f3796879e1f32be3203c197c41d9dc3fad8a104b82bfe8e",
+      "import_sha256": "baedf17711a939981f3796879e1f32be3203c197c41d9dc3fad8a104b82bfe8e"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-pipeline-automation",
+      "file": "third_party/skills/blender-skills/blender-pipeline-automation/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-rendering",
+      "file": "third_party/skills/blender-skills/blender-rendering/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-rendering",
+      "file": "third_party/skills/blender-skills/blender-rendering/SKILL.md",
+      "source_sha256": "ea4c7616fc1559cf8f1838e5e1cd6d49ff3c13fe716af3d8bd7aeca5877eeb45",
+      "sha256": "ea4c7616fc1559cf8f1838e5e1cd6d49ff3c13fe716af3d8bd7aeca5877eeb45",
+      "import_sha256": "8bcc9155b26430a93d3ac05a1c627618ac31da33a23d75a01243c0ae525eb9a3"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-rendering",
+      "file": "third_party/skills/blender-skills/blender-rendering/scripts/render_batch.py",
+      "source_sha256": "2ee9043b297148b9d76b54fc22390e1e6062e2e27c33ab0386dcfa2fdb59c432",
+      "sha256": "2ee9043b297148b9d76b54fc22390e1e6062e2e27c33ab0386dcfa2fdb59c432",
+      "import_sha256": "2ee9043b297148b9d76b54fc22390e1e6062e2e27c33ab0386dcfa2fdb59c432"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-rendering",
+      "file": "third_party/skills/blender-skills/blender-rendering/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-retopology-uv",
+      "file": "third_party/skills/blender-skills/blender-retopology-uv/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-retopology-uv",
+      "file": "third_party/skills/blender-skills/blender-retopology-uv/SKILL.md",
+      "source_sha256": "fc3cbc91a3d2de13b3dbf8ed261b348a9cd05a2576849d83029d93388c34deed",
+      "sha256": "fc3cbc91a3d2de13b3dbf8ed261b348a9cd05a2576849d83029d93388c34deed",
+      "import_sha256": "e46cd3a80c39cd18e154076695a0d6316d8c62d4a538b98511d30fa3e262997d"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-retopology-uv",
+      "file": "third_party/skills/blender-skills/blender-retopology-uv/scripts/auto_retopo.py",
+      "source_sha256": "d4e53e2a754f6d6675bc03b04410b7e41e147521cf4e9ba0c87e419deea01662",
+      "sha256": "d4e53e2a754f6d6675bc03b04410b7e41e147521cf4e9ba0c87e419deea01662",
+      "import_sha256": "d4e53e2a754f6d6675bc03b04410b7e41e147521cf4e9ba0c87e419deea01662"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-retopology-uv",
+      "file": "third_party/skills/blender-skills/blender-retopology-uv/scripts/texel_density.py",
+      "source_sha256": "9fd15366aa20aa3005163745b12aae216c0b23a5fdafa0bbec98c1786f0c3cd6",
+      "sha256": "9fd15366aa20aa3005163745b12aae216c0b23a5fdafa0bbec98c1786f0c3cd6",
+      "import_sha256": "9fd15366aa20aa3005163745b12aae216c0b23a5fdafa0bbec98c1786f0c3cd6"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-retopology-uv",
+      "file": "third_party/skills/blender-skills/blender-retopology-uv/scripts/uv_pack.py",
+      "source_sha256": "38746beb008b1f5324a9851b522308933d77bbf4ad660134d2cd7e360a95489f",
+      "sha256": "38746beb008b1f5324a9851b522308933d77bbf4ad660134d2cd7e360a95489f",
+      "import_sha256": "38746beb008b1f5324a9851b522308933d77bbf4ad660134d2cd7e360a95489f"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-retopology-uv",
+      "file": "third_party/skills/blender-skills/blender-retopology-uv/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-scene-setup",
+      "file": "third_party/skills/blender-skills/blender-scene-setup/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-scene-setup",
+      "file": "third_party/skills/blender-skills/blender-scene-setup/SKILL.md",
+      "source_sha256": "0860bc29f8d7af633bdf475b36884cef8f9acb4a5988a47be6deeecdb56bb0b2",
+      "sha256": "0860bc29f8d7af633bdf475b36884cef8f9acb4a5988a47be6deeecdb56bb0b2",
+      "import_sha256": "748937938188473fd636256d674cd2816765cb6dcbff795b5f2c9a2eb23c5dae"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-scene-setup",
+      "file": "third_party/skills/blender-skills/blender-scene-setup/scripts/scene_audit.py",
+      "source_sha256": "a7baf10fb5a25acaf87d1024e5ec5fb89aee43b7ebff0f8598c4667cef64ae5b",
+      "sha256": "a7baf10fb5a25acaf87d1024e5ec5fb89aee43b7ebff0f8598c4667cef64ae5b",
+      "import_sha256": "a7baf10fb5a25acaf87d1024e5ec5fb89aee43b7ebff0f8598c4667cef64ae5b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-scene-setup",
+      "file": "third_party/skills/blender-skills/blender-scene-setup/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-sculpting",
+      "file": "third_party/skills/blender-skills/blender-sculpting/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-sculpting",
+      "file": "third_party/skills/blender-skills/blender-sculpting/SKILL.md",
+      "source_sha256": "971c69e249a202069814550dab500dac1520c0d483215d57e3be2745a9c740f9",
+      "sha256": "971c69e249a202069814550dab500dac1520c0d483215d57e3be2745a9c740f9",
+      "import_sha256": "fc785e530e76858334fbfc90dbe6bb2f9cb5592aeb4c59876562453862001578"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-sculpting",
+      "file": "third_party/skills/blender-skills/blender-sculpting/scripts/sculpt_ops.py",
+      "source_sha256": "6adb0bcb4322900dad1b6f00c17c0f14507085e44017a3c162e26f29bcf8c7aa",
+      "sha256": "6adb0bcb4322900dad1b6f00c17c0f14507085e44017a3c162e26f29bcf8c7aa",
+      "import_sha256": "6adb0bcb4322900dad1b6f00c17c0f14507085e44017a3c162e26f29bcf8c7aa"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-sculpting",
+      "file": "third_party/skills/blender-skills/blender-sculpting/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-simulation",
+      "file": "third_party/skills/blender-skills/blender-simulation/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-simulation",
+      "file": "third_party/skills/blender-skills/blender-simulation/SKILL.md",
+      "source_sha256": "c7224f4d86921caace516dc9cc436ef0dbda4910be2eb05af3234f6a120dd875",
+      "sha256": "c7224f4d86921caace516dc9cc436ef0dbda4910be2eb05af3234f6a120dd875",
+      "import_sha256": "3964caa52dc033f88394c3f3f2dde1313a0581e17b8e96d5d6f9584b26e1ee48"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-simulation",
+      "file": "third_party/skills/blender-skills/blender-simulation/scripts/sim_setup.py",
+      "source_sha256": "8c9f7cf99b4539343873caf707dd1b8eff8d78c55ccd19f9aa2dae26ef7150f2",
+      "sha256": "8c9f7cf99b4539343873caf707dd1b8eff8d78c55ccd19f9aa2dae26ef7150f2",
+      "import_sha256": "8c9f7cf99b4539343873caf707dd1b8eff8d78c55ccd19f9aa2dae26ef7150f2"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-simulation",
+      "file": "third_party/skills/blender-skills/blender-simulation/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-texture-baking",
+      "file": "third_party/skills/blender-skills/blender-texture-baking/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-texture-baking",
+      "file": "third_party/skills/blender-skills/blender-texture-baking/SKILL.md",
+      "source_sha256": "b02a766f81399e3a596d450033413df94bc00ce880e96d8d5f5342bf512a3233",
+      "sha256": "b02a766f81399e3a596d450033413df94bc00ce880e96d8d5f5342bf512a3233",
+      "import_sha256": "cbb1b71676bb612db2ad92ea8940580e708c161f9dc4ba3b9f201141a306f920"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-texture-baking",
+      "file": "third_party/skills/blender-skills/blender-texture-baking/scripts/bake_maps.py",
+      "source_sha256": "16b27115c8bb19f9d4b2162a67467df9b3f9f720dcc365497a7443be9cab5e0a",
+      "sha256": "16b27115c8bb19f9d4b2162a67467df9b3f9f720dcc365497a7443be9cab5e0a",
+      "import_sha256": "16b27115c8bb19f9d4b2162a67467df9b3f9f720dcc365497a7443be9cab5e0a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-texture-baking",
+      "file": "third_party/skills/blender-skills/blender-texture-baking/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/SKILL.md",
+      "source_sha256": "d32b342df7950c13d4f3838a94be96c7cb6a118a1c53a87dc18149d3bef4acf4",
+      "sha256": "d32b342df7950c13d4f3838a94be96c7cb6a118a1c53a87dc18149d3bef4acf4",
+      "import_sha256": "08ff79fe6d4dbbcfb84aefde218795e743de1200668ffc5f60e23680786b0bf6"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/references/fog-volumetrics.md",
+      "source_sha256": "8371b4b7517363b97e8b023611a5ea8351c913d60205a09805bb47f76d62320c",
+      "sha256": "8371b4b7517363b97e8b023611a5ea8351c913d60205a09805bb47f76d62320c",
+      "import_sha256": "1319989c77921ede728f95e529f273f60571384ddd4a010155d1f7314f70ceb9"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/references/light-values.md",
+      "source_sha256": "21569a5d3c92271f6e219ee77cf3982c9cde59d4d1f3090528086d608030a3a8",
+      "sha256": "21569a5d3c92271f6e219ee77cf3982c9cde59d4d1f3090528086d608030a3a8",
+      "import_sha256": "eb6f38a066263fac7792dd682c706ac3985803b03ee148b623da40c0f5acb03c"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/references/night-and-moods.md",
+      "source_sha256": "662299d09b341c70488a1e934ce07437610c2ad0dddc92bed93b348e94a76442",
+      "sha256": "662299d09b341c70488a1e934ce07437610c2ad0dddc92bed93b348e94a76442",
+      "import_sha256": "d433a347d4f7da36e172815ffc6eb452cff28506819936f6af4882e77abe2a32"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/scripts/scene_mood.py",
+      "source_sha256": "c82cd0a010ac657df727301a89403cc9f5c599bda84349e2e80ed3c2f6d0b134",
+      "sha256": "c82cd0a010ac657df727301a89403cc9f5c599bda84349e2e80ed3c2f6d0b134",
+      "import_sha256": "c82cd0a010ac657df727301a89403cc9f5c599bda84349e2e80ed3c2f6d0b134"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-time-of-day",
+      "file": "third_party/skills/blender-skills/blender-time-of-day/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/SKILL.md",
+      "source_sha256": "e3137eb02f4b2c2d7d9a5cc4d0abbf1324c835f7454baf97a963e4aebde2465e",
+      "sha256": "e3137eb02f4b2c2d7d9a5cc4d0abbf1324c835f7454baf97a963e4aebde2465e",
+      "import_sha256": "447a54e46019efb0a6f5b4220e58455423259077e198fff0f7e753af11c40136"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/references/realtime-engines.md",
+      "source_sha256": "c7584f496ba56c115ab809034cbabee41afa008236553c9436f814c7341d78ec",
+      "sha256": "c7584f496ba56c115ab809034cbabee41afa008236553c9436f814c7341d78ec",
+      "import_sha256": "5b4bb25bae071a6fe679c27d424eec48c804bb2c08115fea8fd0a5a8f7b37103"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/references/weather-values.md",
+      "source_sha256": "c8be7c985f3d28833b075e71257dd5130d8487ce0b63716a9f237f76592295c3",
+      "sha256": "c8be7c985f3d28833b075e71257dd5130d8487ce0b63716a9f237f76592295c3",
+      "import_sha256": "f91af29fa700899fdab0c6810c2e8b4913246254ec4bc2cbb585eb382f9daf91"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/scripts/lightning.py",
+      "source_sha256": "68177d83b754e8140ea8807962c8d3c984667c32332ed6a258c15d271750854e",
+      "sha256": "68177d83b754e8140ea8807962c8d3c984667c32332ed6a258c15d271750854e",
+      "import_sha256": "68177d83b754e8140ea8807962c8d3c984667c32332ed6a258c15d271750854e"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/scripts/precipitation.py",
+      "source_sha256": "063fde91806f683b01172a1478c946a6bf8fd7b7f451f76111017766873f047b",
+      "sha256": "063fde91806f683b01172a1478c946a6bf8fd7b7f451f76111017766873f047b",
+      "import_sha256": "063fde91806f683b01172a1478c946a6bf8fd7b7f451f76111017766873f047b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/scripts/surface_weather.py",
+      "source_sha256": "498e69a4af740cd2cd341e4fcb33bc3a7d15621bf19cdfbe4dae2ca56619ac20",
+      "sha256": "498e69a4af740cd2cd341e4fcb33bc3a7d15621bf19cdfbe4dae2ca56619ac20",
+      "import_sha256": "498e69a4af740cd2cd341e4fcb33bc3a7d15621bf19cdfbe4dae2ca56619ac20"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-weather-fx",
+      "file": "third_party/skills/blender-skills/blender-weather-fx/scripts/_bpyx.py",
+      "source_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b",
+      "import_sha256": "a3339ba8a678469e8ed29510e32a7331e0235202191ca4edb977af4720819b4b"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-workflow-recipes",
+      "file": "third_party/skills/blender-skills/blender-workflow-recipes/LICENSE",
+      "source_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a",
+      "sha256": "d81d0037e3a29a01ccfefaae420d5ba73e905cabf3995700e9075c7205c06cc5",
+      "import_sha256": "7aa13e693777f06e29893a57b1a9e3ca92d425f1710b9481a4adfeeddc6ac37a"
+    },
+    {
+      "component": "third_party/skills/blender-skills/blender-workflow-recipes",
+      "file": "third_party/skills/blender-skills/blender-workflow-recipes/SKILL.md",
+      "source_sha256": "4994cf41939797e193fef00b6f5eda1a7ba6ae169e6287b5eda3f50a849b576f",
+      "sha256": "4994cf41939797e193fef00b6f5eda1a7ba6ae169e6287b5eda3f50a849b576f",
+      "import_sha256": "b13fa9d98d3fe3a37a8ab5fb05dcec753992d4f9c6ad530867ee5b510c8cfc53"
+    },
+    {
+      "component": "adapters/comfyui/nodes/ComfyUI-Pixal3DMemory",
+      "file": "adapters/comfyui/nodes/ComfyUI-Pixal3DMemory/memory.py",
+      "source_sha256": "e2f5e7f32e4cea74b6a4b58d907a4eb8a3faf1256ac4a80ba881a6679730d20c",
+      "sha256": "e2f5e7f32e4cea74b6a4b58d907a4eb8a3faf1256ac4a80ba881a6679730d20c",
+      "import_sha256": "e2f5e7f32e4cea74b6a4b58d907a4eb8a3faf1256ac4a80ba881a6679730d20c"
+    },
+    {
+      "component": "adapters/comfyui/nodes/ComfyUI-Pixal3DMemory",
+      "file": "adapters/comfyui/nodes/ComfyUI-Pixal3DMemory/README.md",
+      "source_sha256": "268b1a51e252c1dd31d9f36046bb725d78bb3578d8803d7bb5ed16ad0b36a4ea",
+      "sha256": "268b1a51e252c1dd31d9f36046bb725d78bb3578d8803d7bb5ed16ad0b36a4ea",
+      "import_sha256": "00764d3ddd6ba71ab0c49563253c44c161fb552e3674a92340ace5b834de84e3"
+    },
+    {
+      "component": "adapters/comfyui/nodes/ComfyUI-Pixal3DMemory",
+      "file": "adapters/comfyui/nodes/ComfyUI-Pixal3DMemory/__init__.py",
+      "source_sha256": "d68e5d9634091b03e4728a5d2a5a95083515e71305ff14fabcf1fae24f6fafeb",
+      "sha256": "d68e5d9634091b03e4728a5d2a5a95083515e71305ff14fabcf1fae24f6fafeb",
+      "import_sha256": "d68e5d9634091b03e4728a5d2a5a95083515e71305ff14fabcf1fae24f6fafeb"
+    },
+    {
+      "component": "adapters/comfyui/nodes/ComfyUI-MeshUtilities",
+      "file": "adapters/comfyui/nodes/ComfyUI-MeshUtilities/README.md",
+      "source_sha256": "26ea55956821ce097e8d9dc317ec45839cdaf14130e542e32f6cb42d90e6d58c",
+      "sha256": "26ea55956821ce097e8d9dc317ec45839cdaf14130e542e32f6cb42d90e6d58c",
+      "import_sha256": "1bb671d445c6b75fe616ba4e4d1c46cf807df478c30ce8a1b2848f11b0f48333"
+    },
+    {
+      "component": "adapters/comfyui/nodes/ComfyUI-MeshUtilities",
+      "file": "adapters/comfyui/nodes/ComfyUI-MeshUtilities/__init__.py",
+      "source_sha256": "bcabc1d93c17c470305a8dd5e1b76fcefac76bd9a3f5dc51147c9a9f4a7621f4",
+      "sha256": "bcabc1d93c17c470305a8dd5e1b76fcefac76bd9a3f5dc51147c9a9f4a7621f4",
+      "import_sha256": "bcabc1d93c17c470305a8dd5e1b76fcefac76bd9a3f5dc51147c9a9f4a7621f4"
+    },
+    {
+      "component": "adapters/motion2mixamorig",
+      "file": "adapters/motion2mixamorig/restore_materials.py",
+      "source_sha256": "544373ac35605247ea34e29c1ff24a90195fb2b629a3eb6bf9a17efea778c045",
+      "sha256": "544373ac35605247ea34e29c1ff24a90195fb2b629a3eb6bf9a17efea778c045",
+      "import_sha256": "544373ac35605247ea34e29c1ff24a90195fb2b629a3eb6bf9a17efea778c045"
+    },
+    {
+      "component": "adapters/motion2mixamorig",
+      "file": "adapters/motion2mixamorig/run.ps1",
+      "source_sha256": "1f39867a3815561b375df08af8526e9a7f1b2a787a27b1ce32183472e3022072",
+      "sha256": "4ffe9f0fe1157eb974682fbf159cc9b5ef1ff35869e48712bd29a4d6744b33b3",
+      "import_sha256": "1f39867a3815561b375df08af8526e9a7f1b2a787a27b1ce32183472e3022072"
+    },
+    {
+      "component": "adapters/motion2mixamorig",
+      "file": "adapters/motion2mixamorig/patches/gvhmr-1.6.1-rtmpose-assets.patch",
+      "source_sha256": "d71e91495939252402d75e6ba5a3776212b699932d2a710649a18e225029b251",
+      "sha256": "b198d7b7464ba1bf5e5bb14f06d9b19fcac23d88b4d9ccfd3bb64a57bd0e73ca",
+      "import_sha256": "d71e91495939252402d75e6ba5a3776212b699932d2a710649a18e225029b251"
+    }
+  ],
+  "core_policy": "Production stages, routing, resource and quality boundaries retained; machine paths and example media defaults are portable.",
+  "hash_semantics": {
+    "source_sha256": "original source bytes before export",
+    "import_sha256": "initial imported bytes before portability edits",
+    "sha256": "reviewed portable file bytes, canonical LF, at snapshot_date"
+  }
+}

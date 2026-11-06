@@ -1,0 +1,769 @@
+{
+  "last_node_id": 66,
+  "last_link_id": 15,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "UNETLoader",
+      "pos": [
+        30,
+        -420
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      },
+      "title": "Qwen-Image 2.1 INT8 主权重"
+    },
+    {
+      "id": 5,
+      "type": "CLIPLoader",
+      "pos": [
+        980,
+        -620
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      },
+      "title": "Qwen3-VL 8B • 官方 INT8 视觉文本编码器"
+    },
+    {
+      "id": 6,
+      "type": "VAELoader",
+      "pos": [
+        980,
+        -420
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            2,
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      },
+      "title": "Qwen-Image 2.1 专用 BF16 RGBA VAE"
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_1.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_1.png",
+        "upload": "image"
+      },
+      "title": "参考图 1 • 人物 / 编辑目标"
+    },
+    {
+      "id": 21,
+      "type": "LoadImage",
+      "pos": [
+        355,
+        0
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_2.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_2.png",
+        "upload": "image"
+      },
+      "title": "参考图 2 • 服装"
+    },
+    {
+      "id": 30,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        0,
+        780
+      ],
+      "size": [
+        350,
+        330
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        },
+        {
+          "name": "images.image_1",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "images.image_2",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "images.image_3",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "images.image_4",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "images.image_5",
+          "type": "IMAGE",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            9
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "Create one coherent realistic fashion photograph using all five references with separate roles. <image1> supplies only the man's identity, face and hairstyle. <image2> supplies the light blue denim shirt he must wear. <image3> supplies the rimless glasses he must wear. <image4> supplies the cognac brown leather handbag he must visibly hold by its handle beside his hip. <image5> supplies the lush green forest setting: completely replace the original plain grey studio background with this forest. Frame the man from the head to below the hips so the handbag is fully visible. His hand naturally grips the bag handle. Keep his recognizable face, use consistent natural forest daylight, realistic fabric, glass and leather. Do not retain the grey studio background, do not omit the handbag or glasses, and do not include product-display panels, image grids or text.",
+        "",
+        1024
+      ],
+      "widgets_values_named": {
+        "prompt": "Create one coherent realistic fashion photograph using all five references with separate roles. <image1> supplies only the man's identity, face and hairstyle. <image2> supplies the light blue denim shirt he must wear. <image3> supplies the rimless glasses he must wear. <image4> supplies the cognac brown leather handbag he must visibly hold by its handle beside his hip. <image5> supplies the lush green forest setting: completely replace the original plain grey studio background with this forest. Frame the man from the head to below the hips so the handbag is fully visible. His hand naturally grips the bag handle. Keep his recognizable face, use consistent natural forest daylight, realistic fabric, glass and leather. Do not retain the grey studio background, do not omit the handbag or glasses, and do not include product-display panels, image grids or text.",
+        "negative_prompt": "",
+        "resolution": 1024
+      },
+      "title": "③ 多参考图指令 • 10 个输入已预留"
+    },
+    {
+      "id": 31,
+      "type": "KSampler",
+      "pos": [
+        570,
+        780
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 8
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 9
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        20261014,
+        "fixed",
+        40,
+        1.0,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "widgets_values_named": {
+        "seed": 20261014,
+        "control_after_generate": "fixed",
+        "steps": 40,
+        "cfg": 1.0,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1.0
+      },
+      "title": "多图共享模型 • Windows 稳定配置"
+    },
+    {
+      "id": 32,
+      "type": "VAEDecode",
+      "pos": [
+        920,
+        780
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 12
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "原生 RGBA VAE 解码"
+    },
+    {
+      "id": 33,
+      "type": "SaveImage",
+      "pos": [
+        920,
+        920
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Qwen-Image 2.1/07_五参考图组合编辑"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Qwen-Image 2.1/07_五参考图组合编辑"
+      },
+      "title": "保存多参考图编辑 PNG"
+    },
+    {
+      "id": 65,
+      "type": "QwenImage21Cache",
+      "pos": [
+        2600,
+        -620
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImage21Cache"
+      },
+      "widgets_values": [
+        "off",
+        "default"
+      ],
+      "widgets_values_named": {
+        "device": "off",
+        "dtype": "default"
+      },
+      "title": "参考图编辑 • off / 保持精度"
+    },
+    {
+      "id": 22,
+      "type": "LoadImage",
+      "pos": [
+        710,
+        0
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_JPG_1.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_JPG_1.jpg",
+        "upload": "image"
+      },
+      "title": "参考图 3 • 无框眼镜 / 金色镜腿"
+    },
+    {
+      "id": 23,
+      "type": "LoadImage",
+      "pos": [
+        1065,
+        0
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_3.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_3.png",
+        "upload": "image"
+      },
+      "title": "参考图 4 • 棕色皮包 / 金色锁扣"
+    },
+    {
+      "id": 24,
+      "type": "LoadImage",
+      "pos": [
+        1420,
+        0
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_JPG_2.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_JPG_2.jpg",
+        "upload": "image"
+      },
+      "title": "参考图 5 • 森林小路背景"
+    },
+    {
+      "id": 66,
+      "type": "MarkdownNote",
+      "pos": [
+        -200,
+        -480
+      ],
+      "size": [
+        950,
+        400
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "properties": {},
+      "widgets_values": [
+        "# 07_五参考图组合编辑\n\n采用现有 INT8 主权重，缓存 dtype 保持 default。参考图编辑 KV 缓存为 off（本机稳定性选择）。旧 BF16 主权重已按之前的磁盘清理移除，本画布不保留失效的双精度开关。\n上传或替换输入图并修改编辑指令即可，示例不包含人物专属修复。resolution=1024 为像素预算；更高分辨率/更多参考另行验证。\n蒙版白色修改、黑色保留；透明必须检查输出 Alpha。说明：${LIGHTSTORY_ROOT}\\README.md"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      5,
+      0,
+      30,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      6,
+      0,
+      30,
+      6,
+      "VAE"
+    ],
+    [
+      3,
+      20,
+      0,
+      30,
+      1,
+      "IMAGE"
+    ],
+    [
+      4,
+      21,
+      0,
+      30,
+      2,
+      "IMAGE"
+    ],
+    [
+      5,
+      22,
+      0,
+      30,
+      3,
+      "IMAGE"
+    ],
+    [
+      6,
+      23,
+      0,
+      30,
+      4,
+      "IMAGE"
+    ],
+    [
+      7,
+      24,
+      0,
+      30,
+      5,
+      "IMAGE"
+    ],
+    [
+      8,
+      65,
+      0,
+      31,
+      0,
+      "MODEL"
+    ],
+    [
+      9,
+      30,
+      0,
+      31,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      10,
+      30,
+      1,
+      31,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      30,
+      2,
+      31,
+      3,
+      "LATENT"
+    ],
+    [
+      12,
+      31,
+      0,
+      32,
+      0,
+      "LATENT"
+    ],
+    [
+      13,
+      6,
+      0,
+      32,
+      1,
+      "VAE"
+    ],
+    [
+      14,
+      32,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      2,
+      0,
+      65,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.65,
+      "offset": [
+        250,
+        150
+      ]
+    },
+    "workflow_library": {
+      "model": "Qwen-Image 2.1",
+      "function": "07_五参考图组合编辑",
+      "status": "既有本机实测；新版画布结构复核",
+      "guide": "${LIGHTSTORY_ROOT}\\README.md"
+    }
+  },
+  "version": 0.4
+}

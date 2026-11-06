@@ -1,0 +1,967 @@
+{
+  "last_node_id": 44,
+  "last_link_id": 20,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadBackgroundRemovalModel",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "bg_model",
+          "type": "BACKGROUND_REMOVAL",
+          "links": [
+            1,
+            6,
+            11,
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadBackgroundRemovalModel"
+      },
+      "widgets_values": [
+        "birefnet.safetensors"
+      ],
+      "widgets_values_named": {
+        "bg_removal_name": "birefnet.safetensors"
+      },
+      "title": "LoadBackgroundRemovalModel"
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        390,
+        0
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2,
+            3
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_1.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_1.png",
+        "upload": "image"
+      },
+      "title": "LoadImage"
+    },
+    {
+      "id": 11,
+      "type": "RemoveBackground",
+      "pos": [
+        780,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bg_removal_model",
+          "type": "BACKGROUND_REMOVAL",
+          "link": 1
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RemoveBackground"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "RemoveBackground"
+    },
+    {
+      "id": 12,
+      "type": "ImageCropToMask",
+      "pos": [
+        1170,
+        0
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": 4
+        },
+        {
+          "name": "background",
+          "type": "COLOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCropToMask"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1.1,
+        0
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "pad_factor": 1.1,
+        "grow_mask": 0
+      },
+      "title": "ImageCropToMask"
+    },
+    {
+      "id": 13,
+      "type": "SaveImage",
+      "pos": [
+        0,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      },
+      "title": "SaveImage"
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [
+        390,
+        280
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7,
+            8
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_2.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_2.png",
+        "upload": "image"
+      },
+      "title": "LoadImage"
+    },
+    {
+      "id": 21,
+      "type": "RemoveBackground",
+      "pos": [
+        780,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bg_removal_model",
+          "type": "BACKGROUND_REMOVAL",
+          "link": 6
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RemoveBackground"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "RemoveBackground"
+    },
+    {
+      "id": 22,
+      "type": "ImageCropToMask",
+      "pos": [
+        1170,
+        280
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": 9
+        },
+        {
+          "name": "background",
+          "type": "COLOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCropToMask"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1.1,
+        0
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "pad_factor": 1.1,
+        "grow_mask": 0
+      },
+      "title": "ImageCropToMask"
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        0,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      },
+      "title": "SaveImage"
+    },
+    {
+      "id": 30,
+      "type": "LoadImage",
+      "pos": [
+        390,
+        560
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            13
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_3.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_3.png",
+        "upload": "image"
+      },
+      "title": "LoadImage"
+    },
+    {
+      "id": 31,
+      "type": "RemoveBackground",
+      "pos": [
+        780,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bg_removal_model",
+          "type": "BACKGROUND_REMOVAL",
+          "link": 11
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RemoveBackground"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "RemoveBackground"
+    },
+    {
+      "id": 32,
+      "type": "ImageCropToMask",
+      "pos": [
+        1170,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": 14
+        },
+        {
+          "name": "background",
+          "type": "COLOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCropToMask"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1.1,
+        0
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "pad_factor": 1.1,
+        "grow_mask": 0
+      },
+      "title": "ImageCropToMask"
+    },
+    {
+      "id": 33,
+      "type": "SaveImage",
+      "pos": [
+        0,
+        840
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      },
+      "title": "SaveImage"
+    },
+    {
+      "id": 40,
+      "type": "LoadImage",
+      "pos": [
+        390,
+        840
+      ],
+      "size": [
+        350,
+        430
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17,
+            18
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UPLOAD_PNG_4.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "UPLOAD_PNG_4.png",
+        "upload": "image"
+      },
+      "title": "LoadImage"
+    },
+    {
+      "id": 41,
+      "type": "RemoveBackground",
+      "pos": [
+        780,
+        840
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bg_removal_model",
+          "type": "BACKGROUND_REMOVAL",
+          "link": 16
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RemoveBackground"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "RemoveBackground"
+    },
+    {
+      "id": 42,
+      "type": "ImageCropToMask",
+      "pos": [
+        1170,
+        840
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": 19
+        },
+        {
+          "name": "background",
+          "type": "COLOR",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCropToMask"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1.1,
+        0
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1024,
+        "pad_factor": 1.1,
+        "grow_mask": 0
+      },
+      "title": "ImageCropToMask"
+    },
+    {
+      "id": 43,
+      "type": "SaveImage",
+      "pos": [
+        0,
+        1120
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "Pixal3D/贴图/00_主体抠图与居中_预处理"
+      },
+      "title": "SaveImage"
+    },
+    {
+      "id": 44,
+      "type": "MarkdownNote",
+      "pos": [
+        -200,
+        -480
+      ],
+      "size": [
+        950,
+        400
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "properties": {},
+      "widgets_values": [
+        "Pixal3D · 主体抠图与居中\n替换四个LoadImage输入，检查抠图后头发、手指、鞋尖和配饰是否完整。该画布分别预处理四个视图；不强制后续必须四图合用。多图输入需自行审查角度、姿态和比例一致性。\n\n本轮验证状态：本轮GPU实测通过，4.1秒；四张输入预处理\n上述人物回归采用 PixalStable。复杂新输入推荐 Balanced 原生PyTorch注意力、预留4GB显存、关闭节点缓存。大特征采用FP32临时文件映射，生成后回收。建议先1024确认输入，再按需1536；新输入仍需审查角度、材质与网格。\n\nPixal3D内存与排错说明：[点击打开](http://127.0.0.1:8192/guide.html#pixal-memory)。32GB复杂多图需正式启动脚本同时运行的内存管理进程：可用RAM低于8GiB时先回收本后端驻留页；低于2.5GiB或提交余量低于6GiB仍会中断。该回收不在JSON内部，复制画布不会一并带走。先1024、逐项运行；失败时核对同一任务ID的保护记录。官方机甲四图1536已用Balanced+正式自动回收完整通过，其他复杂输入仍需单独审查。"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      11,
+      0,
+      "BACKGROUND_REMOVAL"
+    ],
+    [
+      2,
+      10,
+      0,
+      11,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      10,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      11,
+      0,
+      12,
+      1,
+      "MASK"
+    ],
+    [
+      5,
+      12,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      1,
+      0,
+      21,
+      0,
+      "BACKGROUND_REMOVAL"
+    ],
+    [
+      7,
+      20,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      8,
+      20,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      21,
+      0,
+      22,
+      1,
+      "MASK"
+    ],
+    [
+      10,
+      22,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      1,
+      0,
+      31,
+      0,
+      "BACKGROUND_REMOVAL"
+    ],
+    [
+      12,
+      30,
+      0,
+      31,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      30,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      31,
+      0,
+      32,
+      1,
+      "MASK"
+    ],
+    [
+      15,
+      32,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      1,
+      0,
+      41,
+      0,
+      "BACKGROUND_REMOVAL"
+    ],
+    [
+      17,
+      40,
+      0,
+      41,
+      1,
+      "IMAGE"
+    ],
+    [
+      18,
+      40,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      41,
+      0,
+      42,
+      1,
+      "MASK"
+    ],
+    [
+      20,
+      42,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.65,
+      "offset": [
+        250,
+        150
+      ]
+    },
+    "workflow_library": {
+      "model": "Pixal3D",
+      "function": "00_主体抠图与居中",
+      "status": "既有链路；新版法线节点/多视图本轮实测",
+      "guide": "${LIGHTSTORY_ROOT}\\README.md"
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,15 @@
+{
+  "purpose": "Brief for Blender previs authoring; descriptive schema, not an installed one-click renderer",
+  "example_only": true,
+  "timing_note": "Choose render size, FPS and frame range for the actual shot. For model control, use the execution skill's confirmed recipe and align RGB, control and mask streams; delivery FPS is a separate decision.",
+  "shot_id": "S010",
+  "render": {"width": 864, "height": 480, "fps": {"num": 24, "den": 1}, "frame_start": 1, "frame_end_inclusive": 124, "engine": "BLENDER_WORKBENCH"},
+  "units": "meters",
+  "environment": {"ground_height": 0, "obstacles": [], "spatial_anchors": []},
+  "actors": [], "props": [],
+  "camera": {"projection": "PERSP", "lens_mm": 50, "start_location": [0, -8, 2], "target": [0, 0, 1], "path_keyframes": [], "motion_intent": "locked or one readable motivated move", "keep_visible": []},
+  "action_keys": [], "contact_constraints": [],
+  "exports": {"blend": null, "guide_video": null, "control_streams": [], "appearance_references": [], "keyframes": []},
+  "h3_reference_roles": {"guide_video": "motion, camera, composition, timing only", "appearance_images": "identity, wardrobe, materials, style", "do_not_copy": ["gray proxy appearance", "debug paths", "labels"]},
+  "validation": {"check_first_middle_last": true, "check_contacts_occlusion_speed": true, "check_control_time_and_coordinate_alignment": true, "h3_guidance_is_soft": true}
+}

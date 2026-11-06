@@ -1,0 +1,220 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "MiniMax H3 UNET"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "CLIP (minimax / Qwen3-VL)"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "_meta": {
+      "title": "Video VAE"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "_meta": {
+      "title": "Audio VAE"
+    }
+  },
+  "5": {
+    "class_type": "MiniMaxH3Director",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "video_vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ],
+      "task_type": "i2v — 图生视频(Image to Video)",
+      "global_prompt": "integrated_multimodal_description: [Shot 1] Preserve the subject, scene and visual style of the supplied reference frame(s). Gentle natural movement, a slow camera move, consistent identity and material appearance. For two endpoint frames, transition smoothly from the first composition to the last. No overlay graphics.\n\noverall_soundscape: Subtle natural ambience consistent with the scene, no speech.\n\nnon_diegetic_music: N/A",
+      "bd_grp_sample": "采样设置",
+      "cfg": 1.0,
+      "seed": 29408,
+      "frame_rate": 24.0,
+      "width": 864,
+      "height": 480,
+      "ref_max_size": 864,
+      "total_frames": 248,
+      "timeline_data": "{\"version\": 4, \"editMode\": \"segments\", \"timelineMode\": \"gen_blank\", \"totalFrames\": 248, \"frameRate\": 24.0, \"width\": 864, \"height\": 480, \"refMaxSize\": 864, \"output\": {\"mode\": \"long_edge\", \"longEdge\": 864, \"width\": 864, \"height\": 480, \"maxExportFrames\": 0, \"exportMode\": \"all\", \"continuityEnabled\": false, \"continuityOverlapFrames\": 22}, \"videoClips\": [], \"video\": {\"fileName\": \"\", \"videoFile\": \"\", \"subfolder\": \"\", \"type\": \"input\", \"frames\": [], \"frameMap\": []}, \"global\": {\"taskType\": \"i2v — 图生视频(Image to Video)\", \"prompt\": \"integrated_multimodal_description: [Shot 1] Preserve the subject, scene and visual style of the supplied reference frame(s). Gentle natural movement, a slow camera move, consistent identity and material appearance. For two endpoint frames, transition smoothly from the first composition to the last. No overlay graphics.\\n\\noverall_soundscape: Subtle natural ambience consistent with the scene, no speech.\\n\\nnon_diegetic_music: N/A\", \"refs\": [], \"referenceVideo\": {}, \"continuousReference\": false, \"genImage\": {\"imageFile\": \"\"}, \"commonEnabled\": false}, \"segments\": [{\"id\": \"h3_segment_1\", \"start\": 0, \"length\": 124, \"frameCount\": 124, \"durationSec\": 5.0, \"prompt\": \"integrated_multimodal_description: [Shot 1] Preserve the subject, scene and visual style of the supplied reference frame(s). Gentle natural movement, a slow camera move, consistent identity and material appearance. For two endpoint frames, transition smoothly from the first composition to the last. No overlay graphics.\\n\\noverall_soundscape: Subtle natural ambience consistent with the scene, no speech.\\n\\nnon_diegetic_music: N/A\", \"taskType\": \"i2v — 图生视频(Image to Video)\", \"refs\": [], \"referenceVideo\": {}, \"genImage\": {\"imageFile\": \"\"}, \"negativePrompt\": \"\", \"continuityFromPrev\": false}], \"gen\": {\"defaultFrameCount\": 124}, \"runSelectEnabled\": false, \"runSelection\": []}",
+      "bd_grp_advanced": "高级采样 Advanced",
+      "steps": 25,
+      "sampler": "res_multistep",
+      "scheduler": "simple",
+      "shift_video": 12.0,
+      "shift_audio": 3.0,
+      "bd_grp_perf": "性能 Performance",
+      "clear_vram_between_segments": true,
+      "export_source_images": false,
+      "cache_name": "minimax_h3_08_外部输入多组首帧",
+      "i2v_groups": [
+        "16",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "MiniMaxH3Director"
+    }
+  },
+  "6": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "fps": [
+        "5",
+        2
+      ],
+      "audio": [
+        "5",
+        1
+      ],
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none"
+    },
+    "_meta": {
+      "title": "CreateVideo"
+    }
+  },
+  "7": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "6",
+        0
+      ],
+      "filename_prefix": "MiniMax H3/08_外部输入多组首帧",
+      "format": "mp4",
+      "format.codec": "h264"
+    },
+    "_meta": {
+      "title": "SaveVideo"
+    }
+  },
+  "8": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "5",
+        5
+      ]
+    },
+    "_meta": {
+      "title": "Director 运行报告"
+    }
+  },
+  "9": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "5",
+        2
+      ]
+    },
+    "_meta": {
+      "title": "fps"
+    }
+  },
+  "10": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "5",
+        3
+      ]
+    },
+    "_meta": {
+      "title": "frame_count"
+    }
+  },
+  "12": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "UPLOAD_PNG_1.png"
+    },
+    "_meta": {
+      "title": "首帧 · 上传或替换"
+    }
+  },
+  "13": {
+    "class_type": "MiniMaxH3DirectorGroupImageToVideo",
+    "inputs": {
+      "prompt": "integrated_multimodal_description: [Shot 1] Preserve the subject, scene and visual style of the supplied reference frame(s). Gentle natural movement, a slow camera move, consistent identity and material appearance. For two endpoint frames, transition smoothly from the first composition to the last. No overlay graphics.\n\noverall_soundscape: Subtle natural ambience consistent with the scene, no speech.\n\nnon_diegetic_music: N/A",
+      "duration_sec": 5.0,
+      "first_frame": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "输入组 · 提示词与片段时长"
+    }
+  },
+  "14": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "UPLOAD_PNG_2.png"
+    },
+    "_meta": {
+      "title": "第二组首帧 · 替换图片"
+    }
+  },
+  "15": {
+    "class_type": "MiniMaxH3DirectorGroupImageToVideo",
+    "inputs": {
+      "prompt": "integrated_multimodal_description: [Shot 1] Preserve the subject, scene and visual style of the supplied reference frame(s). Gentle natural movement, a slow camera move, consistent identity and material appearance. For two endpoint frames, transition smoothly from the first composition to the last. No overlay graphics.\n\noverall_soundscape: Subtle natural ambience consistent with the scene, no speech.\n\nnon_diegetic_music: N/A",
+      "duration_sec": 5.0,
+      "first_frame": [
+        "14",
+        0
+      ]
+    }
+  },
+  "16": {
+    "class_type": "MiniMaxH3DirectorGroupsCombine",
+    "inputs": {
+      "groups.group_1": [
+        "13",
+        0
+      ],
+      "groups.group_2": [
+        "15",
+        0
+      ]
+    }
+  }
+}

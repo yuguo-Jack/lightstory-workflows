@@ -1,0 +1,146 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_music3_dit_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "minimax_music3_text_encoder_pruned_int8_convrot.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_music3_dav.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "MiniMaxMusic3TextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "caption": "Global Metadata: cinematic ambient, 88 BPM, D major. Calm opening, gentle emotional rise, resolved ending. Clear, natural, spacious production.\n\nVocal Details: Strictly instrumental, no singing, no spoken words, no humming, no choir.\n\nArrangement: piano and warm strings, subtle percussion enters gradually; a coherent theme returns in the middle, instruments thin out into a complete ending.",
+      "lyrics": "[Intro]\n[Instrumental]\n[Outro]",
+      "seed": 7,
+      "max_duration": 30.0,
+      "cfg_scale": 1.7,
+      "top_k": 50
+    }
+  },
+  "5": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "4",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "EmptyMiniMaxMusic3LatentAudio",
+    "inputs": {
+      "seconds": [
+        "4",
+        1
+      ],
+      "batch_size": 1
+    }
+  },
+  "7": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ],
+      "seed": 7,
+      "steps": 30,
+      "cfg": 1.7,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "8": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "VAEDecodeAudioTiled",
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "tile_size": 1536,
+      "overlap": 64
+    }
+  },
+  "10": {
+    "class_type": "PrimitiveBoolean",
+    "inputs": {
+      "value": true
+    }
+  },
+  "11": {
+    "class_type": "ComfySwitchNode",
+    "inputs": {
+      "on_false": [
+        "8",
+        0
+      ],
+      "on_true": [
+        "9",
+        0
+      ],
+      "switch": [
+        "10",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "SaveAudioAdvanced",
+    "inputs": {
+      "audio": [
+        "11",
+        0
+      ],
+      "filename_prefix": "MiniMax Music 3/01_纯音乐配乐",
+      "format": "flac"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Workflows"
+  short_description: "Blender asset workflows, checks and engine export"
+  default_prompt: "Use $blender-core to process my Blender assets, inspect the result, and export for the target engine."

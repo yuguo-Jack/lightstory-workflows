@@ -1,0 +1,1831 @@
+[
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "01_文生图",
+    "api": "workflows/api/Qwen-Image 2.1/01_文生图.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/01_文生图.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，30.3秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "e792c47e0aa65feab0f67878c3d7fa9c2416c59fd873824f2fb353e7230924a5"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "02_单图编辑",
+    "api": "workflows/api/Qwen-Image 2.1/02_单图编辑.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/02_单图编辑.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，86.5秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "4df8984ec1585d6ed8aca009f75ebda02915551491082be3052fcd04737e30ac"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "03_双参考图编辑",
+    "api": "workflows/api/Qwen-Image 2.1/03_双参考图编辑.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/03_双参考图编辑.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，154.5秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "02c3cc5682146fe91b72316246e59fb47aa49a9fcfb6262693d91ef5346d6e70"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "04_蒙版局部编辑",
+    "api": "workflows/api/Qwen-Image 2.1/04_蒙版局部编辑.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/04_蒙版局部编辑.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，148.7秒；蒙版外像素完全一致",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "41687c6d2ecfedfbe9ac83fa59bc7f313e2a9e313dd43759408dc5750c1c37d2"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "05_透明背景文生图",
+    "api": "workflows/api/Qwen-Image 2.1/05_透明背景文生图.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/05_透明背景文生图.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，30.3秒；真实RGBA/Alpha已检查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "b60788934f0d4db5f8951c6e3842e845d16ff3218fbcab0b9866bca718f6e5b4"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "06_主体抠图与透明输出",
+    "api": "workflows/api/Qwen-Image 2.1/06_主体抠图与透明输出.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/06_主体抠图与透明输出.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，82.4秒；真实RGBA/Alpha已检查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "becd9587b5a14eef7d2f6cf6cc471fd163daa935447c9c4761154db4d55b119e"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "07_五参考图组合编辑",
+    "api": "workflows/api/Qwen-Image 2.1/07_五参考图组合编辑.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/07_五参考图组合编辑.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_JPG_1.jpg",
+      "UPLOAD_JPG_2.jpg",
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png",
+      "UPLOAD_PNG_3.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，175.8秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "1816c70ad2722eb6d37ae1b07139a844af3dedde4cf3e70d9b731d132dd11d0b"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "08_建模参考图生成",
+    "api": "workflows/api/Qwen-Image 2.1/08_建模参考图生成.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/08_建模参考图生成.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，40.2秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ebfaa3c25ab3cc9d2a592cbf7882ee720c908a4c56f5c9386bc4acd72f6d6b5d"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "09_多视图参考图_背面",
+    "api": "workflows/api/Qwen-Image 2.1/09_多视图参考图_背面.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/09_多视图参考图_背面.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，108.4秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "21c5e0abda6548d233731c2cf15dd9e4bbba2a1c90fa8e964e72be0e9588e691"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "09_多视图参考图_左侧",
+    "api": "workflows/api/Qwen-Image 2.1/09_多视图参考图_左侧.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/09_多视图参考图_左侧.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，110.4秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "52b6c47fd344bc5621d4ac77a5ef1019108328cc04713e4c4e0e32f9685e56d8"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "09_多视图参考图_右侧",
+    "api": "workflows/api/Qwen-Image 2.1/09_多视图参考图_右侧.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/09_多视图参考图_右侧.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，108.4秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "9bda91f90328d3561f2b8369257c214b41656bfc1d175ab52728e557665f49af"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "00_主体抠图与居中",
+    "api": "workflows/api/Pixal3D/00_主体抠图与居中.api.json",
+    "workflow": "workflows/ui/Pixal3D/00_主体抠图与居中.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png",
+      "UPLOAD_PNG_3.png",
+      "UPLOAD_PNG_4.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，4.1秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "40293e666fd6bc8a9edbab8bcf2a0bd2b613e43fb8d658e7f0bb49c103831f68"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "01_单图建模_1024",
+    "api": "workflows/api/Pixal3D/01_单图建模_1024.api.json",
+    "workflow": "workflows/ui/Pixal3D/01_单图建模_1024.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors",
+      "dino_v3_L_naf_fp32.safetensors",
+      "moge_2_vitl_normal_fp16.safetensors",
+      "pixal3d_int8_convrot.safetensors",
+      "trellis_2_shape_vae_bf16.safetensors",
+      "trellis_2_texture_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，93.6秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "f454baeb849e395cd9caaf70ae15bead5eebd4a6f6ad10c689c5182bc7976d2d"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "02_单图建模_1536",
+    "api": "workflows/api/Pixal3D/02_单图建模_1536.api.json",
+    "workflow": "workflows/ui/Pixal3D/02_单图建模_1536.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors",
+      "dino_v3_L_naf_fp32.safetensors",
+      "moge_2_vitl_normal_fp16.safetensors",
+      "pixal3d_int8_convrot.safetensors",
+      "trellis_2_shape_vae_bf16.safetensors",
+      "trellis_2_texture_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，132.0秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ef197a1e55eb3905c990d21c0933dedb4eff16eb9e0945a4af57f2a131b8c1ca"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "03_双视图建模_1024",
+    "api": "workflows/api/Pixal3D/03_双视图建模_1024.api.json",
+    "workflow": "workflows/ui/Pixal3D/03_双视图建模_1024.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors",
+      "dino_v3_L_naf_fp32.safetensors",
+      "pixal3d_multiview_int8_convrot.safetensors",
+      "trellis_2_shape_vae_bf16.safetensors",
+      "trellis_2_texture_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，113.5秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "0b9a5e52dcc7e7058eba70d9d5854d99393d366f996b8bb0d4ab8978e65713be"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "04_双视图建模_1536",
+    "api": "workflows/api/Pixal3D/04_双视图建模_1536.api.json",
+    "workflow": "workflows/ui/Pixal3D/04_双视图建模_1536.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors",
+      "dino_v3_L_naf_fp32.safetensors",
+      "pixal3d_multiview_int8_convrot.safetensors",
+      "trellis_2_shape_vae_bf16.safetensors",
+      "trellis_2_texture_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，154.2秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "d6a5c57d69958ad1503cffae58cc54dda8107d6b0d5de51274eafa1f5bab8722"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "05_四视图建模_1024",
+    "api": "workflows/api/Pixal3D/05_四视图建模_1024.api.json",
+    "workflow": "workflows/ui/Pixal3D/05_四视图建模_1024.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors",
+      "dino_v3_L_naf_fp32.safetensors",
+      "pixal3d_multiview_int8_convrot.safetensors",
+      "trellis_2_shape_vae_bf16.safetensors",
+      "trellis_2_texture_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png",
+      "UPLOAD_PNG_3.png",
+      "UPLOAD_PNG_4.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，117.5秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "21beb124d99a5253574e43f5b9a2130e862412996f430ac7e95d71f49ec134c8"
+  },
+  {
+    "model": "Pixal3D",
+    "function": "06_四视图建模_1536",
+    "api": "workflows/api/Pixal3D/06_四视图建模_1536.api.json",
+    "workflow": "workflows/ui/Pixal3D/06_四视图建模_1536.json",
+    "legacy_functions": [],
+    "weights": [
+      "birefnet.safetensors",
+      "dino_v3_L_naf_fp32.safetensors",
+      "pixal3d_multiview_int8_convrot.safetensors",
+      "trellis_2_shape_vae_bf16.safetensors",
+      "trellis_2_texture_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png",
+      "UPLOAD_PNG_3.png",
+      "UPLOAD_PNG_4.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "历史GPU实测通过，140.2秒；旧样片当前不可用，非本轮失败",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "8016968d3830e9052e77e2b2e401885bce698f064e81a4f938e8995ab21c45b1"
+  },
+  {
+    "model": "Ming-3.0-TTS",
+    "function": "01_内置音色配音",
+    "api": "workflows/api/Ming-3.0-TTS/01_内置音色配音.api.json",
+    "workflow": "workflows/ui/Ming-3.0-TTS/01_内置音色配音.json",
+    "legacy_functions": [],
+    "weights": [
+      "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "ming-3.0_audio_vae.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，22.5秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ec169df1250cf7e294eb22ff5bfc89844ce75d14b52d6dc29acbbcc199e6af8d"
+  },
+  {
+    "model": "Ming-3.0-TTS",
+    "function": "02_文字设计音色",
+    "api": "workflows/api/Ming-3.0-TTS/02_文字设计音色.api.json",
+    "workflow": "workflows/ui/Ming-3.0-TTS/02_文字设计音色.json",
+    "legacy_functions": [],
+    "weights": [
+      "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "ming-3.0_audio_vae.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，20.2秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "874f076148a5efe54f9ddd2bc1758f98dacd766612ca94cf21dd51a41b156eff"
+  },
+  {
+    "model": "Ming-3.0-TTS",
+    "function": "03_参考音色克隆",
+    "api": "workflows/api/Ming-3.0-TTS/03_参考音色克隆.api.json",
+    "workflow": "workflows/ui/Ming-3.0-TTS/03_参考音色克隆.json",
+    "legacy_functions": [],
+    "weights": [
+      "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "ming-3.0_audio_vae.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，18.1秒；合成参考实测，使用模板时须上传参考",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "2787e2197fb87aeb244b9e594f1e795267757a61e84d94d28b7f80c9c5a69808"
+  },
+  {
+    "model": "Ming-3.0-TTS",
+    "function": "04_情绪与表演控制",
+    "api": "workflows/api/Ming-3.0-TTS/04_情绪与表演控制.api.json",
+    "workflow": "workflows/ui/Ming-3.0-TTS/04_情绪与表演控制.json",
+    "legacy_functions": [],
+    "weights": [
+      "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "ming-3.0_audio_vae.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，20.1秒；合成参考实测，使用模板时须上传参考",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "69d24b63789f276c89ea06056a6c535a2a9db50b3a38a0e1cb4d5727fba95fbd"
+  },
+  {
+    "model": "Ming-3.0-TTS",
+    "function": "05_多角色对白与长文本",
+    "api": "workflows/api/Ming-3.0-TTS/05_多角色对白与长文本.api.json",
+    "workflow": "workflows/ui/Ming-3.0-TTS/05_多角色对白与长文本.json",
+    "legacy_functions": [],
+    "weights": [
+      "ming-3.0-tts-tiny_int8_convrot.safetensors",
+      "ming-3.0_audio_vae.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，18.1秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "479df5add1c43faa516bb798043d96374a28311aae741aab44e957fe2f634858"
+  },
+  {
+    "model": "MiniMax Music 3",
+    "function": "01_纯音乐配乐",
+    "api": "workflows/api/MiniMax Music 3/01_纯音乐配乐.api.json",
+    "workflow": "workflows/ui/MiniMax Music 3/01_纯音乐配乐.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_music3_dav.safetensors",
+      "minimax_music3_dit_int8_convrot.safetensors",
+      "minimax_music3_text_encoder_pruned_int8_convrot.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，70.4秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "df99dfdcec20c693243c41367dffb5417b8ab7d286d5def811c052396907fabf"
+  },
+  {
+    "model": "MiniMax Music 3",
+    "function": "02_歌词歌曲",
+    "api": "workflows/api/MiniMax Music 3/02_歌词歌曲.api.json",
+    "workflow": "workflows/ui/MiniMax Music 3/02_歌词歌曲.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_music3_dav.safetensors",
+      "minimax_music3_dit_int8_convrot.safetensors",
+      "minimax_music3_text_encoder_pruned_int8_convrot.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，64.3秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "163e74f9f4a6a256ce7bd803e715ac4f99618cc34e96ec2c915fddabbcef372f"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "01_文生视频",
+    "api": "workflows/api/MiniMax H3/01_文生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/01_文生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，174.7秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "4e6ce37492af0b85ff721e6cd7c0156e66eda73a296baff8b84dbd0e90e18100"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "02_文生视频_Turbo预览",
+    "api": "workflows/api/MiniMax H3/02_文生视频_Turbo预览.api.json",
+    "workflow": "workflows/ui/MiniMax H3/02_文生视频_Turbo预览.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，78.5秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "c69280b3da5839f6d8591426dfa756939e8e59f278a9355826c8d3b95b8a113e"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "04_首尾帧生视频",
+    "api": "workflows/api/MiniMax H3/04_首尾帧生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/04_首尾帧生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，264.9秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "e2b31e34fa16a53da75e88fa455eb99059d91934a7404b011ac73afdd8e75ca0"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "05_图音视频参考生视频",
+    "api": "workflows/api/MiniMax H3/05_图音视频参考生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/05_图音视频参考生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_FLAC_1.flac",
+      "UPLOAD_MP4_1.mp4",
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，901.6秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "0f83e3d8229641de5c84b6e01e309604d560d62b182f89e0949b92a3458de818"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "06_源视频编辑",
+    "api": "workflows/api/MiniMax H3/06_源视频编辑.api.json",
+    "workflow": "workflows/ui/MiniMax H3/06_源视频编辑.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，610.1秒；已绑定测试源素材，使用模板时须上传自己的素材",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "0fe9fa9f4751115d88106660ea9710d145a7ef60f64ad815ebbc4a977ffbad85"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "07_参考素材编辑视频",
+    "api": "workflows/api/MiniMax H3/07_参考素材编辑视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/07_参考素材编辑视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，603.9秒；已绑定测试源素材，使用模板时须上传自己的素材",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "a0ceb0b15d283e5210d5d5ad996f2c67148c1d2cab43bf0ef4fed2e41a2ce940"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "08_外部输入多组首帧",
+    "api": "workflows/api/MiniMax H3/08_外部输入多组首帧.api.json",
+    "workflow": "workflows/ui/MiniMax H3/08_外部输入多组首帧.json",
+    "legacy_functions": [],
+    "weights": [],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，493.9秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "7c2b8dacc68ab57bf4136ea530886abf0b28954c3620f8dad4cd54fa3930b0b1"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "09_外部输入多组参考",
+    "api": "workflows/api/MiniMax H3/09_外部输入多组参考.api.json",
+    "workflow": "workflows/ui/MiniMax H3/09_外部输入多组参考.json",
+    "legacy_functions": [],
+    "weights": [],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，555.9秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "7be005669536027d0d79c6620aaad03726a0a16b2515f886fa9b0df008634983"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "10_连续长镜头",
+    "api": "workflows/api/MiniMax H3/10_连续长镜头.api.json",
+    "workflow": "workflows/ui/MiniMax H3/10_连续长镜头.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，790.6秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "4b5b54af54c86f96224c1a4233a8ae9f1b3b51c77f885135134f756e649ab872"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "11_连续长镜头_Turbo预览",
+    "api": "workflows/api/MiniMax H3/11_连续长镜头_Turbo预览.api.json",
+    "workflow": "workflows/ui/MiniMax H3/11_连续长镜头_Turbo预览.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，315.3秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "174ff86f3c00c70986366652081b7d72c68fbe812a5d42e6428097674443fc03"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/01_格斗动作增强",
+    "api": "workflows/api/MiniMax H3/动作与运镜/01_格斗动作增强.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/01_格斗动作增强.json",
+    "legacy_functions": [],
+    "weights": [
+      "H3_Combat_V2.safetensors",
+      "Motion_Repair_V2.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，206.9秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "5916025db3ecaec466ab2880ded5e9f4011fc88cd8467aec7755b88feee24b94"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/02_兵器动作增强",
+    "api": "workflows/api/MiniMax H3/动作与运镜/02_兵器动作增强.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/02_兵器动作增强.json",
+    "legacy_functions": [],
+    "weights": [
+      "Bunny_weapon_combatV1.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，201.1秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "269dd44bebfb1d0212d86aebb7b671a42f47b8723805b726ae28a23a30dc34a9"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/03_电影枪斗增强",
+    "api": "workflows/api/MiniMax H3/动作与运镜/03_电影枪斗增强.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/03_电影枪斗增强.json",
+    "legacy_functions": [],
+    "weights": [
+      "GunFu.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，203.3秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "e19aab22392dc89bbbe86ad43b4b45059e2a84bdab5df502fb11f2e7550e244f"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/04_运镜增强",
+    "api": "workflows/api/MiniMax H3/动作与运镜/04_运镜增强.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/04_运镜增强.json",
+    "legacy_functions": [],
+    "weights": [
+      "camera_motion_h3_lora_v1_3000_pruned.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，201.2秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "5f556953fe804c50b75b7fd9de128a4c77f16f869d68faddc1f1217246912a4c"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/05_动作连贯增强",
+    "api": "workflows/api/MiniMax H3/动作与运镜/05_动作连贯增强.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/05_动作连贯增强.json",
+    "legacy_functions": [],
+    "weights": [
+      "Motion_Repair_V2.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，198.8秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "8b43f8b66c961ab797bf2eebcd9e88e3f70312b6b5b3680313fabf2bbf34086c"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "12_同分辨率二次精修",
+    "api": "workflows/api/MiniMax H3/12_同分辨率二次精修.api.json",
+    "workflow": "workflows/ui/MiniMax H3/12_同分辨率二次精修.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，242.7秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ffe97a77f5a3158e18cc6600075c6a9e2127fa74c0dfe45cccf2bf35db43fca1"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "15_渐进分辨率生成",
+    "api": "workflows/api/MiniMax H3/15_渐进分辨率生成.api.json",
+    "workflow": "workflows/ui/MiniMax H3/15_渐进分辨率生成.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，142.7秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ff8ce09be15dc63987be99fe0da2f40c7c9e03041311bce54729164a706789ed"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "16_空间语义约束",
+    "api": "workflows/api/MiniMax H3/16_空间语义约束.api.json",
+    "workflow": "workflows/ui/MiniMax H3/16_空间语义约束.json",
+    "legacy_functions": [],
+    "weights": [
+      "MiniMaxH3_SemanticBridge_v1.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，172.7秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "c5dc4cadb7b7e17bd66ee890cb4ac8258f37fe3c7bc2440e50ac740b9223518f"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "17_人脸局部精修",
+    "api": "workflows/api/MiniMax H3/17_人脸局部精修.api.json",
+    "workflow": "workflows/ui/MiniMax H3/17_人脸局部精修.json",
+    "legacy_functions": [],
+    "weights": [
+      "face_yolov8m.pt",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，298.9秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "06322554cbf421c907e806951e746092a8db4b2dc1519859b89f34bc00f338db"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/06_空间物理增强",
+    "api": "workflows/api/MiniMax H3/动作与运镜/06_空间物理增强.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/06_空间物理增强.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "wushu_spatial_physics_clean_3000_pruned.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，198.8秒；本例动作编排未完全满足，见视觉审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "a2633d0f27d263822fb3f388ca9ff400f69d13a716dc72126c65a89cd63e285e"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "18_参考生视频_Turbo预览",
+    "api": "workflows/api/MiniMax H3/18_参考生视频_Turbo预览.api.json",
+    "workflow": "workflows/ui/MiniMax H3/18_参考生视频_Turbo预览.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，66.5秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "bd2ab74225ceb0f5b37d2881f2ea07136bbfd23ac127d13aed2b19b6cec8879f"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "03_首帧生视频",
+    "api": "workflows/api/MiniMax H3/03_首帧生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/03_首帧生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，249.0秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "c928b13b53d6f0c3ebe240971b0710b67e365ff6a80cbb80d72594e1c7ef4511"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "13_放大与高清二采",
+    "api": "workflows/api/MiniMax H3/13_放大与高清二采.api.json",
+    "workflow": "workflows/ui/MiniMax H3/13_放大与高清二采.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，357.5秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "850d9f95f0e0986df811e0b0bd9800ba4321bacab68933aaf6458287b500ace0"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "14_仅潜空间放大",
+    "api": "workflows/api/MiniMax H3/14_仅潜空间放大.api.json",
+    "workflow": "workflows/ui/MiniMax H3/14_仅潜空间放大.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_latent_upscaler_3d_conv_v1_bf16.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本轮GPU实测通过，174.8秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "899efba28d29cd0009738d35e0974786a65ca7960387cc63dc47a4da6fcf9a9b"
+  },
+  {
+    "model": "SkinTokens",
+    "function": "01_自动骨架与蒙皮",
+    "api": "workflows/api/SkinTokens/01_自动骨架与蒙皮.api.json",
+    "workflow": "workflows/ui/SkinTokens/01_自动骨架与蒙皮.json",
+    "legacy_functions": [],
+    "weights": [
+      "SkinTokens/TokenRig GRPO",
+      "SkinTokens/Skin VAE"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_GLB_1.glb"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "CUDA实测通过，25.34秒；GLB/原材质/界面已检查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "d2d9a58d6a469531b259be407b30bd3e82cb705818bf317671386297c10c28fe"
+  },
+  {
+    "model": "SkinTokens",
+    "function": "02_已有骨架补蒙皮",
+    "api": "workflows/api/SkinTokens/02_已有骨架补蒙皮.api.json",
+    "workflow": "workflows/ui/SkinTokens/02_已有骨架补蒙皮.json",
+    "legacy_functions": [],
+    "weights": [
+      "SkinTokens/TokenRig GRPO",
+      "SkinTokens/Skin VAE"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_GLB_1.glb"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "CUDA实测通过，19.95秒；GLB/原材质/界面已检查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "f6ec4b1721ae1af1acd8dd65d2a16ed5a194c7167aa282317d305785c9ccbd0f"
+  },
+  {
+    "model": "SkinTokens",
+    "function": "03_骨骼命名适配",
+    "api": "workflows/api/SkinTokens/03_骨骼命名适配.api.json",
+    "workflow": "workflows/ui/SkinTokens/03_骨骼命名适配.json",
+    "legacy_functions": [],
+    "weights": [],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_GLB_1.glb"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "CPU实测通过，0.05秒；GLB/原材质/界面已检查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ae92a238e4509f8c0487fe9a5d8067f6981ebc1dcb741087d1a230c2ce62490f"
+  },
+  {
+    "model": "SkinTokens",
+    "function": "04_蒙皮权重修复",
+    "api": "workflows/api/SkinTokens/04_蒙皮权重修复.api.json",
+    "workflow": "workflows/ui/SkinTokens/04_蒙皮权重修复.json",
+    "legacy_functions": [],
+    "weights": [],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_GLB_1.glb"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "CPU实测通过，0.10秒；GLB/原材质/界面已检查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "ddf422c4aecaa89a64f69454eb77bbeb41e58820ead8283df0228ac0b3a27795"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "Pika Flex/01_文生视频",
+    "api": "workflows/api/MiniMax H3/Pika Flex/01_文生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/Pika Flex/01_文生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "pika_h3_flex_fl2va_v1_bf16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "Flex GPU实测通过，64.9秒；质量边界见独立审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "688a37d05a7ef458af28115b6da9ec9aa6712e214121a1566431556c5524cb75"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "Pika Flex/02_首帧生视频",
+    "api": "workflows/api/MiniMax H3/Pika Flex/02_首帧生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/Pika Flex/02_首帧生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "pika_h3_flex_fl2va_v1_bf16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "Flex GPU实测通过，68.6秒；质量边界见独立审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "d8719ae73a2da0b65005f6ffbf6bf23c35efe814d57d9114f1d1e2e1b39e836a"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "Pika Flex/03_首尾帧生视频",
+    "api": "workflows/api/MiniMax H3/Pika Flex/03_首尾帧生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/Pika Flex/03_首尾帧生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "pika_h3_flex_fl2va_v1_bf16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_JPG_1.jpg",
+      "UPLOAD_JPG_2.jpg"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "Flex GPU实测通过，91.4秒；质量边界见独立审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "76857465eacb330961737168b7c186448c8cbcaff930ac4d60c44b3c3081c179"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "Pika Flex/04_多模态参考生视频",
+    "api": "workflows/api/MiniMax H3/Pika Flex/04_多模态参考生视频.api.json",
+    "workflow": "workflows/ui/MiniMax H3/Pika Flex/04_多模态参考生视频.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "pika_h3_flex_ref2va_v1_bf16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_FLAC_1.flac",
+      "UPLOAD_MP4_1.mp4",
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "Flex GPU实测通过，216.9秒；质量边界见独立审查；本例参考姿态约束未完全满足",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "5cb00fd18b6a27a4e7a0d0f89dd14a2baf34234e2d2e97acd8c34cb70756570a"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "Pika Flex/05_源视频编辑",
+    "api": "workflows/api/MiniMax H3/Pika Flex/05_源视频编辑.api.json",
+    "workflow": "workflows/ui/MiniMax H3/Pika Flex/05_源视频编辑.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "pika_h3_flex_ref2va_v1_bf16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_MP4_1.mp4"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "Flex GPU实测通过，186.8秒；质量边界见独立审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "f44f6c394dc6d14b4bb3b8e0b09192508cd497e92288e60f8cc1f7e305e6f638"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "Pika Flex/06_连续长镜头",
+    "api": "workflows/api/MiniMax H3/Pika Flex/06_连续长镜头.api.json",
+    "workflow": "workflows/ui/MiniMax H3/Pika Flex/06_连续长镜头.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "pika_h3_flex_fl2va_v1_bf16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "Flex GPU实测通过，158.8秒；质量边界见独立审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "eaee1bb9a0eec81412bc9d5c83ec612c7df77526a2e58c2cd7e84e51bc423f5e"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/01_自然人物运动",
+    "api": "workflows/api/MiniMax H3/人物与风格/01_自然人物运动.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/01_自然人物运动.json",
+    "legacy_functions": [],
+    "weights": [
+      "better_motion_h3_lora_v1_500.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，472.1秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "3bb27c39ca61331935810ccb10a3f92449b64f033bc43ac7eeb7ad14bb4b9536"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/02_复古绘本动画",
+    "api": "workflows/api/MiniMax H3/人物与风格/02_复古绘本动画.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/02_复古绘本动画.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "studio1939-light.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，287.0秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "de676bee67b05cfdd80064f63836e338fa480d81150af4391c43096536776b7b"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/03_复古赛璐璐动画",
+    "api": "workflows/api/MiniMax H3/人物与风格/03_复古赛璐璐动画.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/03_复古赛璐璐动画.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "studio1939-strong.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，297.4秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "a82b9879f45937657f854ed5e20aafb66bc3d53d491f559648520f837a5d1daf"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "运镜与视频编辑/02_照片卡片旋转",
+    "api": "workflows/api/MiniMax H3/运镜与视频编辑/02_照片卡片旋转.api.json",
+    "workflow": "workflows/ui/MiniMax H3/运镜与视频编辑/02_照片卡片旋转.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_orb360_cardspin_v2_step50.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，442.0秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "334c83510b3afe88450da63604f26c8edc6e1204d2765927a3c9276868b434ce"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "运镜与视频编辑/03_源视频换机位",
+    "api": "workflows/api/MiniMax H3/运镜与视频编辑/03_源视频换机位.api.json",
+    "workflow": "workflows/ui/MiniMax H3/运镜与视频编辑/03_源视频换机位.json",
+    "legacy_functions": [],
+    "weights": [
+      "MiniMax-H3_Ref2VA-LoRA-CrossView-Warp_v1_3500.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "moge_2_vitl_normal_fp16.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_MP4_1.mp4"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，623.7秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "9e797c62cde2bf8183ead57bf849262d85b021dbadde65bea5ad92f8ab512eb0"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/05_成人级_NSFW_参考人物运动_AfterMidnight",
+    "api": "workflows/api/MiniMax H3/人物与风格/05_成人级_NSFW_参考人物运动_AfterMidnight.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/05_成人级_NSFW_参考人物运动_AfterMidnight.json",
+    "legacy_functions": [
+      "人物与风格/05_参考人物运动表现"
+    ],
+    "weights": [
+      "AfterMidnight_ref2va_h3_sexytime_rank64-v1.2.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": "成人级（NSFW）",
+    "required_uploads": [
+      "UPLOAD_JPG_1.jpg"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，424.2秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "56b5b140cb4bb34fd3a1af0cd1f975419a7ad6ee487064c7ffab577473efedb4"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/06_成人级_NSFW_参考人物质感_AfterMidnight",
+    "api": "workflows/api/MiniMax H3/人物与风格/06_成人级_NSFW_参考人物质感_AfterMidnight.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/06_成人级_NSFW_参考人物质感_AfterMidnight.json",
+    "legacy_functions": [
+      "人物与风格/06_参考人物质感表现"
+    ],
+    "weights": [
+      "AfterMidnight_ref2va_h3_softer_rank64_v1.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": "成人级（NSFW）",
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，457.7秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "e279c33c67f2e0858853d6b48ac63585c56629720ab071257bc78b40a849090c"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/04_自然表情与英语口播",
+    "api": "workflows/api/MiniMax H3/人物与风格/04_自然表情与英语口播.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/04_自然表情与英语口播.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "nafasp_h3_lora_v2_500.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，495.7秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "e23aac366c2539ec3bbc35cc7c79efdaf3b33bc7523020be84be65c966fbb592"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/07_成人级_NSFW_人物表现_NaughtyTimes",
+    "api": "workflows/api/MiniMax H3/人物与风格/07_成人级_NSFW_人物表现_NaughtyTimes.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/07_成人级_NSFW_人物表现_NaughtyTimes.json",
+    "legacy_functions": [
+      "人物与风格/07_人物表现_NaughtyTimes"
+    ],
+    "weights": [
+      "SexGod_NaughtyTimes_v3_rank64_pruned_NOADALN.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": "成人级（NSFW）",
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，425.9秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "22de0d7ea4f2d97cc23fd7505d4f68c0520616becac4f9d3c5812771b216663f"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "人物与风格/08_成人级_NSFW_人物表现_Unlocked",
+    "api": "workflows/api/MiniMax H3/人物与风格/08_成人级_NSFW_人物表现_Unlocked.api.json",
+    "workflow": "workflows/ui/MiniMax H3/人物与风格/08_成人级_NSFW_人物表现_Unlocked.json",
+    "legacy_functions": [
+      "人物与风格/08_人物表现_Unlocked"
+    ],
+    "weights": [
+      "Minimax_H3_Unlocked_V2.1.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": "成人级（NSFW）",
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，141.1秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "5ee6b3261cb77e275912c9776b1feefd01976bfae90c0483d27e78326a5db434"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "运镜与视频编辑/01_主体360环绕",
+    "api": "workflows/api/MiniMax H3/运镜与视频编辑/01_主体360环绕.api.json",
+    "workflow": "workflows/ui/MiniMax H3/运镜与视频编辑/01_主体360环绕.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_orb360_step1500.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，319.6秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "6203902bd02d10c35597f4ae7087031c9b80b9fc5ed14665e35172dd3ef52c57"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "动作与运镜/07_子弹时间",
+    "api": "workflows/api/MiniMax H3/动作与运镜/07_子弹时间.api.json",
+    "workflow": "workflows/ui/MiniMax H3/动作与运镜/07_子弹时间.json",
+    "legacy_functions": [],
+    "weights": [
+      "BulletTime-MMH3.safetensors",
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fl2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "扩展LoRA GPU实测通过，482.5秒；本例有约束/质量边界，见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "bb8d47d17c03c0b7255c6c13f5a8aef8c9e93c4477ff78861e13a09c7b93d243"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "结构控制/01_边缘控制生图",
+    "api": "workflows/api/Qwen-Image 2.1/结构控制/01_边缘控制生图.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/结构控制/01_边缘控制生图.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_fun_controlnet_union_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，12.1秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "0589b3160ea5fb8930e32d261a1737d9877340775aabb00140c7527f4e8d8a86"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "结构控制/02_自动深度控制生图",
+    "api": "workflows/api/Qwen-Image 2.1/结构控制/02_自动深度控制生图.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/结构控制/02_自动深度控制生图.json",
+    "legacy_functions": [],
+    "weights": [
+      "moge_2_vitl_normal_fp16.safetensors",
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_fun_controlnet_union_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，14.1秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "1972eff68b61aa06ffe222a6ee61b1d3a624132843dbed8c6ddcc77ad02d09de"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "结构控制/03_结构引导局部重绘",
+    "api": "workflows/api/Qwen-Image 2.1/结构控制/03_结构引导局部重绘.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/结构控制/03_结构引导局部重绘.json",
+    "legacy_functions": [],
+    "weights": [
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_fun_controlnet_union_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png",
+      "UPLOAD_PNG_2.png",
+      "UPLOAD_PNG_3.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，12.3秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "3f2479ac1ba7c61bd28016112b70690a25900374a9e6a3ee47e749da3a57bb1f"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "分镜/01_下一镜头生成",
+    "api": "workflows/api/Qwen-Image 2.1/分镜/01_下一镜头生成.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/分镜/01_下一镜头生成.json",
+    "legacy_functions": [],
+    "weights": [
+      "next_scene_step2500_comfy21.safetensors",
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，28.2秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "8dffc972ba7b93190845ef41f6513e0b05c33aaf139f32b904bc7492a57c1ad2"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "分镜/02_链式分镜生成",
+    "api": "workflows/api/Qwen-Image 2.1/分镜/02_链式分镜生成.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/分镜/02_链式分镜生成.json",
+    "legacy_functions": [],
+    "weights": [
+      "next_scene_step2500_comfy21.safetensors",
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_PNG_1.png"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，102.5秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "4918620fbfb9073a320da7e5b562093b380116fafac49965c1af653c12d23d7e"
+  },
+  {
+    "model": "Qwen-Image 2.1",
+    "function": "人物与风格/01_成人级_NSFW_人物表现_TheseAlpacas",
+    "api": "workflows/api/Qwen-Image 2.1/人物与风格/01_成人级_NSFW_人物表现_TheseAlpacas.api.json",
+    "workflow": "workflows/ui/Qwen-Image 2.1/人物与风格/01_成人级_NSFW_人物表现_TheseAlpacas.json",
+    "legacy_functions": [
+      "人物与风格/01_成年人物表现_NSFW标签LoRA"
+    ],
+    "weights": [
+      "NSFW Qwen by TheseAlpacas V2.safetensors",
+      "qwen3vl_8b_int8_convrot.safetensors",
+      "qwen_image_2.1_int8_convrot.safetensors",
+      "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "content_label": "成人级（NSFW）",
+    "required_uploads": [],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，18.1秒",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "eabb737e38502747ae4bbaa8e7dea9f790afbc456b144c4410425a2787fda452"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "结构控制/01_深度与白模运镜",
+    "api": "workflows/api/MiniMax H3/结构控制/01_深度与白模运镜.api.json",
+    "workflow": "workflows/ui/MiniMax H3/结构控制/01_深度与白模运镜.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_MP4_1.mp4"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，333.1秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "3df5fa6950cb7840895a5a72472c164c7107e0bfcab6c45872c152ab50acc657"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "结构控制/02_边缘视频控制",
+    "api": "workflows/api/MiniMax H3/结构控制/02_边缘视频控制.api.json",
+    "workflow": "workflows/ui/MiniMax H3/结构控制/02_边缘视频控制.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_MP4_1.mp4"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，345.2秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "40b7ae7638818bc8f428ae064a2faf32ba96c9841f8db496cc92b9837d73368e"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "结构控制/03_姿态视频控制",
+    "api": "workflows/api/MiniMax H3/结构控制/03_姿态视频控制.api.json",
+    "workflow": "workflows/ui/MiniMax H3/结构控制/03_姿态视频控制.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_MP4_1.mp4"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，335.1秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "a2ae3be06811d529d8d35c57a533b2aaa4eeaf54f91c7cb7885e8558d3de0b31"
+  },
+  {
+    "model": "MiniMax H3",
+    "function": "结构控制/04_结构引导视频局部重绘",
+    "api": "workflows/api/MiniMax H3/结构控制/04_结构引导视频局部重绘.api.json",
+    "workflow": "workflows/ui/MiniMax H3/结构控制/04_结构引导视频局部重绘.json",
+    "legacy_functions": [],
+    "weights": [
+      "minimax_h3_audio_vae_fp32.safetensors",
+      "minimax_h3_fun_controlnet_union_2.0_pruned_int8_convrot.safetensors",
+      "minimax_h3_ref2va_pruned_w6a8.safetensors",
+      "minimax_h3_video_vae_int8_convrot.safetensors",
+      "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+    ],
+    "content_label": null,
+    "required_uploads": [
+      "UPLOAD_MP4_1.mp4",
+      "UPLOAD_MP4_2.mp4",
+      "UPLOAD_MP4_3.mp4"
+    ],
+    "validation": {
+      "scope": "historical-single-host",
+      "label": "本批GPU功能实测通过，353.5秒；约束/画质边界见审查",
+      "current_install_tested": false
+    },
+    "source_api_sha256": "4aac5b472125b184e99edd9cd5a238aeb438a5c72276335beb2621e8e6cf663f"
+  }
+]

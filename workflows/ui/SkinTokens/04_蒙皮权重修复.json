@@ -1,0 +1,236 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Load3DAdvanced",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        530,
+        620
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "model_3d_info",
+          "type": "LOAD3D_MODEL_INFO",
+          "links": []
+        },
+        {
+          "name": "camera_info",
+          "type": "LOAD3D_CAMERA",
+          "links": []
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load3DAdvanced"
+      },
+      "widgets_values": [
+        "UPLOAD_GLB_1.glb",
+        {},
+        768,
+        768
+      ],
+      "widgets_values_named": {
+        "model_file": "UPLOAD_GLB_1.glb",
+        "viewport_state": {},
+        "width": 768,
+        "height": 768
+      },
+      "title": "① 上传 GLB；替换示例输入"
+    },
+    {
+      "id": 3,
+      "type": "SkinTokensCleanWeights",
+      "pos": [
+        590,
+        150
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "glb",
+          "type": "FILE_3D_GLB,FILE_3D_GLTF,FILE_3D",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cleaned_glb",
+          "type": "FILE_3D_GLB",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SkinTokensCleanWeights"
+      },
+      "widgets_values": [
+        "skintokens/04_蒙皮权重修复/intermediate",
+        5
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "skintokens/04_蒙皮权重修复/intermediate",
+        "min_hops": 5
+      },
+      "title": "② 蒙皮权重修复"
+    },
+    {
+      "id": 4,
+      "type": "Save3DAdvanced",
+      "pos": [
+        1060,
+        0
+      ],
+      "size": [
+        560,
+        650
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D_GLB,FILE_3D_GLTF,FILE_3D_FBX,FILE_3D_OBJ,FILE_3D_STL,FILE_3D_USDZ,FILE_3D",
+          "link": 2
+        },
+        {
+          "name": "model_3d_info",
+          "type": "LOAD3D_MODEL_INFO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "camera_info",
+          "type": "LOAD3D_CAMERA",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model_3d",
+          "type": "FILE_3D",
+          "links": []
+        },
+        {
+          "name": "model_3d_info",
+          "type": "LOAD3D_MODEL_INFO",
+          "links": []
+        },
+        {
+          "name": "camera_info",
+          "type": "LOAD3D_CAMERA",
+          "links": []
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Save3DAdvanced"
+      },
+      "widgets_values": [
+        "SkinTokens/04_蒙皮权重修复/model",
+        {},
+        768,
+        768
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "SkinTokens/04_蒙皮权重修复/model",
+        "viewport_state": {},
+        "width": 768,
+        "height": 768
+      },
+      "title": "③ 保存成品 GLB／预览"
+    },
+    {
+      "id": 5,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        -450
+      ],
+      "size": [
+        1620,
+        410
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "properties": {},
+      "widgets_values": [
+        "# SkinTokens — 通用 GLB 工作流\n1. 左侧上传自己的 GLB，先检查直立方向、真实尺寸、四肢间距及材质。然后 Queue。\n2. 新骨架：use_skeleton=false；已有骨架补权重：true，保留原关节/骨轴/绑定矩阵。\n3. 人形可 relabel=Mixamo/UE5；动物/异形关闭 relabel。命名适配不等于动作重定向或 UE 骨架认证。\n4. use_transfer=true 保留原网格、UV、PBR；Pixal3D先保存GLB，再从这里上传，不走丢材质的纯MESH分支。\n5. 本节点GLB写临时目录，右侧 Save 3D 才是保留成品。绑定后进Blender检查肩/肘/膝/手指；机械刚性关节与布料物理需另做。\n用法、实际验证及限制：$comfyui-local-workflows → references/skintokens.md。\n本流程不下载模型，不自动上传云端；权重已在本机部署。\n按骨架距离清除跨身体污染权重；不是通用平滑器，长裙/斗篷/触手需审查。CPU执行。"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      0,
+      "FILE_3D"
+    ],
+    [
+      2,
+      3,
+      0,
+      4,
+      0,
+      "FILE_3D_GLB"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.65,
+      "offset": [
+        250,
+        150
+      ]
+    }
+  },
+  "version": 0.4
+}

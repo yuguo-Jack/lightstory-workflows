@@ -1,0 +1,517 @@
+{
+  "ApplyTextureToMesh": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "BakeAmbientOcclusion": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "BakeNormalMapFromMesh": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "BakeTextureFromVoxel": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "BasicGuider": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "BasicScheduler": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "CFGOverride": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "CLIPLoader": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "CLIPVisionLoader": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Canny": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_canny",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ComfySwitchNode": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_logic",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ConditioningZeroOut": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "CreateVideo": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_video",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "CrossViewWarp": {
+    "provider": "crossview-warp",
+    "python_module": "resolved from current installed source",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "DecimateMesh": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "EmptyLatentImage": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "EmptyMiniMaxMusic3LatentAudio": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_minimax_music",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "EmptyTrellis2LatentStructure": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_trellis2",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "GetImageSize": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_images",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "GetMeshInfo": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_save_3d",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "GetVideoComponents": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_video",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "GrowMask": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mask",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageBlur": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_post_processing",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageCompositeMasked": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mask",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageCropToMask": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_images",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageFromBatch": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_images",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageScale": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageScaleToTotalPixels": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_post_processing",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ImageToMask": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mask",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "KSampler": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "KSamplerSelect": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Load3DAdvanced": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_load_3d",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "LoadAudio": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_audio",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "LoadBackgroundRemovalModel": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_bg_removal",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "LoadImage": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "LoadMoGeModel": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_moge",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "LoadVideo": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_video",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "LoraLoaderModelOnly": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ManualSigmas": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MaskPreview": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mask",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MaskToImage": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mask",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MeshSmoothNormals": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MeshToFile3D": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_save_3d",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MingReferenceVoice": {
+    "provider": "ming-tts",
+    "python_module": "custom_nodes.ComfyUI-MingTTS",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MingScript": {
+    "provider": "ming-tts",
+    "python_module": "custom_nodes.ComfyUI-MingTTS",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MingTTS": {
+    "provider": "ming-tts",
+    "python_module": "custom_nodes.ComfyUI-MingTTS",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3AddGuide": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_minimax_h3",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3Director": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorFaceRefine": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorGroupImageToVideo": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorGroupReferenceToVideo": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorGroupsCombine": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorRefine": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorSelfLift": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3DirectorSemanticBridge": {
+    "provider": "h3-director",
+    "python_module": "custom_nodes.ComfyUI_MiniMaxH3_Director",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3FunControlNetApply": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_minimax_h3",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3ReferenceToVideo": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_minimax_h3",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxH3SigmaShift": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_minimax_h3",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MiniMaxMusic3TextEncode": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_minimax_music",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MoGeGeometryToFOV": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_moge",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MoGeInference": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_moge",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "MoGeRender": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_moge",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ModelPatchLoader": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_model_patch",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ModelSamplingSD3": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_model_advanced",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Pixal3DConditioningLowMemory": {
+    "provider": "bundled:pixal-memory",
+    "python_module": "custom_nodes.ComfyUI-Pixal3DMemory",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Pixal3DDecodeShapeLowMemory": {
+    "provider": "bundled:pixal-memory",
+    "python_module": "custom_nodes.ComfyUI-Pixal3DMemory",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Pixal3DDecodeTextureLowMemory": {
+    "provider": "bundled:pixal-memory",
+    "python_module": "custom_nodes.ComfyUI-Pixal3DMemory",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Pixal3DMultiViewConditioningLowMemory": {
+    "provider": "bundled:pixal-memory",
+    "python_module": "custom_nodes.ComfyUI-Pixal3DMemory",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "PreviewAny": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_preview_any",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "PreviewImage": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "PrimitiveBoolean": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_primitive",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "PrimitiveInt": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_primitive",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "QwenImage21Cache": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_qwen",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "RandomNoise": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "RemeshMesh": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mesh_postprocess",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "RemoveBackground": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_bg_removal",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "RescaleCFG": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_model_advanced",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SamplerCustomAdvanced": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_custom_sampler",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Save3DAdvanced": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_save_3d",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SaveAudioAdvanced": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_audio",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SaveImage": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SaveVideo": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_video",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SetLatentNoiseMask": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SkinTokensCleanWeights": {
+    "provider": "skintokens",
+    "python_module": "resolved from current installed source",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SkinTokensLoader": {
+    "provider": "skintokens",
+    "python_module": "resolved from current installed source",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SkinTokensRelabel": {
+    "provider": "skintokens",
+    "python_module": "resolved from current installed source",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "SkinTokensRig": {
+    "provider": "skintokens",
+    "python_module": "resolved from current installed source",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "TextEncodeQwenImage21": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_qwen",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ThresholdMask": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_mask",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Trellis2ShapeStage": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_trellis2",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Trellis2TextureStage": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_trellis2",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "Trellis2UpsampleStage": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_trellis2",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "TrimAudioDuration": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_audio",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "UNETLoader": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "UnwrapMeshPreserveNormals": {
+    "provider": "bundled:mesh-utilities",
+    "python_module": "custom_nodes.ComfyUI-MeshUtilities",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "VAEDecode": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "VAEDecodeAudio": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_audio",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "VAEDecodeAudioTiled": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_audio",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "VAEEncode": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "VAELoader": {
+    "provider": "comfyui",
+    "python_module": "nodes",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "VaeDecodeStructureTrellis2": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_trellis2",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ViggleTurboLora": {
+    "provider": "viggle-loader",
+    "python_module": "resolved from current installed source",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  },
+  "ZImageFunControlnet": {
+    "provider": "comfyui",
+    "python_module": "comfy_extras.nodes_model_patch",
+    "interface": "Check live /object_info on the target installation; pinned source alone is not readiness proof"
+  }
+}

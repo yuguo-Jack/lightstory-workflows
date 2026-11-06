@@ -1,0 +1,770 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 13,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        -1400,
+        80
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2va_pruned_w6a8.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_fl2va_pruned_w6a8.safetensors",
+        "weight_dtype": "default"
+      },
+      "title": "MiniMax H3 UNET"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        -1400,
+        250
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      },
+      "title": "CLIP (minimax / Qwen3-VL)"
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        -1400,
+        430
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+      },
+      "title": "Video VAE"
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        -1400,
+        560
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      },
+      "title": "Audio VAE"
+    },
+    {
+      "id": 5,
+      "type": "MiniMaxH3Director",
+      "pos": [
+        -450,
+        60
+      ],
+      "size": [
+        1080,
+        1640
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "video_vae",
+          "type": "VAE",
+          "link": 2
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 3
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        },
+        {
+          "name": "i2v_groups",
+          "type": "MMX_DIR_GROUP",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "r2v_groups",
+          "type": "MMX_DIR_GROUP",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "semantic_bridge",
+          "type": "MMX_DIR_SEMANTIC_BRIDGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "selflift",
+          "type": "MMX_DIR_SELFLIFT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "refine",
+          "type": "MMX_DIR_REFINE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "face_refine",
+          "type": "MMX_DIR_FACE_REFINE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 5,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            7,
+            11
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [
+            12
+          ]
+        },
+        {
+          "name": "source_images",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "images_pre_refine",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "images_pre_face_refine",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3Director"
+      },
+      "widgets_values": [
+        "t2v — 文生视频(Text to Video)",
+        "integrated_multimodal_description: [Shot 1] Cinematic live-action medium shot of an adult woman wearing a teal coat in a quiet leafy park. Soft daylight, natural skin texture, detailed fabric, calm green background. The camera makes a gentle slow push in. She turns her face toward the camera, smiles and gives one small wave with her right hand, then lowers it naturally. She says <d>[English] It is a beautiful day.</d>. Her lips move naturally with the words. One continuous shot, stable identity and clothing, no captions or logos.\n\noverall_soundscape: Clear gentle female speech, quiet outdoor ambience, faint birds and leaves. No other voices.\n\nnon_diegetic_music: N/A",
+        "采样设置",
+        1.0,
+        7,
+        "fixed",
+        24.0,
+        864,
+        480,
+        864,
+        248,
+        "{\"version\": 4, \"editMode\": \"segments\", \"timelineMode\": \"gen_blank\", \"totalFrames\": 248, \"frameRate\": 24.0, \"width\": 864, \"height\": 480, \"refMaxSize\": 864, \"output\": {\"mode\": \"fixed\", \"longEdge\": 864, \"width\": 864, \"height\": 480, \"maxExportFrames\": 0, \"exportMode\": \"all\", \"continuityEnabled\": true, \"continuityOverlapFrames\": 22}, \"videoClips\": [], \"video\": {\"fileName\": \"\", \"videoFile\": \"\", \"subfolder\": \"\", \"type\": \"input\", \"frames\": [], \"frameMap\": []}, \"global\": {\"taskType\": \"t2v — 文生视频(Text to Video)\", \"prompt\": \"integrated_multimodal_description: [Shot 1] Cinematic live-action medium shot of an adult woman wearing a teal coat in a quiet leafy park. Soft daylight, natural skin texture, detailed fabric, calm green background. The camera makes a gentle slow push in. She turns her face toward the camera, smiles and gives one small wave with her right hand, then lowers it naturally. She says <d>[English] It is a beautiful day.</d>. Her lips move naturally with the words. One continuous shot, stable identity and clothing, no captions or logos.\\n\\noverall_soundscape: Clear gentle female speech, quiet outdoor ambience, faint birds and leaves. No other voices.\\n\\nnon_diegetic_music: N/A\", \"refs\": [], \"referenceVideo\": {}, \"continuousReference\": false, \"genImage\": {\"imageFile\": \"\"}, \"commonEnabled\": false}, \"segments\": [{\"id\": \"h3_segment_1\", \"start\": 0, \"length\": 124, \"frameCount\": 124, \"durationSec\": 5.0, \"prompt\": \"integrated_multimodal_description: [Shot 1] Cinematic live-action medium shot of an adult woman wearing a teal coat in a quiet leafy park. Soft daylight, natural skin texture, detailed fabric, calm green background. The camera makes a gentle slow push in. She turns her face toward the camera, smiles and gives one small wave with her right hand, then lowers it naturally. She says <d>[English] It is a beautiful day.</d>. Her lips move naturally with the words. One continuous shot, stable identity and clothing, no captions or logos.\\n\\noverall_soundscape: Clear gentle female speech, quiet outdoor ambience, faint birds and leaves. No other voices.\\n\\nnon_diegetic_music: N/A\", \"taskType\": \"t2v — 文生视频(Text to Video)\", \"refs\": [], \"referenceVideo\": {}, \"genImage\": {\"imageFile\": \"\"}, \"negativePrompt\": \"\", \"continuityFromPrev\": false}, {\"id\": \"h3_segment_2\", \"start\": 124, \"length\": 124, \"frameCount\": 124, \"durationSec\": 5.0, \"prompt\": \"integrated_multimodal_description: [Shot 2] Continue the same uninterrupted camera move, adult woman, teal coat and leafy park from the preceding segment. After lowering her hand, she looks gently to the side and back to the camera. Keep the face, outfit, setting, exposure and gentle camera speed consistent. No new wave or repeated dialogue, no cut or reset.\\n\\noverall_soundscape: Continue the same outdoor ambience, faint birds and leaves, no dialogue.\\n\\nnon_diegetic_music: N/A\", \"taskType\": \"t2v — 文生视频(Text to Video)\", \"refs\": [], \"referenceVideo\": {}, \"genImage\": {\"imageFile\": \"\"}, \"negativePrompt\": \"\", \"continuityFromPrev\": true}], \"gen\": {\"defaultFrameCount\": 124}, \"runSelectEnabled\": false, \"runSelection\": []}",
+        "高级采样 Advanced",
+        6,
+        "lcm",
+        "simple",
+        12.0,
+        3.0,
+        "性能 Performance",
+        true,
+        false,
+        false,
+        "ffv1",
+        false,
+        false,
+        "pika_flex_06_连续长镜头"
+      ],
+      "widgets_values_named": {
+        "task_type": "t2v — 文生视频(Text to Video)",
+        "global_prompt": "integrated_multimodal_description: [Shot 1] Cinematic live-action medium shot of an adult woman wearing a teal coat in a quiet leafy park. Soft daylight, natural skin texture, detailed fabric, calm green background. The camera makes a gentle slow push in. She turns her face toward the camera, smiles and gives one small wave with her right hand, then lowers it naturally. She says <d>[English] It is a beautiful day.</d>. Her lips move naturally with the words. One continuous shot, stable identity and clothing, no captions or logos.\n\noverall_soundscape: Clear gentle female speech, quiet outdoor ambience, faint birds and leaves. No other voices.\n\nnon_diegetic_music: N/A",
+        "bd_grp_sample": "采样设置",
+        "cfg": 1.0,
+        "seed": 7,
+        "control_after_generate": "fixed",
+        "frame_rate": 24.0,
+        "width": 864,
+        "height": 480,
+        "ref_max_size": 864,
+        "total_frames": 248,
+        "timeline_data": "{\"version\": 4, \"editMode\": \"segments\", \"timelineMode\": \"gen_blank\", \"totalFrames\": 248, \"frameRate\": 24.0, \"width\": 864, \"height\": 480, \"refMaxSize\": 864, \"output\": {\"mode\": \"fixed\", \"longEdge\": 864, \"width\": 864, \"height\": 480, \"maxExportFrames\": 0, \"exportMode\": \"all\", \"continuityEnabled\": true, \"continuityOverlapFrames\": 22}, \"videoClips\": [], \"video\": {\"fileName\": \"\", \"videoFile\": \"\", \"subfolder\": \"\", \"type\": \"input\", \"frames\": [], \"frameMap\": []}, \"global\": {\"taskType\": \"t2v — 文生视频(Text to Video)\", \"prompt\": \"integrated_multimodal_description: [Shot 1] Cinematic live-action medium shot of an adult woman wearing a teal coat in a quiet leafy park. Soft daylight, natural skin texture, detailed fabric, calm green background. The camera makes a gentle slow push in. She turns her face toward the camera, smiles and gives one small wave with her right hand, then lowers it naturally. She says <d>[English] It is a beautiful day.</d>. Her lips move naturally with the words. One continuous shot, stable identity and clothing, no captions or logos.\\n\\noverall_soundscape: Clear gentle female speech, quiet outdoor ambience, faint birds and leaves. No other voices.\\n\\nnon_diegetic_music: N/A\", \"refs\": [], \"referenceVideo\": {}, \"continuousReference\": false, \"genImage\": {\"imageFile\": \"\"}, \"commonEnabled\": false}, \"segments\": [{\"id\": \"h3_segment_1\", \"start\": 0, \"length\": 124, \"frameCount\": 124, \"durationSec\": 5.0, \"prompt\": \"integrated_multimodal_description: [Shot 1] Cinematic live-action medium shot of an adult woman wearing a teal coat in a quiet leafy park. Soft daylight, natural skin texture, detailed fabric, calm green background. The camera makes a gentle slow push in. She turns her face toward the camera, smiles and gives one small wave with her right hand, then lowers it naturally. She says <d>[English] It is a beautiful day.</d>. Her lips move naturally with the words. One continuous shot, stable identity and clothing, no captions or logos.\\n\\noverall_soundscape: Clear gentle female speech, quiet outdoor ambience, faint birds and leaves. No other voices.\\n\\nnon_diegetic_music: N/A\", \"taskType\": \"t2v — 文生视频(Text to Video)\", \"refs\": [], \"referenceVideo\": {}, \"genImage\": {\"imageFile\": \"\"}, \"negativePrompt\": \"\", \"continuityFromPrev\": false}, {\"id\": \"h3_segment_2\", \"start\": 124, \"length\": 124, \"frameCount\": 124, \"durationSec\": 5.0, \"prompt\": \"integrated_multimodal_description: [Shot 2] Continue the same uninterrupted camera move, adult woman, teal coat and leafy park from the preceding segment. After lowering her hand, she looks gently to the side and back to the camera. Keep the face, outfit, setting, exposure and gentle camera speed consistent. No new wave or repeated dialogue, no cut or reset.\\n\\noverall_soundscape: Continue the same outdoor ambience, faint birds and leaves, no dialogue.\\n\\nnon_diegetic_music: N/A\", \"taskType\": \"t2v — 文生视频(Text to Video)\", \"refs\": [], \"referenceVideo\": {}, \"genImage\": {\"imageFile\": \"\"}, \"negativePrompt\": \"\", \"continuityFromPrev\": true}], \"gen\": {\"defaultFrameCount\": 124}, \"runSelectEnabled\": false, \"runSelection\": []}",
+        "bd_grp_advanced": "高级采样 Advanced",
+        "steps": 6,
+        "sampler": "lcm",
+        "scheduler": "simple",
+        "shift_video": 12.0,
+        "shift_audio": 3.0,
+        "bd_grp_perf": "性能 Performance",
+        "clear_vram_between_segments": true,
+        "clear_vram_before_refine": false,
+        "clear_vram_before_face_refine": false,
+        "cache_frames_codec": "ffv1",
+        "export_source_images": false,
+        "export_pre_face_refine": false,
+        "cache_name": "pika_flex_06_连续长镜头"
+      },
+      "title": "MiniMaxH3Director"
+    },
+    {
+      "id": 6,
+      "type": "CreateVideo",
+      "pos": [
+        720,
+        80
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "link": 7,
+          "widget": {
+            "name": "fps"
+          }
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 8,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        30.0,
+        8,
+        "sRGB",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 30.0,
+        "bit_depth": 8,
+        "color_space": "sRGB",
+        "codec": "none"
+      },
+      "title": "CreateVideo"
+    },
+    {
+      "id": 7,
+      "type": "SaveVideo",
+      "pos": [
+        1100,
+        80
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "MiniMax H3/Pika Flex/06_连续长镜头",
+        "mp4",
+        "h264",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "MiniMax H3/Pika Flex/06_连续长镜头",
+        "format": "mp4",
+        "format.codec": "h264",
+        "codec": "auto"
+      },
+      "title": "SaveVideo"
+    },
+    {
+      "id": 8,
+      "type": "PreviewAny",
+      "pos": [
+        720,
+        420
+      ],
+      "size": [
+        600,
+        240
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "Director 运行报告"
+    },
+    {
+      "id": 9,
+      "type": "PreviewAny",
+      "pos": [
+        720,
+        720
+      ],
+      "size": [
+        280,
+        140
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "fps"
+    },
+    {
+      "id": 10,
+      "type": "PreviewAny",
+      "pos": [
+        1100,
+        720
+      ],
+      "size": [
+        280,
+        140
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "frame_count"
+    },
+    {
+      "id": 11,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -960,
+        80
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "pika_h3_flex_fl2va_v1_bf16.safetensors",
+        1.0
+      ],
+      "widgets_values_named": {
+        "lora_name": "pika_h3_flex_fl2va_v1_bf16.safetensors",
+        "strength_model": 1.0
+      },
+      "title": "Pika Flex FL2VA · strength 1"
+    },
+    {
+      "id": 21,
+      "type": "ManualSigmas",
+      "pos": [
+        -960,
+        300
+      ],
+      "size": [
+        350,
+        180
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ManualSigmas"
+      },
+      "widgets_values": [
+        "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+      ],
+      "widgets_values_named": {
+        "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+      },
+      "title": "Pika Flex 官方六步噪声表 · 保持连接"
+    },
+    {
+      "id": 22,
+      "type": "MarkdownNote",
+      "pos": [
+        -1400,
+        -650
+      ],
+      "size": [
+        1800,
+        560
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "properties": {},
+      "widgets_values": [
+        "# Pika H3 Flex · 本机专用配置\n复用现有 H3 W6A8 底模、NVFP4 编码器、INT8 视频 VAE、FP32 音频 VAE；新增官方 Flex BF16 适配器。\n\n**固定组合：对应家族 Flex LoRA 1.0 + LCM + CFG 1 + 外接 ManualSigmas 六步表。** 不叠加 Turbo / Lightning。步数与 scheduler 下拉由外接噪声表覆盖。\n\n操作：更换自己的提示词和素材 → 检查实际生效的 Group / 时间线 → 每个项目换 cache_name 和输出前缀 → Queue → 检查画面、音轨和接点。外部 Group 连接时以 Group 为准。首尾帧可断开任一端；参考素材删减时同步修改标签。源视频编辑在导演台内上传替换源视频。\n\n起点为约 480p / 24fps / 每段 124 帧（约 5.17 秒），单 GPU 任务串行。连续模板为两段、22帧上下文，并非保证任意长度无缝。原常规 H3 路线继续保留。\n\n详细操作与本机实测：ComfyUI Local Workflows → H3 → Pika Flex。输出在原生 output/MiniMax H3/Pika Flex；无需复制全部底模。任务完成后清理不再返工的段缓存，保留权重、素材和成片。\n"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      11,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      3,
+      0,
+      5,
+      1,
+      "VAE"
+    ],
+    [
+      3,
+      4,
+      0,
+      5,
+      2,
+      "VAE"
+    ],
+    [
+      4,
+      2,
+      0,
+      5,
+      3,
+      "CLIP"
+    ],
+    [
+      5,
+      21,
+      0,
+      5,
+      10,
+      "SIGMAS"
+    ],
+    [
+      6,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      5,
+      2,
+      6,
+      1,
+      "FLOAT"
+    ],
+    [
+      8,
+      5,
+      1,
+      6,
+      2,
+      "AUDIO"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      0,
+      "VIDEO"
+    ],
+    [
+      10,
+      5,
+      5,
+      8,
+      0,
+      "STRING"
+    ],
+    [
+      11,
+      5,
+      2,
+      9,
+      0,
+      "FLOAT"
+    ],
+    [
+      12,
+      5,
+      3,
+      10,
+      0,
+      "INT"
+    ],
+    [
+      13,
+      1,
+      0,
+      11,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.48,
+      "offset": [
+        1500,
+        600
+      ]
+    }
+  },
+  "version": 0.4
+}

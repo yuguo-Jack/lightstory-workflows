@@ -1,0 +1,44 @@
+{
+  "1": {
+    "class_type": "Load3DAdvanced",
+    "inputs": {
+      "model_file": "UPLOAD_GLB_1.glb",
+      "viewport_state": {},
+      "width": 768,
+      "height": 768
+    },
+    "_meta": {
+      "title": "① 上传 GLB；替换示例输入"
+    }
+  },
+  "3": {
+    "class_type": "SkinTokensCleanWeights",
+    "inputs": {
+      "glb": [
+        "1",
+        0
+      ],
+      "filename_prefix": "skintokens/04_蒙皮权重修复/intermediate",
+      "min_hops": 5
+    },
+    "_meta": {
+      "title": "② 蒙皮权重修复"
+    }
+  },
+  "4": {
+    "class_type": "Save3DAdvanced",
+    "inputs": {
+      "model_3d": [
+        "3",
+        0
+      ],
+      "filename_prefix": "SkinTokens/04_蒙皮权重修复/model",
+      "viewport_state": {},
+      "width": 768,
+      "height": 768
+    },
+    "_meta": {
+      "title": "③ 保存成品 GLB／预览"
+    }
+  }
+}

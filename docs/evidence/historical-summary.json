@@ -1,0 +1,13 @@
+{
+  "source_date": "2026-11-02",
+  "scope": "historical Windows RTX4080 16GB / 32GB RAM single-host tests; raw private inputs and media are not distributed",
+  "summary": {
+    "workflows": 81,
+    "gpu_passed": 72,
+    "historical_gpu_passed": 7,
+    "cpu_passed": 2,
+    "structure_passed": 81,
+    "frontend_passed_for_current_inputs": 81
+  },
+  "new_repository_inference_tested": false
+}

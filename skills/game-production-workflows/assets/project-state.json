@@ -1,0 +1,99 @@
+{
+  "schema_version": 4,
+  "record_note": "Optional production record, not an execution API. Reuse equivalent project records; no mandatory migration of existing projects.",
+  "project_id": null,
+  "project_name": null,
+  "project_root": null,
+  "uproject": null,
+  "engine_root": null,
+  "engine_version": null,
+  "phase": "brief",
+  "status": "not_started",
+  "user_goal": null,
+  "scope": {
+    "included": [],
+    "excluded": [],
+    "assumptions": []
+  },
+  "targets": {
+    "platforms": [],
+    "perspective": null,
+    "input": [],
+    "resolution": null,
+    "frame_rate": null,
+    "minimum_hardware": null,
+    "distribution": null,
+    "browsers": []
+  },
+  "creative_context": {
+    "brief": null,
+    "gameplay_spec": null,
+    "art_direction": null,
+    "ui_spec": null,
+    "reference_manifest": null
+  },
+  "decisions": [],
+  "requirements": [],
+  "current_checkpoint": {
+    "revision": null,
+    "build": null,
+    "verification": null
+  },
+  "assets_register": null,
+  "acceptance_matrix": null,
+  "active_jobs": [],
+  "evidence": [],
+  "open_issues": [],
+  "needs_user_review": [],
+  "next_actions": [],
+  "cleanup": {
+    "records": [],
+    "retained_for_rework": [],
+    "policy": {
+      "check_interval_minutes": 120,
+      "check_after": [
+        "batch",
+        "render",
+        "build",
+        "stage",
+        "failure_or_interruption",
+        "resume",
+        "pause_or_handoff",
+        "before_large_write"
+      ],
+      "growth_warning_gib": 30,
+      "temporary_soft_budget_gib": 60,
+      "free_space_warning_gib": 60,
+      "planned_write_headroom_gib": 10,
+      "project_adjustments_require_recorded_reason": true,
+      "thresholds_are_warning_not_deletion_authority": true,
+      "necessary_growth_requires_cleanup": false
+    },
+    "tracked_paths": [],
+    "last_check_at": null,
+    "next_check_due_at": null,
+    "observations": []
+  },
+  "runtime_route": {
+    "kind": null,
+    "stack": null,
+    "implementation_skill": null,
+    "reason": null,
+    "tradeoffs": [],
+    "reevaluate_when": []
+  },
+  "execution_handoff": {
+    "task_id": null,
+    "target_skill": null,
+    "project_path": null,
+    "context_documents": [],
+    "asset_ids": [],
+    "source_versions": {},
+    "result_record": null,
+    "open_issues": [],
+    "status": "not_started"
+  },
+  "work_allocation": [],
+  "execution_records": [],
+  "integration_records": []
+}
