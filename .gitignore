@@ -42,8 +42,14 @@ Thumbs.db
 *.fbx
 *.glb
 *.mp4
+!docs/film/lightstory-intro.mp4
 *.wav
 *.flac
 *.dmp
 *.part
 *.log
+# Product-film authoring: disposable captures, render caches and review files
+media/product-film/.hyperframes/
+media/product-film/renders/
+media/product-film/node_modules/
+media/product-film/*.log

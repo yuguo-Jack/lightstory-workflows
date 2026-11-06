@@ -6,3 +6,6 @@
 *.yml text eol=lf
 *.ps1 text eol=lf
 *.patch text eol=lf -whitespace
+# Preserve third-party bundle/shader strings and license text as distributed.
+media/product-film/vendor/*.min.js -whitespace
+media/product-film/assets/*LICENSE.txt -whitespace

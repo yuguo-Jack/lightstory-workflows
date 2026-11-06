@@ -21,7 +21,7 @@ def document_links(root):
             self.links += [value for key,value in attrs if key=='href' and value]
     for p in root.rglob('*'):
         relative=p.relative_to(root)
-        if any(x in {'.git','.local','.lightstory','__pycache__'} for x in relative.parts):continue
+        if any(x in {'.git','.local','.lightstory','__pycache__','.hyperframes','node_modules'} for x in relative.parts):continue
         if not p.is_file() or p.suffix not in {'.md','.html'} or p.name in {'task_plan.md','findings.md','progress.md'}:continue
         text=p.read_text('utf-8-sig')
         if p.suffix=='.html':
@@ -71,7 +71,7 @@ def validate(cfg):
         for patch in dep.get('patches',[]):
             p=root/patch['path']
             if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=patch['sha256']:errors.append('Patch checksum mismatch: '+patch['path'])
-    excluded={'.git','.local','.lightstory','__pycache__'}
+    excluded={'.git','.local','.lightstory','__pycache__','.hyperframes','node_modules'}
     sensitive=[];code=0
     for p in root.rglob('*'):
         if not p.is_file() or any(x in excluded or x.endswith('.egg-info') for x in p.relative_to(root).parts):continue
@@ -80,7 +80,9 @@ def validate(cfg):
             code+=1
             try:ast.parse(p.read_text('utf-8-sig'),filename=str(p))
             except SyntaxError as e:errors.append('Python parse: '+str(e))
-        if p.suffix in {'.safetensors','.ckpt','.pkl','.pt','.blend','.fbx','.glb','.mp4','.wav','.dmp'}:sensitive.append(p.relative_to(root).as_posix())
+        # Exactly one reviewed, public product film; all other production media stay private.
+        public_film=p.relative_to(root).as_posix()=='docs/film/lightstory-intro.mp4'
+        if p.suffix in {'.safetensors','.ckpt','.pkl','.pt','.blend','.fbx','.glb','.mp4','.wav','.dmp'} and not public_film:sensitive.append(p.relative_to(root).as_posix())
         if p.suffix.lower() in {'.md','.json','.py','.ps1','.yml','.yaml','.toml','.txt','.html','.patch'}:
             text=p.read_text('utf-8-sig',errors='replace')
             pattern = r'C:[\\/]+Users[\\/]+Administrator|hf_[A-Za-z0-9]{25,}|gh[pousr]_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{20,}|' + 'xsec_' + 'token='

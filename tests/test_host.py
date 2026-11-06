@@ -10,7 +10,11 @@ import shutil
 import struct
 import sys
 import tempfile
+import threading
 import unittest
+from http.server import ThreadingHTTPServer
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
 import wave
 from unittest.mock import patch
 
@@ -183,6 +187,24 @@ class HostTests(unittest.TestCase):
         try:(repo/'workflows/link.json').symlink_to(repo/'config/local.json')
         except OSError:return
         self.assertTrue(h.translate_path('/workflows/link.json').endswith('__not_served__'))
+
+    def test_public_video_supports_seek_suffix_head_and_invalid_ranges(self):
+        repo=self.root/'film-public';folder=repo/'docs/film';folder.mkdir(parents=True)
+        payload=bytes(range(256))*4;(folder/'lightstory-intro.mp4').write_bytes(payload)
+        cfg=Config(repo,self.profile,self.data)
+        server=ThreadingHTTPServer(('127.0.0.1',0),portal.handler(cfg))
+        worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()
+        url=f'http://127.0.0.1:{server.server_port}/docs/film/lightstory-intro.mp4'
+        try:
+            with urlopen(Request(url,headers={'Range':'bytes=300-399'})) as response:
+                self.assertEqual(response.status,206);self.assertEqual(response.read(),payload[300:400])
+                self.assertEqual(response.headers['Content-Range'],'bytes 300-399/1024')
+            with urlopen(Request(url,headers={'Range':'bytes=-7'})) as response:self.assertEqual(response.read(),payload[-7:])
+            with urlopen(Request(url,method='HEAD')) as response:
+                self.assertEqual(response.headers['Content-Length'],'1024');self.assertEqual(response.headers['Accept-Ranges'],'bytes');self.assertEqual(response.read(),b'')
+            with self.assertRaises(HTTPError) as error:urlopen(Request(url,headers={'Range':'bytes=1024-'}))
+            self.assertEqual(error.exception.code,416)
+        finally:server.shutdown();server.server_close();worker.join(timeout=2)
 
     def test_blender_flags_are_forwarded_without_launching_editor(self):
         with patch('lightstory.cli.subprocess.run',return_value=subprocess_result(0)) as invoke,contextlib.redirect_stdout(io.StringIO()):

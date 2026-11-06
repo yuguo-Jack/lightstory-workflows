@@ -1,0 +1,12 @@
+{
+  "name": "product-film",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.19 preview --background",
+    "check": "npx --yes hyperframes@0.9.19 check",
+    "render": "npx --yes hyperframes@0.9.19 render",
+    "build:vendor": "node build-vendor.cjs"
+  },
+  "devDependencies": {"hyperframes":"0.9.19","gsap":"3.14.2","three":"0.183.0","esbuild":"0.28.2"}
+}

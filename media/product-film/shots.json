@@ -1,0 +1,14 @@
+{
+  "title":"LightStory · 让想法动起来", "version":"v2-pulse-30", "duration":30, "width":1920, "height":1080, "fps":30,
+  "voice":"zh-CN-YunxiNeural", "rate":"+18%", "bpm":128,
+  "shots":[
+    {"id":"intro","start":0,"end":1.875,"title":"让想法，动起来。","voice":"让想法，动起来。","captions":["让想法，动起来。"]},
+    {"id":"game","start":1.875,"end":6.5625,"title":"做游戏。","voice":"做游戏，从玩法到交互，从资产到交付。","captions":["从玩法到交互，从资产到交付。"]},
+    {"id":"film","start":6.5625,"end":10.3125,"title":"拍故事。","voice":"拍故事，从分镜、运镜，到镜头与成片。","captions":["从分镜、运镜，到镜头与成片。"]},
+    {"id":"assets","start":10.3125,"end":14.0625,"title":"生资产。","voice":"生图，建模，绑定，精修。","captions":["生图 → 建模 → 绑定 → 精修。"]},
+    {"id":"models","start":14.0625,"end":17.8125,"title":"画面与声音，一拍即合。","voice":"视频、配音、配乐，统一成片。","captions":["视频、配音、配乐，统一成片。"]},
+    {"id":"usage","start":17.8125,"end":22.5,"title":"给方向，开制作。","voice":"配好环境，装上技能。给目标和参考，开始制作。","captions":["配好环境，装上技能。","给目标和参考，开始制作。"]},
+    {"id":"scope","start":22.5,"end":26.25,"title":"81组通用画布。","voice":"八十一组通用画布，按需组合。","captions":["81组通用画布，按需组合。"]},
+    {"id":"outro","start":26.25,"end":30,"title":"把灵感，交付成作品。","voice":"光影故事，让灵感成为作品。","captions":["光影故事，让灵感成为作品。"]}
+  ]
+}

@@ -1,0 +1,39 @@
+name: Publish product film
+
+# Explicit review and manual dispatch; no scheduled or push-triggered publication.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: product-film-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble public player only
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/site/film"
+          for file in index.html lightstory-intro.mp4 poster.jpg chapters.vtt captions.vtt; do
+            test -s "docs/film/$file"
+            cp "docs/film/$file" "$RUNNER_TEMP/site/film/"
+          done
+          printf '%s\n' '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=film/"><a href="film/">观看产品介绍</a>' > "$RUNNER_TEMP/site/index.html"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+      - name: Deploy public player
+        id: deployment
+        uses: actions/deploy-pages@v4

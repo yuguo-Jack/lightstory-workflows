@@ -20,3 +20,7 @@
 可自动获取的软件依赖及patch哈希见[dependencies.lock.json](third_party/dependencies.lock.json)。第三方许可证副本在`third_party/licenses`或各vendored目录。模型文件来源单独登记在`models/weights.lock.json`，其许可不能由节点源码许可推断。
 
 Flova、行业课程/手册和其他美术参考仅作为方法来源引用，未复制私有资源或宣称移植整站内容。Game Studio、Unreal Engine Skills、CapCut、Computer Use等由客户端原生管理，本仓不重新分发其托管插件。
+
+## 产品介绍片
+
+`media/product-film`使用Three.js 0.183.0（MIT）、GSAP 3.14.2（[GreenSock标准免费许可](https://gsap.com/standard-license/)）、Noto Sans SC及DM Serif Display字体子集（SIL OFL）。分发包头、Three.js与字体许可均在源工程内保留；GSAP不由根MIT覆盖。HyperFrames 0.9.19（Apache-2.0）作为外部工具使用。三维场景与合成配乐为本项目原创，中文旁白通过Microsoft Edge TTS合成；详见[制作说明](media/product-film/README.md)。
