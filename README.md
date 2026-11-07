@@ -6,11 +6,11 @@
 
 [工程总览](docs/overview.html) · [安装](docs/installation.md) · [快速开始](docs/quickstart.md) · [架构](docs/architecture.md) · [依赖与许可](THIRD_PARTY_NOTICES.md) · [验证](docs/validation.md) · [维护](docs/maintenance.md) · [命令参考](docs/commands.md)
 
-## 30秒认识光影故事
+## 产品介绍
 
-[![观看光影故事产品介绍：游戏、视频、资产与声音，从创意到交付](docs/film/poster.jpg)](https://yuguo-jack.github.io/lightstory-workflows/film/)
+[![播放产品介绍](docs/film/assets/poster.jpg)](https://yuguo-jack.github.io/lightstory-workflows/film/)
 
-**[观看产品介绍](https://yuguo-jack.github.io/lightstory-workflows/film/)** · 30秒 · 真实三维流程示意 · 1080p · 中文旁白 / 字幕。网页可直接播放并按章节跳转；[本地观看与更新说明](docs/film/README.md)。
+[观看视频](https://yuguo-jack.github.io/lightstory-workflows/film/) · [下载MP4](https://github.com/yuguo-Jack/lightstory-workflows/raw/refs/heads/main/docs/film/assets/lightstory-intro.mp4)
 
 ## 两个制作入口
 

@@ -1,10 +1,10 @@
 # LightStory 产品介绍片
 
-以真实WebGL三维微缩工坊介绍游戏 / 视频制作方法，时长30秒，1920×1080、30fps。V2采用128BPM原创电子节拍、23个三维镜头段、快速装配和大字入场；旁白重新合成，不是30秒版本的倍速。不是实际游戏运行录像或模型输出承诺。观看成片见[播放器说明](../../docs/film/README.md)。
+30秒、1920×1080、30fps的可编辑HyperFrames工程。[观看与发布](../../docs/film/README.md)。
 
 ## 如何编辑
 
-1. 先读[视觉规范](../DESIGN.md)。`shots.json`定义分镜、旁白和时长；`index.html`控制文字、字幕与GSAP时间线；`world.js`定义八组可定位的三维场景和运镜。
+1. 先读[视觉规范](DESIGN.md)。`shots.json`定义分镜、旁白和时长；`index.html`控制文字、字幕与GSAP时间线；`world.js`定义三维场景和运镜；`assets/`保存必要源素材，`vendor/`保存固定版本运行库与许可。
 2. 使用固定版本HyperFrames **0.9.19**。项目已包含可播放的本地依赖包、字体子集和配音配乐，普通预览不需要重新下载模型或安装全部游戏 / 视频生产依赖。
 3. 运行`hyperframes preview media/product-film --background`，使用CLI实际返回的Studio地址；保持预览到审阅结束，再用`preview --stop`关闭。可通过`HYPERFRAMES_BROWSER_PATH`选择本机Chrome或Edge，`HYPERFRAMES_CACHE_DIR`把缓存放进工程的`.local/product-video/cache`。
 4. 修改HTML后运行下方完整检查、抽帧，查看实际画面，再渲染。音频或旁白发生变化时同步更新字幕和时长。
@@ -17,7 +17,7 @@ hyperframes snapshot media/product-film --at 1,1.98,3,8,12,16,19,24,28 --no-end 
 hyperframes render media/product-film --output .local/product-video/renders/review.mp4 --fps 30 --workers 2 --crf 20 --gpu --browser-gpu --no-best-effort
 ```
 
-GPU后端不适用时移除`--gpu` / `--browser-gpu`，依实际硬件校准速度和画面。成片确认后再替换`docs/film/lightstory-intro.mp4`；海报从正式成片提取。所有捕帧、渲染缓存和日志留在`.local`，不要提交中间文件。
+GPU后端不适用时移除`--gpu` / `--browser-gpu`，依实际硬件校准速度和画面。成片确认后再替换`docs/film/assets/lightstory-intro.mp4`，同步同目录海报和VTT。捕帧、渲染缓存和日志留在`.local`，不要提交中间文件。
 
 ## 依赖、声音与字体
 

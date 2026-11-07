@@ -189,12 +189,12 @@ class HostTests(unittest.TestCase):
         self.assertTrue(h.translate_path('/workflows/link.json').endswith('__not_served__'))
 
     def test_public_video_supports_seek_suffix_head_and_invalid_ranges(self):
-        repo=self.root/'film-public';folder=repo/'docs/film';folder.mkdir(parents=True)
+        repo=self.root/'film-public';folder=repo/'docs/film/assets';folder.mkdir(parents=True)
         payload=bytes(range(256))*4;(folder/'lightstory-intro.mp4').write_bytes(payload)
         cfg=Config(repo,self.profile,self.data)
         server=ThreadingHTTPServer(('127.0.0.1',0),portal.handler(cfg))
         worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()
-        url=f'http://127.0.0.1:{server.server_port}/docs/film/lightstory-intro.mp4'
+        url=f'http://127.0.0.1:{server.server_port}/docs/film/assets/lightstory-intro.mp4'
         try:
             with urlopen(Request(url,headers={'Range':'bytes=300-399'})) as response:
                 self.assertEqual(response.status,206);self.assertEqual(response.read(),payload[300:400])

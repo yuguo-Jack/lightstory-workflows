@@ -81,7 +81,7 @@ def validate(cfg):
             try:ast.parse(p.read_text('utf-8-sig'),filename=str(p))
             except SyntaxError as e:errors.append('Python parse: '+str(e))
         # Exactly one reviewed, public product film; all other production media stay private.
-        public_film=p.relative_to(root).as_posix()=='docs/film/lightstory-intro.mp4'
+        public_film=p.relative_to(root).as_posix()=='docs/film/assets/lightstory-intro.mp4'
         if p.suffix in {'.safetensors','.ckpt','.pkl','.pt','.blend','.fbx','.glb','.mp4','.wav','.dmp'} and not public_film:sensitive.append(p.relative_to(root).as_posix())
         if p.suffix.lower() in {'.md','.json','.py','.ps1','.yml','.yaml','.toml','.txt','.html','.patch'}:
             text=p.read_text('utf-8-sig',errors='replace')

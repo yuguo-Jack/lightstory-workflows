@@ -42,7 +42,7 @@ Thumbs.db
 *.fbx
 *.glb
 *.mp4
-!docs/film/lightstory-intro.mp4
+!docs/film/assets/lightstory-intro.mp4
 *.wav
 *.flac
 *.dmp

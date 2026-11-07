@@ -1,7 +1,11 @@
 name: Publish product film
 
-# Explicit review and manual dispatch; no scheduled or push-triggered publication.
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/film/**'
+      - '.github/workflows/product-film.yml'
   workflow_dispatch:
 
 permissions:
@@ -21,13 +25,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate public package
+        run: python -B -X utf8 tools/lightstory.py validate
       - name: Assemble public player only
         shell: bash
         run: |
-          mkdir -p "$RUNNER_TEMP/site/film"
-          for file in index.html lightstory-intro.mp4 poster.jpg chapters.vtt captions.vtt; do
-            test -s "docs/film/$file"
-            cp "docs/film/$file" "$RUNNER_TEMP/site/film/"
+          mkdir -p "$RUNNER_TEMP/site/film/assets"
+          test -s docs/film/index.html
+          cp docs/film/index.html "$RUNNER_TEMP/site/film/"
+          for file in lightstory-intro.mp4 poster.jpg chapters.vtt captions.vtt; do
+            test -s "docs/film/assets/$file"
+            cp "docs/film/assets/$file" "$RUNNER_TEMP/site/film/assets/"
           done
           printf '%s\n' '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=film/"><a href="film/">观看产品介绍</a>' > "$RUNNER_TEMP/site/index.html"
       - uses: actions/configure-pages@v5
