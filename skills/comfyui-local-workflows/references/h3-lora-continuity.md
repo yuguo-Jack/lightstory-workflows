@@ -160,4 +160,4 @@ Semantic Bridge不是动作LoRA：本机有原版`MiniMaxH3_SemanticBridge_v1.sa
 
 
 
-作者用法见[Weapon](https://huggingface.co/JOKER141/MiniMax-H3-Weapon-Combat-LoRA)、[GunFu](https://huggingface.co/JOKER141/MiniMaxH3-GunFu-Gunfight-LORA)、[Camera](https://huggingface.co/Jojocodex/minimax-h3-Camera-Motion-lora)、[Turbo配套](https://huggingface.co/Comfy-Org/MiniMax-H3)、[导演台](https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director)。完整来源及其余模型卡在W的`model-downloads/model_manifest.h3.json`和`model-downloads/sources`；不把其他FastH3完整模型参数套到当前Turbo LoRA上。
+作者用法见[Weapon](https://huggingface.co/JOKER141/MiniMax-H3-Weapon-Combat-LoRA)、[GunFu](https://huggingface.co/JOKER141/MiniMaxH3-GunFu-Gunfight-LORA)、[Camera](https://huggingface.co/Jojocodex/minimax-h3-Camera-Motion-lora)、[Turbo配套](https://huggingface.co/Comfy-Org/MiniMax-H3)、[导演台](https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director)。完整来源、固定修订和哈希统一见工程[模型登记](../../../models/weights.lock.json)；不把其他FastH3完整模型参数套到当前Turbo LoRA上。

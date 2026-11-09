@@ -1,10 +1,10 @@
 ---
 name: game-production-workflows
-description: 根据目标平台、体验和品质要求选择 Web 或 Unreal 游戏制作路线，编排本机 ComfyUI、Blender、Mixamo 与引擎；Web 路线交由 Game Studio 执行，并按需复用本地资产链。覆盖创意与审美、灰盒、垂直切片、资产分工、动画、交互、关卡、音画、性能、测试、交付及制作期空间管理，保留用户的玩法和美术决定。
+description: 根据目标平台、体验和品质要求选择 Web 或 Unreal 游戏制作路线，编排本机 ComfyUI、Blender、Mixamo 与引擎；Web 路线交由 Game Studio 执行，并按需复用本地资产链。覆盖创意与审美、灰盒、垂直切片、资产分工、动画、交互、手感、可选联机、关卡、音画、性能、测试、交付及制作期空间管理，保留用户的玩法和美术决定。
 metadata:
-  version: "1.4.0"
+  version: "1.5.0"
   environment_checked: "2026-10-30"
-  workflow_reviewed: "2026-11-02"
+  workflow_reviewed: "2026-11-09"
 ---
 
 ## LightStory 工程版入口
@@ -27,7 +27,7 @@ metadata:
 ## 开始或恢复
 
 1. 若已有项目，先读项目说明、当前状态、最近可用构建、验收和未决问题；复用已有成果。纯分析请求不启动生成、编辑工程或安装软件。
-2. 从用户提供的想法与样例提取：核心体验、视角/控制、内容范围、目标平台、分发方式、画质/帧率、参考图职责与交付标准。读[设计与审美输入](references/design-and-art.md)，需要深化玩法、界面或美术时分别调用下表设计技能；按[路线选择](references/runtime-selection.md)确定 Web/Unreal及执行入口。只追问真正影响路线且无法推断的决定；其余记录假设并继续。
+2. 从用户提供的想法与样例提取：核心体验、视角/控制、内容范围、目标平台、分发方式、画质/帧率、参考图职责与交付标准。读[设计与审美输入](references/design-and-art.md)，需要深化玩法、界面或美术时分别调用下表设计技能；按[路线选择](references/runtime-selection.md)确定 Web/Unreal及执行入口。区分单机、同屏多人和在线；在线需求在灰盒前进入[联机分支](references/multiplayer.md)确定关键边界。只追问真正影响路线且无法推断的决定；其余记录假设并继续。
 3. 按路线检查相关环境：UE/本地资产处理可执行 `scripts/probe_local.py` 并读[本机入口](references/local-environment.md)；Web按 Game Studio 检查当前工程与构建工具，不为浏览器项目启动UE。使用用户目录；无指定时在 `${PROJECTS_ROOT}` 建立语义明确的项目目录并检查重名。按[空间管理](references/project-operations.md)登记磁盘基线、临时目录、缓存归属与保留用途。
 4. 批量制作前按[资产分工](references/asset-production.md)确定生成模型、Blender、引擎及现有素材各自职责，区分共享源资产与目标端导出，明确后处理、依赖和验收位置。不要求每个项目都用全部工具。
 5. 新项目按需采用[创作简报](assets/project-brief.md)、[项目状态](assets/project-state.json)、[资产清单](assets/asset-register.csv)和[验收矩阵](assets/acceptance-matrix.md)；已有等价记录沿用。选最小相关执行分支，Web接管后保持同一简报与状态，素材可选调用本地链，不重复立项。新任务素材/脚本留项目，不把角色/关卡特化写进全局技能或通用Comfy模板。
@@ -47,6 +47,8 @@ metadata:
 | Web/Unreal路线选择、Web接管和跨端资产边界 | [运行路线选择](references/runtime-selection.md)；Web使用 `game-studio:game-studio` |
 | 工具职责、素材制作方法、共享源资产与目标版本 | [资产生产与分工](references/asset-production.md) |
 | 核心循环、玩家决策、进度/难度、灰盒设计假设 | [Game Design Theory](../game-design-theory/SKILL.md)（`$game-design-theory`）；[设计与审美输入](references/design-and-art.md) |
+| 控制响应、动作接触、事件反馈与手感打磨 | [操作手感与反馈](references/game-feel.md)，协调既定UE/Web、动画、相机、音画和UI；从灰盒到切片建立配方，再按影响回归 |
+| 同屏/在线选路、权威与同步、加入/恢复及多端验证 | [联机选路与验收](references/multiplayer.md)；在线在早期进入，具体后端按项目选择，不默认安装Rivet或另一套总入口 |
 | 美术方向、风格规范、视觉切片与批量一致性 | [Game Art Direction](../game-art-direction/SKILL.md)（`$game-art-direction`）；[设计与审美输入](references/design-and-art.md) |
 | 全项目阶段、范围与可重复生产 | [制作阶段与推进规则](references/production-cycle.md) |
 | 生图、参考/蒙版/结构控制、图片转3D、绑定、语音、音乐及单项视频 | [ComfyUI Local Workflows](../comfyui-local-workflows/SKILL.md)；按其相关模型参考查当前画布、用法和注意事项，再按[资产生产](references/asset-production.md)或[音频/演出](references/presentation.md)接入游戏 |

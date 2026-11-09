@@ -53,7 +53,7 @@ description: 在本地Windows工作站选择、维护或独立执行ComfyUI图�
 
 | 文/图/音/视频生成视频、首尾帧、长镜头、编辑、精修、放大、可选LoRA | [H3视频与三路选择](references/h3.md)；涉及LoRA/分段切换再读[搭配与连续性](references/h3-lora-continuity.md)；Flex读[优势、选路与配置](references/h3-pika-flex.md) | 普通H3承担通用制作、专项LoRA、精修放大及既有项目接续；Flex兼顾广泛创作的画面表现与效率；Turbo用于匹配条件的批量试拍。高要求动作/物理/参考控制用代表样片比较；三路合格结果均可成片 |
 
-| 明确需要人物运动/表情、复古动画、主体环绕、卡片、子弹时间或源片换机位 | [H3扩展LoRA](references/h3-extra-loras.md) | 专项均可不加；按作者家族/触发/采样配套选用。CrossView须完整Guide链，ORB环境/动物冻结有已知限制；成人级（NSFW）LoRA已单独标识，按对应专项说明选用 |
+| 明确需要人物运动/表情、复古动画、主体环绕、卡片、子弹时间或源片换机位 | [H3扩展LoRA](references/h3-extra-loras.md) | 专项均可不加；按作者家族/触发/采样配套选用。CrossView须完整Guide链，ORB环境/动物冻结有已知限制；成人级（NSFW）LoRA按[快速选型](references/h3-extra-loras.md#成人级-nsfw-快速选型)区分运动、细节、输入方式与速度 |
 
 | 原图/白模结构控制、局部重绘、下一镜和链式故事板 | [Qwen扩展](references/qwen-extensions.md)；视频读[H3 Fun控制](references/h3-controlnet.md) | 控制片接结构节点，外观参考另供；Next-Scene是静帧；单镜Fun不等于导演台任意分段自动控制 |
 

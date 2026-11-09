@@ -44,7 +44,21 @@
 
 
 
-所有权重名补`.safetensors`即实际文件名；LoRA在原生 `models/loras`，MoGe2在`models/geometry_estimation`。正式来源、固定修订、完整SHA256及目标路径见W的`model-downloads/model_manifest.h3-extra-loras.json`。Natural Face取得的公开文件与Civitai指定版本、作者仓库重命名文件的完整SHA256均一致，获取来源也保留在清单，不需要提供账号令牌。
+### 成人级 NSFW 快速选型
+
+先分图片/视频，再按输入方式和侧重选择；以下均为专项LoRA。
+
+| 优先需求 | 选择 |
+|---|---|
+| 参考生成，侧重运动连贯 | H3 `05` AfterMidnight **sexytime v1.2**，Ref2VA |
+| 参考生成，侧重细节、清晰度及幻想/超现实质感 | H3 `06` AfterMidnight **softer v1**，Ref2VA；不等于柔光或更写实 |
+| 文生/首帧图生视频，输入方式灵活 | H3 `07` **NaughtyTimes v3 pruned_NOADALN**，FL2VA；本机裁剪适配可能弱于作者推荐的未裁剪配套 |
+| 快速试片 | H3 `08` **NSFW Unlocked v2.1＋匹配的FL8 Turbo**；本机八步，效率来自整套配方，不代表质量全面领先 |
+| 静态人物图、关键帧 | [Qwen **TheseAlpacas v2.0**](qwen-extensions.md#成人级nsfwlora来源独立配方与验证范围)，使用图像专项独立配方 |
+
+AfterMidnight两支是同数据、不同训练取向，二选一，不是版本升级替换。以上是作者定位与本机配套差异，未做同条件质量排名；不默认叠加专项，具体参数沿用上表及对应模型说明。
+
+所有权重名补`.safetensors`即实际文件名；LoRA在原生 `models/loras`，MoGe2在`models/geometry_estimation`。正式来源、固定修订、完整SHA256及目标路径统一见工程[模型登记](../../../models/weights.lock.json)。Natural Face取得的公开文件与Civitai指定版本、作者仓库重命名文件的完整SHA256均一致，获取来源也保留在登记中，不需要提供账号令牌。
 
 
 
@@ -134,7 +148,7 @@ ORB360一周、CardSpin和Bullet Time有明确时间阶段；改变片长要重�
 
 - Bullet Time事件/恢复不清先简化为一次动作和一个明确触发，精确`bullet-time`写在冻结中段，给定相机方向与角度，再调整强度；不等于真实物理时间冻结。
 
-- 新任务清理遵从[运行规则](runtime.md)与[任务收尾](cleanup.md)：保留模型、输入、成片和仍要返工的段缓存；清掉本任务无用的无损段帧/潜变量、重复抽帧、转换副本与失败残留。既查W的runtime/cache/temp，也查当前Comfy原生output下的实际段缓存，不整库清空。
+- 新任务清理遵从[运行规则](runtime.md)与[任务收尾](cleanup.md)：保留模型、输入、成片和仍要返工的段缓存；清掉本任务无用的无损段帧/潜变量、重复抽帧、转换副本与失败残留。检查本次项目临时目录、配置的`${STATE_ROOT}/runtime`及当前Comfy原生output下的实际段缓存，不整库清空。
 
 
 

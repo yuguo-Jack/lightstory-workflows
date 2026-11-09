@@ -7,7 +7,7 @@
 - Blender5.2.2的扩展`bl_ext.user_default.motion2mixamorig`已安装、启用并配置好外部Python和工具目录。入口：3D视图 → N面板 → Motion2MixamoRig；⚙展开Setup，Advanced可核对路径。不要再次点One-click安装而另建C盘环境。
 - Advanced的Project Directory是后端根目录，不是任意新项目目录。当前上游面板把任务写入该目录的`outputs/blender_jobs/<job-id>`；需要资料统一放项目工作目录时优先用下述CLI显式指定OutputDir。不要为改输出路径搬走模型/运行时；面板任务按job-id盘点和清理。
 - `assets/body_models/smplx/SMPLX_NEUTRAL.npz`与`mano/MANO_RIGHT.pkl`由用户从官网注册取得，MANO的NPZ转换已完成。不要请求账号、cookie，不从非授权位置补许可模型。
-- `weights`包含GVHMR、HMR2、YOLO、RTMPose及HaMeR；手部从作者官方HF Space只取所需两份文件，未下载6GB整包。当前RTMPose在CPU上运行，HMR2/HaMeR用CUDA。对应manifest在管理目录`model-downloads/model_manifest.motion.json`、`model_manifest.hamer.json`，均已SHA校验。
+- `weights`包含GVHMR、HMR2、YOLO、RTMPose及HaMeR；手部从作者官方HF Space只取所需两份文件，未下载6GB整包。当前RTMPose在CPU上运行，HMR2/HaMeR用CUDA。已登记权重的来源、目标与SHA256统一见工程[模型登记](../../../models/weights.lock.json)；本机历史校验与新环境验收的区别见[验证说明](../../../docs/validation.md)。
 
 仓库要求独立外部运行环境，因此这里使用其venv；普通辅助/启动脚本仍用系统Python。不要对正常环境泛化重装pip/torch或向ComfyUI环境安装Motion依赖。
 

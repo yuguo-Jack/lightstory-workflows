@@ -24,4 +24,10 @@
 
 模块保留原许可与NOTICE。总流程只负责调用、依赖和整体验收；执行细节留对应模块。可选渲染参考[3D Game Shaders for Beginners](https://github.com/lettier/3d-game-shaders-for-beginners)用于理解技术，不要求安装额外引擎插件。
 
+## 操作手感与联机参考
+
+- [game-feel固定参考](https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/game-feel)：借鉴事件反馈、分层强度、时序与恢复的方法，未复制上游代码或新增独立Skill；[本流程参考](game-feel.md)补入UE/Web分工、控制诊断、联机表现和项目验收，不强加示例数值/引擎。
+- [Epic网络概览](https://dev.epicgames.com/documentation/en-us/unreal-engine/networking-overview-for-unreal-engine)与[角色网络移动](https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine)：[联机分支](multiplayer.md)的UE权威/复制/移动边界依据；具体API、构建能力和工具按本次实际引擎版本核对，参考网页版本不代表本机已升级。
+- [Rivet当前联机示例](https://github.com/rivet-dev/skills/tree/main/rivet-actors/examples/multiplayer-game-patterns)：后端候选的方法参考，不是已安装依赖；仅在项目明确选用后核对当前版本与完整配套，不沿用已移除的旧入口或将其设为UE/Web通用前置。
+
 更新时比较固定上游版本与本地改动，保留用户已确认的玩法/风格、模块调用关系及本地执行映射。对受影响分支验证；不把Skill结构检查或历史模型运行成功等同于完整游戏品质、玩家体验、联网与打包通过。工程级验证边界见[validation](../../../docs/validation.md)。
