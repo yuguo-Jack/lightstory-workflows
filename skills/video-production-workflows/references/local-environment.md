@@ -7,25 +7,15 @@
 
 
 | 环节 | 当前入口 | 选择及边界 |
-
 |---|---|---|
-
 | ComfyUI模型执行 | `$comfyui-local-workflows` | 图像、视频、3D、绑定、配音、配乐的目录、参数、运行与模型产物检查；总数/状态查实时catalog，单项成功不是整片品质保证 |
-
 | 造型/美术/关键帧 | Qwen-Image 2.1 INT8 | 概念/角色/场景/道具定稿、色光样张、逐镜关键帧、静帧修复、合成素材；见[视觉开发](image-development.md) |
-
 | 视频 | MiniMax H3 导演台及原生专用链 | 常规/Turbo、Flex、专项及Fun结构控制；家族、采样、兼容与真实验证范围由Comfy执行参考维护 |
-
 | 配音 | Ming-3.0-TTS Tiny INT8 | 内置、设计音色、参考音色、表演、多角色；试听才判断音色和情绪 |
-
 | 配乐/演唱 | MiniMax Music 3 INT8 | 纯音乐或歌词歌曲；不是精准拟音器，也非无限无缝配乐系统 |
-
 | 白模预演/CG | Blender 5.2.2 LTS，`$blender-core` | 相机、布景、动作、灯光、渲染/合成；按需加载 animation/rendering/simulation 等模块 |
-
 | 本地剪辑 | `${CAPCUT_EXE}` | 配置后核对安装与桌面控制能力；不假定存在本地草稿写入API |
-
 | CapCut 云剪辑 | CapCut 插件 | 可上传、组装、字幕、素材、STDraft 协作保存；不等于编辑桌面草稿或已经导出 |
-
 | 技术处理 | PATH 上 `ffmpeg` / `ffprobe` | 代理、转码、抽帧、波形/响度检查、确定性拼接；实际配置以本机帮助为准 |
 
 

@@ -15,31 +15,18 @@
 
 
 | 通用功能 | 所选权重 / 家族 | 发布者配方及本机起点 |
-
 |---|---|---|
-
 | 人物与风格/01 自然人物运动 | `better_motion_h3_lora_v1_500`；FL2VA | 作者强度0.4–0.8、20–30步；本机0.65、20步、res_multistep/simple。步行/转身/蹲起/重心过渡，不保证脚底无滑动 |
-
 | 人物与风格/02 复古绘本动画 | `studio1939-light` r16；FL2VA | `gulliv3r,`开头，扩写关；1.0完整风格，0.4–0.8混合。本机1、25步、1024×576，柔和绘本与笔触背景 |
-
 | 人物与风格/03 复古赛璐璐动画 | `studio1939-strong` r64；FL2VA | 同一触发/配方，更强轮廓与平涂；不是02再叠一层。重复角色描述有助统一，不等于身份严格锁定 |
-
 | 运镜与视频编辑/01 主体360环绕 | `minimax_h3_orb360_step1500`；Ref2VA | 强度1、Euler/simple20步、124帧/24fps、作者时间标注结构及`ORB360_CW`。Euler对应作者引用CLI的积分形式，shift12/3；本机800×800、单主体展示；可生成一周外观变化，但背景/动物冻结有下述限制 |
-
 | 运镜与视频编辑/02 照片卡片旋转 | `minimax_h3_orb360_cardspin_v2_step50`；Ref2VA | 强度1、20步、124帧/24fps、`ORB360_CARDSPIN`。薄照片卡片特效，与实体相机环绕用途不同；作者也提示细节更软 |
-
 | 运镜与视频编辑/03 源视频换机位 | `MiniMax-H3_Ref2VA-LoRA-CrossView-Warp_v1_3500`＋指定DMD Ref8；Ref2VA | CrossView0.8、DMD1、res_multistep/simple八步、shift12/3、`crossview`；MoGe2几何及Warp/Guide为必要配套。先约0.5MP一采 |
-
 | 人物与风格/04 自然表情与英语口播 | `nafasp_h3_lora_v2_500`；FL2VA | 作者0.6–0.8、20–30步；本机0.7、20步。固定seed、固定开场词可减轻音色漂移，不等于配音克隆或任意音频口型驱动 |
-
 | 人物与风格/05_成人级_NSFW_参考人物运动_AfterMidnight | `AfterMidnight_ref2va_h3_sexytime_rank64-v1.2`；Ref2VA | 作者强度1，明确要求Euler＋beta以避免音频问题；本机25步、CFG1，图片接Reference Group |
-
 | 人物与风格/06_成人级_NSFW_参考人物质感_AfterMidnight | `AfterMidnight_ref2va_h3_softer_rank64_v1`；Ref2VA | 作者0.8–1、Euler＋beta；本机1、25步。训练目标偏细节/幻想质感，不和05默认叠加 |
-
 | 人物与风格/07_成人级_NSFW_人物表现_NaughtyTimes | `SexGod_NaughtyTimes_v3_rank64_pruned_NOADALN`；FL2VA pruned | 使用用户指定的去AdaLN版本匹配本机pruned W6A8。作者偏好unpruned且提示pruned可能弱于其演示；本机强度1、25步、res_multistep/simple是本地起点，非作者公布最优 |
-
 | 人物与风格/08_成人级_NSFW_人物表现_Unlocked | `Minimax_H3_Unlocked_V2.1`＋已有FL8 Turbo；FL2VA | 作者Euler ancestral、CFG1、4–8步配Turbo，专项权重0.3–1、起点0.5；本机选匹配FL2VA八步Turbo1＋专项0.5，不拿Ref4替代 |
-
 | 动作与运镜/07 子弹时间 | `BulletTime-MMH3`；FL2VA | 精确触发词`bullet-time`；本机普通H3、强度1、20步、res_multistep/simple、192帧/8秒。提示明确正常动作→1.5秒触发冻结/慢环绕→5.5秒恢复实时；作者提示Turbo/特殊注意力或强叠加时应降低专项强度 |
 
 

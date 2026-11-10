@@ -23,19 +23,12 @@ Pika Flex 是可选的另一套后训练/六步采样路线，配置集中在[Fl
 
 
 | 用途 | 当前文件与强度 | 用法 |
-
 |---|---|---|
-
 | 格斗 | `H3_Combat_V2.safetensors` 0.65＋`Motion_Repair_V2.safetensors` 0.5 | Combat偏打击/反应，Repair辅助衔接；Combat可不写触发词，作者提供可选`prfight2`增强动作强度 |
-
 | 兵器 | `Bunny_weapon_combatV1.safetensors` 0.45 | 触发词`BUNNY`；当前版本优先单独使用，与Combat/Repair等强动态LoRA混用可能冲突 |
-
 | 枪斗 | `GunFu.safetensors` 0.9 | 触发词`BUNNY`；写清持物、行动者、目标及接触后的状态 |
-
 | 运镜 | `camera_motion_h3_lora_v1_3000_pruned.safetensors` 0.8 | 在生效视觉描述开头写`camera motion, ...`，再写方向/速度/目标；不提供精确轨迹 |
-
 | 动作衔接 | `Motion_Repair_V2.safetensors` 0.9 | 可选`bunny_crisp_motion`；辅助运动连续性，不是已生成MP4的自动修复器 |
-
 | 物理观感 | `wushu_spatial_physics_clean_3000_pruned.safetensors` 0.35 | 描述碰撞、支撑与轨迹；作者模型卡同时保留新0.3–0.5和旧0.8–1.0说明，本机沿用0.35；不执行物理模拟 |
 
 
@@ -53,11 +46,8 @@ Pika Flex 是可选的另一套后训练/六步采样路线，配置集中在[Fl
 
 
 | 本机模板 | 对应Turbo LoRA | 强度 / 步数 |
-
 |---|---|---|
-
 | 02、11；FL2VA | `minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors` | 1 / 8 |
-
 | 18；Ref2VA | `minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors` | 1 / 4 |
 
 
